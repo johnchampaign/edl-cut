@@ -489,3 +489,212 @@ class TestVendoredDataset(unittest.TestCase):
         hours = sum(s.duration for s in segments) / 3600
         self.assertGreater(len(segments), 100)
         self.assertTrue(7.0 < hours < 12.0, f"{hours:.2f}h")
+
+
+class TestExportPlanning(unittest.TestCase):
+    """Cut-point planning, which is where the exporter's correctness lives."""
+
+    def setUp(self):
+        from edl_cut import export
+        self.export = export
+        self.path = Path("/m/a.mkv")
+        self.keyframes = [float(t) for t in range(0, 600, 10)]   # GOP = 10s
+
+    def _seg(self):
+        return scenelist.Segment("S01E01", 0, 0, "l", [])
+
+    def test_copy_snaps_backward_to_the_preceding_keyframe(self):
+        pieces, drift = self.export.plan_segment(
+            self._seg(), self.path, 47.0, 100.0, self.keyframes, "copy")
+        self.assertEqual(len(pieces), 1)
+        self.assertEqual(pieces[0].start, 40.0)      # not 47
+        self.assertFalse(pieces[0].reencode)
+        self.assertAlmostEqual(drift, 7.0)
+
+    def test_copy_never_seeks_forward_and_loses_footage(self):
+        # Snapping to 50 would silently drop 3s the user asked for.
+        pieces, _ = self.export.plan_segment(
+            self._seg(), self.path, 47.0, 100.0, self.keyframes, "copy")
+        self.assertLessEqual(pieces[0].start, 47.0)
+
+    def test_precise_splits_into_encoded_head_and_copied_tail(self):
+        pieces, drift = self.export.plan_segment(
+            self._seg(), self.path, 47.0, 100.0, self.keyframes, "precise")
+        self.assertEqual(len(pieces), 2)
+        self.assertEqual(drift, 0.0)
+        head, tail = pieces
+        self.assertTrue(head.reencode)
+        self.assertEqual((head.start, head.end), (47.0, 50.0))
+        self.assertFalse(tail.reencode)
+        self.assertEqual((tail.start, tail.end), (50.0, 100.0))
+
+    def test_precise_is_frame_accurate_and_contiguous(self):
+        pieces, _ = self.export.plan_segment(
+            self._seg(), self.path, 47.0, 100.0, self.keyframes, "precise")
+        self.assertEqual(pieces[0].start, 47.0)
+        self.assertEqual(pieces[-1].end, 100.0)
+        self.assertEqual(pieces[0].end, pieces[1].start)   # no gap, no overlap
+
+    def test_precise_pure_copies_when_start_is_already_a_keyframe(self):
+        pieces, _ = self.export.plan_segment(
+            self._seg(), self.path, 50.0, 100.0, self.keyframes, "precise")
+        self.assertEqual(len(pieces), 1)
+        self.assertFalse(pieces[0].reencode)
+
+    def test_precise_encodes_wholly_when_no_keyframe_falls_inside(self):
+        pieces, _ = self.export.plan_segment(
+            self._seg(), self.path, 41.0, 49.0, self.keyframes, "precise")
+        self.assertEqual(len(pieces), 1)
+        self.assertTrue(pieces[0].reencode)
+        self.assertEqual((pieces[0].start, pieces[0].end), (41.0, 49.0))
+
+    def test_reencode_mode_never_stream_copies(self):
+        pieces, drift = self.export.plan_segment(
+            self._seg(), self.path, 47.0, 100.0, self.keyframes, "reencode")
+        self.assertEqual(len(pieces), 1)
+        self.assertTrue(pieces[0].reencode)
+        self.assertEqual(drift, 0.0)
+
+    def test_precise_reencodes_only_a_small_fraction(self):
+        resolved = [
+            (self._seg(), self.path, float(s) + 3.0, float(s) + 120.0)
+            for s in range(0, 400, 130)
+        ]
+        self.export.keyframe_times = lambda p: self.keyframes   # avoid probing
+        plan = self.export.build_plan(resolved, "precise")
+        self.assertGreater(plan.total_seconds, 0)
+        self.assertLess(plan.reencoded_fraction, 0.10)
+
+
+@unittest.skipUnless(fixtures.have_ffmpeg(), "ffmpeg/ffprobe not on PATH")
+class TestExportAgainstSyntheticMedia(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        from edl_cut import export
+        cls.export = export
+        cls.tmp = tempfile.TemporaryDirectory()
+        cls.root = Path(cls.tmp.name)
+        # GOP forced to 5s so keyframe positions are known exactly.
+        cls.clip = fixtures.make_clip(cls.root / "clip.mkv", seconds=40, gop=5, rate=10)
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.tmp.cleanup()
+
+    def test_keyframes_are_found_at_the_forced_interval(self):
+        times = self.export.keyframe_times(self.clip)
+        self.assertGreaterEqual(len(times), 5)
+        self.assertAlmostEqual(times[0], 0.0, delta=0.2)
+        gaps = [b - a for a, b in zip(times, times[1:])]
+        self.assertAlmostEqual(sum(gaps) / len(gaps), 5.0, delta=1.0)
+
+    def test_probe_streams_reports_usable_parameters(self):
+        info = self.export.probe_streams(self.clip)
+        self.assertIsNotNone(info)
+        self.assertEqual((info.width, info.height), (320, 180))
+        self.assertEqual(info.codec, "h264")
+
+    def test_precise_export_has_the_requested_duration(self):
+        """The whole point: a cut that starts where it was asked to."""
+        from edl_cut.media import probe_duration
+        seg = scenelist.Segment("S01E01", 0, 0, "l", [])
+        resolved = [(seg, self.clip, 7.0, 17.0), (seg, self.clip, 22.0, 29.0)]
+        plan = self.export.build_plan(resolved, "precise")
+        out = self.root / "out.mkv"
+        self.export.run(plan, out, self.root / "work")
+        self.assertTrue(out.exists())
+        self.assertAlmostEqual(probe_duration(out), 17.0, delta=1.0)  # 10 + 7
+
+    def test_copy_mode_overshoots_because_it_snaps_to_keyframes(self):
+        """Documents the tradeoff rather than pretending it does not exist."""
+        from edl_cut.media import probe_duration
+        seg = scenelist.Segment("S01E01", 0, 0, "l", [])
+        resolved = [(seg, self.clip, 7.0, 17.0)]
+        plan = self.export.build_plan(resolved, "copy")
+        self.assertTrue(plan.drift)
+        out = self.root / "copy.mkv"
+        self.export.run(plan, out, self.root / "work2")
+        self.assertGreater(probe_duration(out), 10.5)
+
+    def test_preflight_reports_size_and_space(self):
+        seg = scenelist.Segment("S01E01", 0, 0, "l", [])
+        result = self.export.preflight(
+            [(seg, self.clip, 0.0, 10.0)], self.root / "x.mkv", "precise")
+        self.assertTrue(result.ok, result.messages)
+        self.assertGreater(result.estimated_bytes, 0)
+        self.assertEqual(len(result.groups), 1)
+
+
+@unittest.skipUnless(fixtures.have_ffmpeg(), "ffmpeg/ffprobe not on PATH")
+class TestOutlierNormalisation(unittest.TestCase):
+    """A single differently-sized file must not abort the whole export.
+
+    This is drawn from the reference library, where 72 of 73 files are
+    1920x1080 and one is 1888x1080 — enough to break the concat demuxer.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        from edl_cut import export
+        cls.export = export
+        cls.tmp = tempfile.TemporaryDirectory()
+        cls.root = Path(cls.tmp.name)
+        cls.normal = [
+            fixtures.make_clip(cls.root / f"n{i}.mkv", seconds=20, gop=5, rate=10)
+            for i in range(3)
+        ]
+        # Same codec and audio, deliberately different width.
+        cls.odd = cls.root / "odd.mkv"
+        import subprocess
+        subprocess.run(
+            ["ffmpeg", "-v", "error", "-y",
+             "-f", "lavfi", "-i", "testsrc=size=300x180:rate=10:duration=20",
+             "-f", "lavfi", "-i", "sine=frequency=440:duration=20",
+             "-c:v", "libx264", "-preset", "ultrafast", "-pix_fmt", "yuv420p",
+             "-g", "50", "-keyint_min", "50", "-sc_threshold", "0",
+             "-c:a", "aac", "-shortest", str(cls.odd)],
+            check=True, capture_output=True,
+        )
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.tmp.cleanup()
+
+    def _resolved(self):
+        seg = scenelist.Segment("S01E01", 0, 0, "l", [])
+        return ([(seg, p, 3.0, 11.0) for p in self.normal]
+                + [(seg, self.odd, 3.0, 11.0)])
+
+    def test_preflight_identifies_the_minority_as_the_outlier(self):
+        check = self.export.preflight(self._resolved(), self.root / "o.mkv", "precise")
+        self.assertTrue(check.ok, check.messages)
+        self.assertEqual(check.outliers, {self.odd})
+        self.assertEqual((check.target.width, check.target.height), (320, 180))
+
+    def test_copy_mode_cannot_conform_and_says_so(self):
+        check = self.export.preflight(self._resolved(), self.root / "o.mkv", "copy")
+        self.assertFalse(check.ok)
+        self.assertTrue(any("cannot conform" in m for m in check.messages))
+
+    def test_plan_marks_the_outlier_for_rescaling(self):
+        check = self.export.preflight(self._resolved(), self.root / "o.mkv", "precise")
+        plan = self.export.build_plan(self._resolved(), "precise",
+                                      normalise=check.outliers, target=check.target)
+        scaled = [p for p in plan.pieces if p.scale]
+        self.assertTrue(scaled)
+        self.assertTrue(all(p.source == self.odd for p in scaled))
+        self.assertEqual(scaled[0].scale, (320, 180))
+        self.assertEqual(plan.normalised, {self.odd.name})
+
+    def test_export_with_a_conformed_outlier_produces_one_file(self):
+        from edl_cut.media import probe_duration
+        check = self.export.preflight(self._resolved(), self.root / "o.mkv", "precise")
+        plan = self.export.build_plan(self._resolved(), "precise",
+                                      normalise=check.outliers, target=check.target)
+        out = self.root / "combined.mkv"
+        self.export.run(plan, out, self.root / "w")
+        self.assertTrue(out.exists())
+        # Four 8-second segments, concatenated.
+        self.assertAlmostEqual(probe_duration(out), 32.0, delta=2.0)
+        info = self.export.probe_streams(out)
+        self.assertEqual((info.width, info.height), (320, 180))

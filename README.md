@@ -104,6 +104,30 @@ Useful flags: `--merge-gap` (join segments closer than N seconds, default 30),
 `--pad` (breathing room each side, default 1.5), `--tags` / `--exclude-tags`,
 and `--format m3u|concat`.
 
+### Exporting a real video file
+
+For anything that cannot open an EDL — tablets, Plex, televisions:
+
+```bash
+python3 -m edl_cut.cli --character "Daenerys Targaryen" --media /path/to/media \
+        --format mkv --out dany.mkv --dry-run
+```
+
+`--dry-run` runs preflight and planning and writes nothing; drop it to export.
+Three strategies:
+
+| `--mode` | Boundaries | Cost |
+|---|---|---|
+| `precise` (default) | frame-accurate | re-encodes only the fragment from each cut to the next keyframe |
+| `copy` | snap back to the preceding keyframe, up to a GOP early | pure remux, disk speed, no quality loss |
+| `reencode` | frame-accurate | slow and lossy; a last resort |
+
+`precise` is the reason this exists: it is the one thing neither mpv nor VLC can
+do. Preflight checks free space, estimates output size, and — because the concat
+demuxer needs matching codec, resolution, pixel format and audio layout — probes
+every file first. Where a minority of files differ, they are re-encoded to match
+the majority rather than aborting or re-encoding everything.
+
 Any character in the dataset works:
 
 ```bash

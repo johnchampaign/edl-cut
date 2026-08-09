@@ -7,7 +7,7 @@ import json
 import sys
 from pathlib import Path
 
-from . import align, cache, calibrate as calibration, emit, scenelist, subs
+from . import align, cache, calibrate as calibration, emit, export, scenelist, subs
 from . import calibration as twosignal
 from .dataset import DATA_DIR, load_episodes, resolve_character
 from .media import DependencyMissing, probe_durations, require_tool, scan
@@ -144,6 +144,52 @@ def _suggest(query: str, episodes) -> list[str]:
     return hits[:5]
 
 
+def _export(resolved, args) -> int:
+    """The ffmpeg export path: preflight, plan, then write."""
+    out = Path(args.out) if args.out else Path("cut.mkv")
+
+    print()
+    print("Preflight:")
+    check = export.preflight(resolved, out, args.mode)
+    for message in check.messages:
+        print(f"  {message}")
+    if not check.ok:
+        print("\nAborted before writing anything.", file=sys.stderr)
+        return 2
+
+    print()
+    print(f"Planning cut points ({args.mode})...", flush=True)
+    plan = export.build_plan(resolved, args.mode, progress=print,
+                             normalise=check.outliers, target=check.target)
+    print(f"  {len(plan.pieces)} pieces, "
+          f"{plan.reencoded_fraction * 100:.1f}% of footage re-encoded")
+    if plan.normalised:
+        print(f"  conforming {len(plan.normalised)} outlier file(s) to the "
+              f"majority format: {', '.join(sorted(plan.normalised))}")
+    if plan.drift:
+        worst = max(abs(d) for _, d in plan.drift)
+        print(f"  {len(plan.drift)} cut points snap back to a keyframe, "
+              f"worst {worst:.1f}s early.")
+        print("  Use --mode precise for frame-accurate boundaries.")
+
+    if args.dry_run:
+        print("\nDry run: nothing written.")
+        return 0
+
+    workdir = Path(args.workdir) if args.workdir else out.parent / ".edl-cut-work"
+    print()
+    print(f"Writing (work area: {workdir})...", flush=True)
+    try:
+        export.run(plan, out, workdir, progress=print)
+    except RuntimeError as exc:
+        print(f"\nerror: {exc}", file=sys.stderr)
+        return 2
+    size = out.stat().st_size
+    print(f"\nWrote {out} ({size / 1e9:.2f} GB)")
+    print(f"Intermediate pieces are still in {workdir} — delete when satisfied.")
+    return 0
+
+
 def cmd_generate(args: argparse.Namespace) -> int:
     episodes = load_episodes(Path(args.data))
     root = Path(args.media).expanduser()
@@ -191,6 +237,9 @@ def cmd_generate(args: argparse.Namespace) -> int:
     if not resolved:
         print("error: nothing resolvable.", file=sys.stderr)
         return 2
+
+    if args.format == "mkv":
+        return _export(resolved, args)
 
     render, suffix = emit.EMITTERS[args.format]
     out = Path(args.out) if args.out else Path(
@@ -317,8 +366,16 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--overrides",
                         help="JSON file mapping filenames to episode codes")
     parser.add_argument("--character", help="character whose scenes to collect")
-    parser.add_argument("--format", choices=sorted(emit.EMITTERS), default="edl",
+    parser.add_argument("--format", choices=sorted(emit.EMITTERS) + ["mkv"],
+                        default="edl",
                         help="output format (default: edl, for mpv)")
+    parser.add_argument("--mode", choices=("precise", "copy", "reencode"),
+                        default="precise",
+                        help="mkv export strategy (default: precise — "
+                             "frame-accurate, re-encodes ~1%% of footage)")
+    parser.add_argument("--workdir", help="scratch area for intermediate pieces")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="preflight and plan only; write nothing")
     parser.add_argument("--out", help="output file")
     parser.add_argument("--scene-list", help="also write the scene list YAML here")
     parser.add_argument("--merge-gap", type=float, default=scenelist.DEFAULT_MERGE_GAP,
