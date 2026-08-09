@@ -1,0 +1,56 @@
+name: tests
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      # ffmpeg/ffprobe are hard dependencies for calibration and export; mpv is
+      # needed to prove the default output format actually opens. Without these
+      # the synthetic-media tests skip silently, which would hide real breakage.
+      - name: Install media tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg mpv
+
+      - name: Install Python dependencies
+        run: python -m pip install --quiet pyyaml
+
+      - name: Show tool versions
+        run: |
+          python --version
+          ffmpeg -version | head -1
+          mpv --version | head -1
+
+      - name: Run tests
+        run: python -m unittest discover -s tests -t . -v
+
+      - name: Assert no media was produced in the working tree
+        # The distribution boundary, enforced in CI: a test that writes a clip
+        # or a frame into the repo rather than a temp directory must fail the
+        # build, not be discovered later in a commit.
+        run: |
+          found=$(git status --porcelain --ignored \
+            | grep -iE '\.(mkv|mp4|avi|mov|srt|ass|png|jpg|jpeg|mp3|aac)$' || true)
+          if [ -n "$found" ]; then
+            echo "Media files appeared in the working tree:"
+            echo "$found"
+            exit 1
+          fi
+          echo "No media in the working tree."

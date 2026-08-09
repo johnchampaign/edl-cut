@@ -132,7 +132,12 @@ def estimate(
         return Estimate(None, 0.0, 0.0, 0.0, len(interior),
                         "no offset keeps enough boundaries inside the subtitled span")
 
-    best_offset, best_score = max(scores, key=lambda p: p[1])
+    # Ties broken toward the smaller correction. Scene lengths are irregular
+    # enough in practice that exact ties are rare, but where a run of offsets
+    # scores identically the smallest shift is the better bet — and it stops the
+    # argmax from drifting out to the edge of the search range, which is never
+    # the right answer.
+    best_offset, best_score = max(scores, key=lambda p: (p[1], -abs(p[0])))
     ordered = sorted(s for _, s in scores)
     baseline = ordered[len(ordered) // 2]
 
