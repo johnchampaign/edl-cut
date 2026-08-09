@@ -143,13 +143,13 @@ prints its evidence.
 
 ## Licence
 
-The original work here — the code in `edl_cut/`, the documentation,
-`data/aliases.json`, and the scene lists — is MIT licensed. See
-[LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE).
 
-The dataset files vendored into `data/` are **not ours to relicense**. They are
-Jeffrey Lancaster's, redistributed on the terms described in
-[data/ATTRIBUTION.md](data/ATTRIBUTION.md). Read that before reusing them.
+That covers the original work here: the code, the documentation, the nickname
+table, and the scene lists. It does **not** cover the dataset files vendored
+into `data/`, which are Jeffrey Lancaster's and stay under their upstream terms.
+[NOTICE.md](NOTICE.md) sets out exactly which files fall where, and
+[data/ATTRIBUTION.md](data/ATTRIBUTION.md) carries the upstream terms.
 
 No audiovisual material from any television series is contained in or conveyed
 by this repository.

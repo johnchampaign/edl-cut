@@ -19,20 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----------------------------------------------------------------------------
-SCOPE
-
-This licence covers the original work in this repository: the code in
-`edl_cut/`, the documentation, `data/aliases.json`, and the scene lists
-(`*-scenes.yaml`).
-
-It does NOT cover the files vendored into `data/` from Jeffrey Lancaster's
-Game of Thrones dataset — `episodes.json`, `keyValues.json`,
-`characters.json`, and `locations.json`. Those remain the work of their
-author, are redistributed here on the terms described in
-`data/ATTRIBUTION.md`, and are not ours to relicense. See that file before
-reusing them.
-
-This repository contains no audiovisual material from any television series,
-and none of the rights in any such material are conveyed by this licence.
