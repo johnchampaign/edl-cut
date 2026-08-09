@@ -15,9 +15,14 @@ Three modes, in increasing cost:
 
 `precise` (the one worth having)
     Re-encode only the fragment from the wanted start to the next keyframe, then
-    stream-copy the rest of the segment, then concat. Frame-accurate boundaries
+    stream-copy the rest of the segment, then concat. Frame-accurate *starts*
     while re-encoding on the order of 1% of the footage. This is the thing an
     EDL player cannot do.
+
+    Segment ends are packet-accurate rather than frame-accurate: the copied tail
+    can only stop on a packet boundary, which on HEVC tends to run a second or
+    two long. Starts are what matter for a character cut — a scene beginning
+    mid-sentence is jarring in a way that a second of overrun at the end is not.
 
 `reencode`
     Re-encode everything. Slow and lossy; offered only because a sufficiently
@@ -43,10 +48,19 @@ from .scenelist import Segment
 # roughly a frame there is nothing to re-encode anyway.
 KEYFRAME_EPSILON = 0.04
 
-# How far before the target the fast input-side seek lands, leaving a short
-# window for the accurate output-side seek to cross. Large enough to clear any
-# GOP, small enough that demuxing it costs nothing.
-PRE_ROLL = 30.0
+# How far a written piece may differ from its planned length before the export
+# is abandoned.
+#
+# Split by kind, because the two have genuinely different floors. A re-encoded
+# piece is cut frame by frame and should land within audio-frame granularity. A
+# stream-copied piece can only end on a packet boundary, and on HEVC that
+# routinely overshoots by a second or two — a copy asked for 353.57s wrote
+# 355.27s, which is the format, not a fault.
+#
+# Both stay far below the failures worth catching: the seek bugs found during
+# development overshot by a full GOP (+5s) and by an entire pre-roll (+30s).
+ENCODE_TOLERANCE = 1.5
+COPY_TOLERANCE = 3.0
 
 # Fraction of the estimated output size kept free as headroom for the
 # intermediate segments, which exist alongside the final file until concat ends.
@@ -118,6 +132,18 @@ def probe_streams(path: Path) -> StreamInfo | None:
     )
 
 
+def _duration(path: Path) -> float | None:
+    result = subprocess.run(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+         "-of", "csv=p=0", str(path)],
+        capture_output=True, text=True, timeout=120,
+    )
+    try:
+        return float(result.stdout.strip())
+    except ValueError:
+        return None
+
+
 def keyframe_times(path: Path) -> list[float]:
     """Every video keyframe timestamp, ascending.
 
@@ -154,6 +180,10 @@ class Piece:
     # the rest of the library and must be conformed for concat to accept it.
     scale: tuple[int, int] | None = None
     pix_fmt: str | None = None
+    # Keyframe at or before `start`, used as the input-side seek target. Seeking
+    # the input to an exact keyframe and covering the remainder with an accurate
+    # output-side seek is both cheaper and more reliable than a blind pre-roll.
+    anchor: float | None = None
 
     @property
     def duration(self) -> float:
@@ -171,6 +201,18 @@ class Plan:
     @property
     def reencoded_fraction(self) -> float:
         return self.reencoded_seconds / self.total_seconds if self.total_seconds else 0.0
+
+
+def _anchor_before(keyframes: list[float], position: float) -> float:
+    """The keyframe strictly before `position`, or 0.0.
+
+    Strictly before, so that every piece has a non-zero output-side seek to
+    perform. With the input seek landing exactly on the target and no output
+    seek at all, ffmpeg falls back to bounding the piece from the keyframe it
+    landed on and writes a full GOP too much.
+    """
+    earlier = [k for k in keyframes if k < position - KEYFRAME_EPSILON]
+    return earlier[-1] if earlier else 0.0
 
 
 def plan_segment(segment: Segment, path: Path, start: float, end: float,
@@ -191,17 +233,24 @@ def plan_segment(segment: Segment, path: Path, start: float, end: float,
     if mode == "copy":
         # Stream copy can only begin on a keyframe, and seeking forward would
         # lose footage the user asked for, so it snaps backward.
-        anchor = preceding if preceding is not None else (following or start)
-        return [Piece(path, anchor, end, False)], start - anchor
+        cut = preceding if preceding is not None else (following or start)
+        return ([Piece(path, cut, end, False,
+                       anchor=_anchor_before(keyframes, cut))],
+                start - cut)
 
     # precise: re-encode the head fragment up to the next keyframe, copy the rest.
     if following is None or following >= end:
         # No keyframe inside the segment at all — the whole thing must be encoded.
-        return [Piece(path, start, end, True)], 0.0
+        return ([Piece(path, start, end, True,
+                       anchor=_anchor_before(keyframes, start))], 0.0)
     if following - start <= KEYFRAME_EPSILON:
-        return [Piece(path, following, end, False)], 0.0
+        return ([Piece(path, following, end, False,
+                       anchor=_anchor_before(keyframes, following))], 0.0)
     return (
-        [Piece(path, start, following, True), Piece(path, following, end, False)],
+        [Piece(path, start, following, True,
+               anchor=_anchor_before(keyframes, start)),
+         Piece(path, following, end, False,
+               anchor=_anchor_before(keyframes, following))],
         0.0,
     )
 
@@ -223,9 +272,12 @@ def build_plan(resolved: list[tuple[Segment, Path, float, float]], mode: str,
     cache: dict[Path, list[float]] = {}
     for index, (segment, path, start, end) in enumerate(resolved):
         if path in normalise and target is not None:
+            if path not in cache:
+                cache[path] = keyframe_times(path)
             plan.pieces.append(Piece(path, start, end, True,
                                      scale=(target.width, target.height),
-                                     pix_fmt=target.pix_fmt))
+                                     pix_fmt=target.pix_fmt,
+                                     anchor=_anchor_before(cache[path], start)))
             plan.total_seconds += end - start
             plan.reencoded_seconds += end - start
             plan.normalised.add(path.name)
@@ -388,31 +440,30 @@ def run(plan: Plan, out: Path, workdir: Path, progress=None) -> Path:
                 args += ["-pix_fmt", piece.pix_fmt]
         else:
             args = ["-c", "copy"]
-        # Two-stage seek. A fast input-side seek to `pre_roll` seconds before the
-        # target, then an accurate output-side seek across that short window.
+        # Seek in two stages: the input side jumps to the keyframe at or before
+        # the target — fast, and exact because it is a real keyframe — and the
+        # output side covers the sub-GOP remainder accurately.
         #
-        # Output-side `-ss` is the part that matters for correctness. Seeking
-        # only on the input side and bounding with `-t` (or `-to`) produced
-        # pieces exactly one GOP too long — measured, not theorised: for a
-        # 7-second request ffmpeg wrote 12.02 seconds, because the length was
-        # applied from the keyframe it landed on rather than from the requested
-        # position. Output-side seek gave 7.04 seconds and timestamps based at
-        # zero, which is also what the concat demuxer needs.
+        # Both halves are load-bearing, each for a measured reason.
         #
-        # The input-side seek is purely an optimisation: without it every piece
-        # would demux from the start of the file, which for a segment an hour in
-        # is very slow.
-        pre_roll = min(piece.start, PRE_ROLL)
-        command = [
-            "ffmpeg", "-v", "error", "-y",
-            "-ss", f"{piece.start - pre_roll:.3f}",
-            "-i", str(piece.source),
-            "-ss", f"{pre_roll:.3f}",
-            "-t", f"{piece.duration:.3f}",
-            *args,
-            "-avoid_negative_ts", "make_zero",
-            str(part),
-        ]
+        # Seeking only on the input side and bounding with `-t` produced pieces
+        # exactly one GOP too long: a 7.000s request wrote 12.020s, because the
+        # length was applied from the keyframe ffmpeg landed on rather than from
+        # the requested position.
+        #
+        # Anchoring the input seek at an arbitrary offset before the target
+        # rather than at a keyframe is worse still. With a flat 30s pre-roll most
+        # pieces were right, but HEVC ones came out ~30s long — the pre-roll
+        # itself survived into the output. Landing exactly on a keyframe avoids
+        # the mid-GOP seek that causes it.
+        anchor = piece.anchor if piece.anchor is not None else piece.start
+        anchor = min(anchor, piece.start)
+        command = ["ffmpeg", "-v", "error", "-y",
+                   "-ss", f"{anchor:.3f}", "-i", str(piece.source)]
+        if piece.start - anchor > KEYFRAME_EPSILON:
+            command += ["-ss", f"{piece.start - anchor:.3f}"]
+        command += ["-t", f"{piece.duration:.3f}", *args,
+                    "-avoid_negative_ts", "make_zero", str(part)]
         if progress:
             kind = "encode" if piece.reencode else "copy  "
             progress(f"  [{index + 1}/{len(plan.pieces)}] {kind} "
@@ -422,6 +473,20 @@ def run(plan: Plan, out: Path, workdir: Path, progress=None) -> Path:
             raise RuntimeError(
                 f"ffmpeg failed on piece {index} of {piece.source.name}:\n"
                 f"{result.stderr.strip()[:800]}"
+            )
+
+        # Verify what was actually written. Seek behaviour varies with container
+        # and codec, and a piece that silently comes out the wrong length yields
+        # a cut that plays perfectly while showing the wrong footage — the exact
+        # failure this project cares most about catching.
+        actual = _duration(part)
+        tolerance = ENCODE_TOLERANCE if piece.reencode else COPY_TOLERANCE
+        if actual is not None and abs(actual - piece.duration) > tolerance:
+            raise RuntimeError(
+                f"piece {index} from {piece.source.name} is {actual:.2f}s but "
+                f"{piece.duration:.2f}s was requested "
+                f"(start {piece.start:.2f}, anchor {piece.anchor}). "
+                "Refusing to build a cut from it."
             )
         parts.append(part)
 
