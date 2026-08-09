@@ -128,6 +128,12 @@ demuxer needs matching codec, resolution, pixel format and audio layout — prob
 every file first. Where a minority of files differ, they are re-encoded to match
 the majority rather than aborting or re-encoding everything.
 
+Pieces are cut to MPEG-TS and joined from there, because Matroska preserves each
+piece's own timestamps and a single mislabelled piece displaces everything after
+it. Every piece is measured against its plan after writing, and the export
+aborts rather than producing a file that plays fine and shows the wrong footage.
+See [FINDINGS.md](FINDINGS.md) for the five attempts that led there.
+
 Any character in the dataset works:
 
 ```bash

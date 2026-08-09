@@ -32,6 +32,20 @@ The concat demuxer requires matching codec, resolution, pixel format and audio
 layout across every piece. That holds within one season's rip and frequently
 fails across a whole series, so preflight probes everything up front rather than
 discovering it midway through writing 15GB.
+
+Pieces are cut to **MPEG-TS**, not to the output container, and joined from
+there. This is not an arbitrary choice. Written to Matroska, a piece keeps the
+source's timestamps instead of being rebased to zero — a 2.78s fragment taken
+from 30 minutes in reported 12.31s, with the right 67 frames but a start time of
+9.5s. Joining then trusts those labels and every later piece slides, which is
+how a 1183s cut came out 63s long.
+
+Nothing about the picture data was wrong, only its labelling, and no combination
+of seek flags fixed it reliably: it depended on the codec and on how far back
+the preceding keyframe sat. MPEG-TS is the broadcast format, built for streams
+being spliced with mismatched clocks, and joining TS pieces produces correct
+timestamps regardless of what each piece thought its own were. Verified on the
+case that defeated every flag: 424 frames out for 66 + 358 in.
 """
 
 from __future__ import annotations
@@ -60,16 +74,11 @@ MIN_ENCODE_FRAGMENT = 1.0
 # How far a written piece may differ from its planned length before the export
 # is abandoned.
 #
-# Split by kind, because the two have genuinely different floors. A re-encoded
-# piece is cut frame by frame and should land within audio-frame granularity. A
-# stream-copied piece can only end on a packet boundary, and on HEVC that
-# routinely overshoots by a second or two — a copy asked for 353.57s wrote
-# 355.27s, which is the format, not a fault.
-#
-# Both stay far below the failures worth catching: the seek bugs found during
-# development overshot by a full GOP (+5s) and by an entire pre-roll (+30s).
-ENCODE_TOLERANCE = 1.5
-COPY_TOLERANCE = 3.0
+# Cutting to MPEG-TS lands well inside a second — measured 2.816s for a 2.78s
+# encode and 20.101s for a 20s copy — so the bar can sit far below the failures
+# worth catching, which overshot by a GOP (+5s) and by a whole pre-roll (+30s).
+ENCODE_TOLERANCE = 1.0
+COPY_TOLERANCE = 1.0
 
 # Fraction of the estimated output size kept free as headroom for the
 # intermediate segments, which exist alongside the final file until concat ends.
@@ -471,8 +480,7 @@ def seek_command(piece: Piece, args: list[str], part: Path) -> list[str]:
         command += ["-ss", f"{anchor:.3f}", "-i", str(piece.source)]
         if piece.start - anchor > KEYFRAME_EPSILON:
             command += ["-ss", f"{piece.start - anchor:.3f}"]
-    command += ["-t", f"{piece.duration:.3f}", *args,
-                "-avoid_negative_ts", "make_zero", str(part)]
+    command += ["-t", f"{piece.duration:.3f}", *args, "-f", "mpegts", str(part)]
     return command
 
 
@@ -483,20 +491,17 @@ def run(plan: Plan, out: Path, workdir: Path, progress=None) -> Path:
     parts: list[Path] = []
 
     for index, piece in enumerate(plan.pieces):
-        part = workdir / f"part{index:05d}.mkv"
+        part = workdir / f"part{index:05d}.ts"
         if piece.reencode:
             if piece.source not in info_cache:
                 info_cache[piece.source] = probe_streams(piece.source)
             args = _encode_args(info_cache[piece.source])
-            # Rebase timestamps to zero. Without this a re-encoded piece keeps
-            # the source's timestamps, and every piece after it in the concat is
-            # displaced by that amount.
-            filters = []
+            # No setpts here. A TS piece legitimately starts at a non-zero PCR
+            # and the join rebases it; forcing the filter is unnecessary and was
+            # not part of the verified invocation.
             if piece.scale:
                 width, height = piece.scale
-                filters.append(f"scale={width}:{height}:flags=lanczos")
-            filters.append("setpts=PTS-STARTPTS")
-            args += ["-vf", ",".join(filters), "-af", "asetpts=PTS-STARTPTS"]
+                args += ["-vf", f"scale={width}:{height}:flags=lanczos"]
             if piece.pix_fmt:
                 args += ["-pix_fmt", piece.pix_fmt]
         else:
@@ -537,7 +542,8 @@ def run(plan: Plan, out: Path, workdir: Path, progress=None) -> Path:
     if progress:
         progress(f"  concatenating {len(parts)} pieces -> {out}")
     result = subprocess.run(
-        ["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0",
+        ["ffmpeg", "-v", "error", "-y", "-fflags", "+genpts",
+         "-f", "concat", "-safe", "0",
          "-i", str(listing), "-c", "copy", str(out)],
         capture_output=True, text=True, timeout=7200,
     )

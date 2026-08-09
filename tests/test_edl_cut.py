@@ -747,6 +747,16 @@ class TestSeekStrategy(unittest.TestCase):
         cmd = self._cmd(Piece(Path("/m/a.mkv"), 100.0, 160.0, False, anchor=None))
         self.assertEqual(self._ss_values(cmd), ["100.000"])
 
+    def test_pieces_are_written_as_mpegts(self):
+        """TS is what makes the join rebase timestamps; losing it is the bug."""
+        from edl_cut.export import Piece
+        for reencode in (True, False):
+            with self.subTest(reencode=reencode):
+                cmd = self._cmd(
+                    Piece(Path("/m/a.mkv"), 100.0, 160.0, reencode, anchor=95.0))
+                self.assertIn("-f", cmd)
+                self.assertEqual(cmd[cmd.index("-f") + 1], "mpegts")
+
     def test_length_is_always_bounded_after_the_input(self):
         from edl_cut.export import Piece
         for reencode in (True, False):

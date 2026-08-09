@@ -212,3 +212,61 @@ largest corrections. The offsets are real, not an artefact of the scoring.
    library*. Scene lists are published in dataset time and calibrated at
    generation time on the user's machine, or every file published is silently
    wrong for everyone else.
+
+
+## The exporter, and why it cuts to MPEG-TS
+
+`precise` mode re-encodes only the fragment between a requested cut point and
+the next keyframe, stream-copies the remainder, and joins the pieces. Getting
+the cut points right took five attempts against the reference library, and every
+failure had the same shape: **the export completes, the file plays, and the
+footage is wrong.**
+
+| Attempt | Symptom | Cause |
+|---|---|---|
+| 1 | 7.000 s request wrote 12.020 s | input-only seek bounds the piece from the keyframe ffmpeg landed on |
+| 2 | two pieces ~30 s long | a flat 30 s pre-roll survived into the output on HEVC |
+| 3 | 2.92 s request wrote 6.20 s | two-stage seek on a *re-encode* leaves timestamps offset |
+| 4 | 0.40 s request wrote 11.12 s | the piece kept the source's timestamps — 10 frames correct, start 9.488 s |
+| 5 | sub-second fragments unreliable even with `setpts` | encoder behaviour at that scale |
+
+The common thread only became clear at attempt four. The picture data was
+*never* wrong. A 2.78 s request produced exactly 67 frames. What was wrong was
+the labelling: a piece cut from 30 minutes into an episode kept saying it
+started at 9.5 seconds, and Matroska stores whatever timestamps it is given, so
+the join believed them and every later piece slid. That is how a 1183 s cut came
+out 1246 s.
+
+Worse, whether ffmpeg rebased the timestamps depended on the codec and on how
+far back the preceding keyframe sat — fine at 3.2 s, broken at 9.6 s. So each
+fix was correct for the cases visible at the time and wrong for the next one.
+
+**MPEG-TS removes the class rather than the instance.** Pieces are cut to TS and
+joined from there. TS is the broadcast format, built for streams being spliced
+with mismatched clocks, so the join recomputes timing instead of trusting each
+piece's own labels. A TS piece legitimately starts at a non-zero PCR and it
+simply does not matter.
+
+Measured on the case that defeated every flag — a 2.78 s head fragment whose
+preceding keyframe is 9.61 s back, followed by a 20 s copy:
+
+    joined: 22.917 s against 22.78 s expected, 424 frames out for 66 + 358 in
+
+And end to end on a real four-segment slice spanning both the majority format
+and the 1888-wide outlier:
+
+    1183.53 s against 1183.00 s planned, +0.53 s across seven pieces
+
+Frames sampled from the result — including two seconds past a splice, and
+inside the rescaled outlier — are clean.
+
+## What actually caught these
+
+A check that probes every piece after writing it and compares against the plan.
+It was added after the second failure and caught the third, fourth and fifth.
+
+Without it this project would have shipped an exporter that produced a
+plausible-looking 15 GB file showing the wrong scenes, and the only symptom
+would have been a viewer thinking the timestamps were bad. Because the tolerance
+is now measured against TS output, which lands within 0.1 s of plan, it sits at
+1.0 s — far below the failures worth catching, which overshot by 5 s and 30 s.
