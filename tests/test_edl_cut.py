@@ -698,3 +698,61 @@ class TestOutlierNormalisation(unittest.TestCase):
         self.assertAlmostEqual(probe_duration(out), 32.0, delta=2.0)
         info = self.export.probe_streams(out)
         self.assertEqual((info.width, info.height), (320, 180))
+
+
+class TestSeekStrategy(unittest.TestCase):
+    """Pins the distinction between how re-encoded and copied pieces are cut.
+
+    Collapsing these back into one strategy reintroduces wrong-length output
+    that plays fine and shows the wrong footage, so the shape of each command
+    is asserted directly.
+    """
+
+    def setUp(self):
+        from edl_cut import export
+        self.export = export
+        self.part = Path("/tmp/part.mkv")
+
+    def _cmd(self, piece):
+        return self.export.seek_command(piece, ["-c", "copy"], self.part)
+
+    def _ss_values(self, cmd):
+        return [cmd[i + 1] for i, tok in enumerate(cmd) if tok == "-ss"]
+
+    def test_reencode_uses_a_single_input_side_seek(self):
+        from edl_cut.export import Piece
+        cmd = self._cmd(Piece(Path("/m/a.mkv"), 100.0, 103.0, True, anchor=95.0))
+        self.assertEqual(self._ss_values(cmd), ["100.000"])
+        # The one -ss must precede -i, i.e. be an input option.
+        self.assertLess(cmd.index("-ss"), cmd.index("-i"))
+
+    def test_reencode_ignores_the_anchor(self):
+        """An output-side seek here leaves timestamps unrebased."""
+        from edl_cut.export import Piece
+        cmd = self._cmd(Piece(Path("/m/a.mkv"), 100.0, 103.0, True, anchor=95.0))
+        self.assertNotIn("95.000", cmd)
+        self.assertNotIn("5.000", cmd)
+
+    def test_copy_uses_two_seeks_straddling_the_input(self):
+        from edl_cut.export import Piece
+        cmd = self._cmd(Piece(Path("/m/a.mkv"), 100.0, 160.0, False, anchor=95.0))
+        self.assertEqual(self._ss_values(cmd), ["95.000", "5.000"])
+        first, second = [i for i, t in enumerate(cmd) if t == "-ss"]
+        index = cmd.index("-i")
+        self.assertLess(first, index)      # input-side: lands on a keyframe
+        self.assertGreater(second, index)  # output-side: accurate remainder
+
+    def test_copy_without_a_usable_anchor_still_emits_one_seek(self):
+        from edl_cut.export import Piece
+        cmd = self._cmd(Piece(Path("/m/a.mkv"), 100.0, 160.0, False, anchor=None))
+        self.assertEqual(self._ss_values(cmd), ["100.000"])
+
+    def test_length_is_always_bounded_after_the_input(self):
+        from edl_cut.export import Piece
+        for reencode in (True, False):
+            with self.subTest(reencode=reencode):
+                cmd = self._cmd(
+                    Piece(Path("/m/a.mkv"), 100.0, 160.0, reencode, anchor=95.0))
+                self.assertIn("-t", cmd)
+                self.assertEqual(cmd[cmd.index("-t") + 1], "60.000")
+                self.assertGreater(cmd.index("-t"), cmd.index("-i"))

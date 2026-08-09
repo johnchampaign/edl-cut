@@ -421,6 +421,40 @@ def _encode_args(info: StreamInfo | None) -> list[str]:
     return args
 
 
+def seek_command(piece: Piece, args: list[str], part: Path) -> list[str]:
+    """Build the ffmpeg invocation for one piece.
+
+    The two kinds of piece need different seek strategies. Using one for both
+    caused three separate wrong-length bugs, so the reasoning is recorded here
+    rather than rediscovered.
+
+    RE-ENCODE: input-side seek alone. ffmpeg decodes from the preceding keyframe
+    and discards, so the cut is frame-accurate and output timestamps are rebased
+    to zero. Adding an output-side seek breaks it — the same 70 frames were
+    produced either way, but the two-stage version reported 6.197s for a 2.92s
+    request because its timestamps kept the seek offset instead of being rebased.
+
+    STREAM COPY: two-stage. Input-side alone bounds the piece from the keyframe
+    ffmpeg landed on rather than the requested position, writing a full GOP too
+    much — 12.020s for a 7.000s request. So the input side jumps to the keyframe
+    strictly before the target and the output side covers the sub-GOP remainder.
+    The keyframe must be *strictly* before: with no output-side seek left to
+    perform, the input-only failure returns.
+    """
+    command = ["ffmpeg", "-v", "error", "-y"]
+    if piece.reencode:
+        command += ["-ss", f"{piece.start:.3f}", "-i", str(piece.source)]
+    else:
+        anchor = min(piece.anchor if piece.anchor is not None else piece.start,
+                     piece.start)
+        command += ["-ss", f"{anchor:.3f}", "-i", str(piece.source)]
+        if piece.start - anchor > KEYFRAME_EPSILON:
+            command += ["-ss", f"{piece.start - anchor:.3f}"]
+    command += ["-t", f"{piece.duration:.3f}", *args,
+                "-avoid_negative_ts", "make_zero", str(part)]
+    return command
+
+
 def run(plan: Plan, out: Path, workdir: Path, progress=None) -> Path:
     """Cut every piece, then concat. Returns the finished file."""
     workdir.mkdir(parents=True, exist_ok=True)
@@ -440,30 +474,7 @@ def run(plan: Plan, out: Path, workdir: Path, progress=None) -> Path:
                 args += ["-pix_fmt", piece.pix_fmt]
         else:
             args = ["-c", "copy"]
-        # Seek in two stages: the input side jumps to the keyframe at or before
-        # the target — fast, and exact because it is a real keyframe — and the
-        # output side covers the sub-GOP remainder accurately.
-        #
-        # Both halves are load-bearing, each for a measured reason.
-        #
-        # Seeking only on the input side and bounding with `-t` produced pieces
-        # exactly one GOP too long: a 7.000s request wrote 12.020s, because the
-        # length was applied from the keyframe ffmpeg landed on rather than from
-        # the requested position.
-        #
-        # Anchoring the input seek at an arbitrary offset before the target
-        # rather than at a keyframe is worse still. With a flat 30s pre-roll most
-        # pieces were right, but HEVC ones came out ~30s long — the pre-roll
-        # itself survived into the output. Landing exactly on a keyframe avoids
-        # the mid-GOP seek that causes it.
-        anchor = piece.anchor if piece.anchor is not None else piece.start
-        anchor = min(anchor, piece.start)
-        command = ["ffmpeg", "-v", "error", "-y",
-                   "-ss", f"{anchor:.3f}", "-i", str(piece.source)]
-        if piece.start - anchor > KEYFRAME_EPSILON:
-            command += ["-ss", f"{piece.start - anchor:.3f}"]
-        command += ["-t", f"{piece.duration:.3f}", *args,
-                    "-avoid_negative_ts", "make_zero", str(part)]
+        command = seek_command(piece, args, part)
         if progress:
             kind = "encode" if piece.reencode else "copy  "
             progress(f"  [{index + 1}/{len(plan.pieces)}] {kind} "
