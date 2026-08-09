@@ -1,0 +1,64 @@
+# ---------------------------------------------------------------------------
+# DISTRIBUTION BOUNDARY
+# This repo ships timestamps and code. It never ships source media.
+# These rules exist before the exporter does, deliberately. Do not relax them.
+# ---------------------------------------------------------------------------
+
+# Video / audio, in any form, anywhere in the tree
+*.mkv
+*.mp4
+*.m4v
+*.avi
+*.mov
+*.ts
+*.m2ts
+*.webm
+*.mp3
+*.aac
+*.ac3
+*.flac
+*.wav
+*.dts
+
+# Frames, thumbnails, contact sheets — not as docs images, not as test output
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.webp
+
+# Subtitles extracted from source rips (user's own media, not ours to ship)
+*.srt
+*.ass
+*.ssa
+*.sub
+*.idx
+*.vtt
+
+# Exporter working areas
+segments/
+out/
+scratch/
+*.concat
+
+# Local machine state — calibration is per-library, never committed
+cache/
+offsets.local.*
+media-map.local.*
+
+# Generated playlists. These embed absolute paths into someone's media library
+# and timestamps calibrated to it, so they are machine-specific output, not
+# publishable artifacts. The scene list YAML *is* publishable — it stays in
+# dataset time — so it is deliberately not excluded here.
+*.edl
+*.m3u
+*.m3u8
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/

@@ -1,0 +1,33 @@
+{
+  "_note": [
+    "Nicknames and short forms, mapping what people actually type to the exact",
+    "characterName used in episodes.json. This file is ORIGINAL to edl-cut and is",
+    "not part of Jeffrey Lancaster's dataset — that dataset carries no general",
+    "alias field, so short forms like 'dany' cannot be resolved from it.",
+    "Keys are matched case-insensitively. Add your own freely; unknown keys are",
+    "ignored, so a typo here cannot break resolution."
+  ],
+  "dany": "Daenerys Targaryen",
+  "khaleesi": "Daenerys Targaryen",
+  "dragon queen": "Daenerys Targaryen",
+  "mother of dragons": "Daenerys Targaryen",
+  "the imp": "Tyrion Lannister",
+  "the hound": "Sandor Clegane",
+  "the mountain": "Gregor Clegane",
+  "littlefinger": "Petyr Baelish",
+  "the spider": "Lord Varys",
+  "varys": "Lord Varys",
+  "the onion knight": "Davos Seaworth",
+  "the red woman": "Melisandre",
+  "the kingslayer": "Jaime Lannister",
+  "the blackfish": "Brynden Tully",
+  "the three eyed raven": "Bran Stark",
+  "hodor": "Hodor",
+  "sam": "Samwell Tarly",
+  "ned": "Eddard Stark",
+  "ned stark": "Eddard Stark",
+  "the young wolf": "Robb Stark",
+  "the queen of thorns": "Olenna Tyrell",
+  "the viper": "Oberyn Martell",
+  "the red viper": "Oberyn Martell"
+}
