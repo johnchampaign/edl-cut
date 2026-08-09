@@ -48,6 +48,15 @@ from .scenelist import Segment
 # roughly a frame there is nothing to re-encode anyway.
 KEYFRAME_EPSILON = 0.04
 
+# Shortest head fragment worth re-encoding on its own. Sub-second encodes come
+# out with unrebased timestamps on some encodes — a 0.40s fragment was written
+# with the right 10 frames but a start time of 9.488s, which would have shifted
+# everything after it in the concatenated result. Where the head would be
+# shorter than this, the split moves to the *following* keyframe so the
+# fragment is a comfortable size. That costs about one extra GOP of encoding
+# and keeps the start frame-accurate.
+MIN_ENCODE_FRAGMENT = 1.0
+
 # How far a written piece may differ from its planned length before the export
 # is abandoned.
 #
@@ -238,7 +247,7 @@ def plan_segment(segment: Segment, path: Path, start: float, end: float,
                        anchor=_anchor_before(keyframes, cut))],
                 start - cut)
 
-    # precise: re-encode the head fragment up to the next keyframe, copy the rest.
+    # precise: re-encode the head fragment up to a keyframe, copy the rest.
     if following is None or following >= end:
         # No keyframe inside the segment at all — the whole thing must be encoded.
         return ([Piece(path, start, end, True,
@@ -246,6 +255,18 @@ def plan_segment(segment: Segment, path: Path, start: float, end: float,
     if following - start <= KEYFRAME_EPSILON:
         return ([Piece(path, following, end, False,
                        anchor=_anchor_before(keyframes, following))], 0.0)
+
+    # Too short a head fragment is unreliable, so push the split out one
+    # keyframe when there is room for it.
+    if following - start < MIN_ENCODE_FRAGMENT:
+        later = next((k for k in keyframes if k > following + KEYFRAME_EPSILON), None)
+        if later is not None and later < end:
+            following = later
+        else:
+            # Nowhere to move it to: encode the whole segment rather than emit a
+            # fragment we cannot trust.
+            return ([Piece(path, start, end, True,
+                           anchor=_anchor_before(keyframes, start))], 0.0)
     return (
         [Piece(path, start, following, True,
                anchor=_anchor_before(keyframes, start)),
@@ -467,9 +488,15 @@ def run(plan: Plan, out: Path, workdir: Path, progress=None) -> Path:
             if piece.source not in info_cache:
                 info_cache[piece.source] = probe_streams(piece.source)
             args = _encode_args(info_cache[piece.source])
+            # Rebase timestamps to zero. Without this a re-encoded piece keeps
+            # the source's timestamps, and every piece after it in the concat is
+            # displaced by that amount.
+            filters = []
             if piece.scale:
                 width, height = piece.scale
-                args += ["-vf", f"scale={width}:{height}:flags=lanczos"]
+                filters.append(f"scale={width}:{height}:flags=lanczos")
+            filters.append("setpts=PTS-STARTPTS")
+            args += ["-vf", ",".join(filters), "-af", "asetpts=PTS-STARTPTS"]
             if piece.pix_fmt:
                 args += ["-pix_fmt", piece.pix_fmt]
         else:

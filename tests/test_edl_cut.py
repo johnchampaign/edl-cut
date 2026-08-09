@@ -756,3 +756,57 @@ class TestSeekStrategy(unittest.TestCase):
                 self.assertIn("-t", cmd)
                 self.assertEqual(cmd[cmd.index("-t") + 1], "60.000")
                 self.assertGreater(cmd.index("-t"), cmd.index("-i"))
+
+
+class TestMinimumEncodeFragment(unittest.TestCase):
+    """Sub-second head fragments are unreliable and must not be emitted.
+
+    A 0.40s re-encode was written with the correct 10 frames but a start time
+    of 9.488s, which would have displaced every later piece in the concat.
+    """
+
+    def setUp(self):
+        from edl_cut import export
+        self.export = export
+        self.path = Path("/m/a.mkv")
+        self.keyframes = [float(t) for t in range(0, 600, 10)]
+
+    def _seg(self):
+        return scenelist.Segment("S01E01", 0, 0, "l", [])
+
+    def _plan(self, start, end):
+        return self.export.plan_segment(
+            self._seg(), self.path, start, end, self.keyframes, "precise")[0]
+
+    def test_short_head_moves_the_split_to_the_next_keyframe(self):
+        # Start 9.8 -> next keyframe 10.0 is only 0.2s away; use 20.0 instead.
+        pieces = self._plan(9.8, 100.0)
+        self.assertEqual(len(pieces), 2)
+        head, tail = pieces
+        self.assertTrue(head.reencode)
+        self.assertEqual((head.start, head.end), (9.8, 20.0))
+        self.assertEqual(tail.start, 20.0)
+
+    def test_the_start_stays_frame_accurate(self):
+        pieces = self._plan(9.8, 100.0)
+        self.assertEqual(pieces[0].start, 9.8)
+
+    def test_no_piece_is_shorter_than_the_minimum(self):
+        for start in (9.8, 9.99, 19.5, 30.05):
+            with self.subTest(start=start):
+                for piece in self._plan(start, 200.0):
+                    if piece.reencode:
+                        self.assertGreaterEqual(
+                            piece.duration,
+                            self.export.MIN_ENCODE_FRAGMENT - 0.001)
+
+    def test_comfortable_head_is_left_alone(self):
+        pieces = self._plan(13.0, 100.0)
+        self.assertEqual((pieces[0].start, pieces[0].end), (13.0, 20.0))
+
+    def test_falls_back_to_encoding_all_when_there_is_no_room(self):
+        # Short head and no later keyframe inside the segment.
+        pieces = self._plan(9.8, 19.0)
+        self.assertEqual(len(pieces), 1)
+        self.assertTrue(pieces[0].reencode)
+        self.assertEqual((pieces[0].start, pieces[0].end), (9.8, 19.0))
