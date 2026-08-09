@@ -16,9 +16,10 @@ ROOT_HINTS = {
     "missing": "The media directory does not exist. Check the path.",
     "empty": "The media directory exists but contains nothing.",
     "not-mounted": (
-        "The media directory looks empty and is not a mount point. On this setup "
-        "the NTFS data drives do not auto-mount at boot — mount the drive and "
-        "try again before assuming anything else is wrong."
+        "The media directory looks empty and is not a mount point. If your media "
+        "lives on a separate drive, check whether it is actually mounted — "
+        "external and secondary drives often do not mount automatically at boot, "
+        "and an unmounted volume looks exactly like an empty directory."
     ),
 }
 

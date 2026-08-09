@@ -19,6 +19,11 @@ video.
 Do not strip this notice. If you fork or vendor these files onward, carry it
 with them.
 
+**These files are not covered by this repository's MIT licence.** That licence
+applies to our own code, documentation, and scene lists. The JSON files here
+belong to their author and are redistributed under the terms above; we have no
+authority to relicense them and have not attempted to.
+
 ## Files
 
 | File | Used for |

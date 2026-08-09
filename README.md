@@ -128,3 +128,28 @@ failures it took to get the offset estimator working.
 
 Python 3.10+, PyYAML, and `ffmpeg`/`ffprobe` on PATH. `mpv` if you want to play
 the default output format. Runs on Linux and Windows.
+
+## Contributing
+
+The interesting contribution is **another character's scene list**, or another
+series entirely. The tool is deliberately not Daenerys-specific; if you produce
+`tyrion-scenes.yaml` against the same format, it becomes a format rather than a
+one-off.
+
+Scene lists must stay in **dataset time**. Never commit one with your own
+library's calibration applied — it will be silently wrong for everyone else.
+Bug reports about timestamps should include the output of `--calibrate`, which
+prints its evidence.
+
+## Licence
+
+The original work here — the code in `edl_cut/`, the documentation,
+`data/aliases.json`, and the scene lists — is MIT licensed. See
+[LICENSE](LICENSE).
+
+The dataset files vendored into `data/` are **not ours to relicense**. They are
+Jeffrey Lancaster's, redistributed on the terms described in
+[data/ATTRIBUTION.md](data/ATTRIBUTION.md). Read that before reusing them.
+
+No audiovisual material from any television series is contained in or conveyed
+by this repository.
