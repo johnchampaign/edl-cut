@@ -140,9 +140,9 @@ On the reference library — 73 episodes, mixed Blu-ray and WEB sources — all 
 episodes calibrate, 69 automatically and 4 by hand, producing a complete
 9.14-hour Daenerys cut with nothing skipped.
 
-Milestones 1–4 are done: calibration diagnostic, per-episode offset estimation,
-scene-list generation, and the mpv EDL / VLC M3U / ffmpeg-concat emitters. The
-keyframe-accurate MKV exporter is next.
+All six milestones are done: calibration diagnostic, per-episode offset
+estimation, scene-list generation, the mpv EDL / VLC M3U / ffmpeg-concat
+emitters, preflight hardening, and the keyframe-accurate MKV exporter.
 
 See [FINDINGS.md](FINDINGS.md) for what a real 73-episode library turned up —
 including why the obvious reading of the duration table is wrong, and the three
