@@ -101,8 +101,26 @@ mpv dany.edl
 ```
 
 Useful flags: `--merge-gap` (join segments closer than N seconds, default 30),
-`--pad` (breathing room each side, default 1.5), `--tags` / `--exclude-tags`,
-and `--format m3u|concat`.
+`--pad-pre` / `--pad-post`, `--tags` / `--exclude-tags`, and
+`--format m3u|concat`.
+
+### Cuts that begin a beat early
+
+Play the EDL with exact seeking:
+
+```bash
+mpv --hr-seek=yes dany.edl
+```
+
+mpv seeks to keyframes by default, and keyframes in a typical rip sit anywhere
+from one to eight seconds apart, so a scene can begin several seconds before its
+cut point. Exact seeking costs a short delay at each segment and removes it.
+
+Pre-padding causes the same symptom and is under your control: `--pad-pre`
+defaults to **0** for this reason. The dataset's scene boundaries are the edit's
+own cut points, so any pre-padding shows the tail of the preceding shot by
+construction. `--pad-post` defaults to 0.5s, which lets a final line finish
+without pulling in anything recognisable from the next scene.
 
 ### Sampling a cut
 

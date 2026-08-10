@@ -21,10 +21,19 @@ from .dataset import Episode, format_timestamp
 # correct and unwatchable.
 DEFAULT_MERGE_GAP = 30.0
 
-# Breathing room around each segment. A cut that lands exactly on the first
-# syllable of a line reads as broken even when the timestamp is right.
-DEFAULT_PAD_PRE = 1.5
-DEFAULT_PAD_POST = 1.5
+# Breathing room around each segment.
+#
+# Nothing before the start. The dataset's scene boundaries *are* the edit's own
+# cut points, so any pre-padding shows the tail of the preceding shot by
+# construction — which reads as the cut being broken, the very thing the padding
+# was meant to avoid. The original 1.5s default was reasoning about approximate
+# timestamps; once calibration is accurate, it is purely harmful.
+#
+# A little after the end is different: dialogue and music often run a beat past
+# the visual cut, and half a second lets a line finish without pulling in
+# anything recognisable from the next scene.
+DEFAULT_PAD_PRE = 0.0
+DEFAULT_PAD_POST = 0.5
 
 
 @dataclass

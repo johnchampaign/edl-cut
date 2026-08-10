@@ -211,7 +211,9 @@ def cmd_generate(args: argparse.Namespace) -> int:
 
     segments = scenelist.build(
         episodes, character,
-        merge_gap=args.merge_gap, pad_pre=args.pad, pad_post=args.pad,
+        merge_gap=args.merge_gap,
+        pad_pre=args.pad if args.pad is not None else args.pad_pre,
+        pad_post=args.pad if args.pad is not None else args.pad_post,
     )
     segments = scenelist.filter_by_tags(segments, args.tags, args.exclude_tags)
     if args.preview:
@@ -257,6 +259,11 @@ def cmd_generate(args: argparse.Namespace) -> int:
     out.write_text(render(resolved), encoding="utf-8")
     kept = sum(e - s for _, _, s, e in resolved)
     print(f"Wrote {out}  ({len(resolved)} segments, {kept / 3600:.2f} hours)")
+    if args.format == "edl":
+        # mpv seeks to keyframes by default, and keyframes in these rips sit
+        # 1-8s apart, so a segment can begin several seconds before its cut
+        # point. Exact seeking costs a short delay per segment and removes it.
+        print(f"Play with exact cuts:  mpv --hr-seek=yes {out}")
     return 0
 
 
@@ -390,8 +397,16 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--scene-list", help="also write the scene list YAML here")
     parser.add_argument("--merge-gap", type=float, default=scenelist.DEFAULT_MERGE_GAP,
                         help="join segments separated by less than this many seconds")
-    parser.add_argument("--pad", type=float, default=scenelist.DEFAULT_PAD_PRE,
-                        help="seconds of padding on each side of a segment")
+    parser.add_argument("--pad", type=float, metavar="S",
+                        help="shorthand: set both --pad-pre and --pad-post")
+    parser.add_argument("--pad-pre", type=float, default=scenelist.DEFAULT_PAD_PRE,
+                        metavar="S",
+                        help="seconds before each scene (default 0 — anything "
+                             "more shows the end of the previous scene)")
+    parser.add_argument("--pad-post", type=float, default=scenelist.DEFAULT_PAD_POST,
+                        metavar="S",
+                        help="seconds after each scene (default 0.5, lets a "
+                             "line finish)")
     parser.add_argument("--preview", type=int, metavar="N",
                         help="sample N complete consecutive scenes — a short "
                              "version of the real cut, for judging whether it "
