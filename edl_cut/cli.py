@@ -215,9 +215,15 @@ def cmd_generate(args: argparse.Namespace) -> int:
     )
     segments = scenelist.filter_by_tags(segments, args.tags, args.exclude_tags)
     if args.preview:
-        segments = scenelist.preview(segments, args.preview, args.preview_seconds)
-        print(f"Preview mode: {len(segments)} openings of "
-              f"{args.preview_seconds:.0f}s each, spread across the cut.")
+        segments = scenelist.preview(segments, args.preview,
+                                     args.preview_seconds, args.preview_at)
+        if args.preview_seconds:
+            print(f"Spot-check: {len(segments)} openings of "
+                  f"{args.preview_seconds:.0f}s, spread across the series. "
+                  "This checks timestamps; it is not meant to watch well.")
+        else:
+            print(f"Sample: {len(segments)} complete consecutive scenes, "
+                  "starting partway into the cut.")
     total = sum(s.duration for s in segments)
     print(f"{character}: {len(segments)} segments, {total / 3600:.2f} hours "
           f"across {len({s.episode for s in segments})} episodes.")
@@ -387,10 +393,16 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--pad", type=float, default=scenelist.DEFAULT_PAD_PRE,
                         help="seconds of padding on each side of a segment")
     parser.add_argument("--preview", type=int, metavar="N",
-                        help="sampler: the first few seconds of N segments spread "
-                             "across the cut, for checking calibration quickly")
-    parser.add_argument("--preview-seconds", type=float, default=15.0,
-                        help="length of each preview opening (default 15)")
+                        help="sample N complete consecutive scenes — a short "
+                             "version of the real cut, for judging whether it "
+                             "works as a story")
+    parser.add_argument("--preview-seconds", type=float, metavar="S",
+                        help="instead, take only the first S seconds of N "
+                             "segments spread across the series: a calibration "
+                             "spot-check, not something to watch for pleasure")
+    parser.add_argument("--preview-at", type=float, default=0.35, metavar="F",
+                        help="how far into the cut the sample starts, 0-1 "
+                             "(default 0.35)")
     parser.add_argument("--tags", nargs="*", help="keep only segments with these tags")
     parser.add_argument("--exclude-tags", nargs="*", help="drop segments with these tags")
     args = parser.parse_args(argv)

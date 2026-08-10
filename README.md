@@ -104,22 +104,32 @@ Useful flags: `--merge-gap` (join segments closer than N seconds, default 30),
 `--pad` (breathing room each side, default 1.5), `--tags` / `--exclude-tags`,
 and `--format m3u|concat`.
 
-### Checking a new library quickly
+### Sampling a cut
 
-Calibration errors show up at segment *starts* — a scene that opens on the wrong
-line, or halfway through the title sequence. So before committing to a 9-hour
-cut, sample it:
+Two different questions get asked of a cut, and they need different samples.
+
+**Does this work as a story?** Watch complete consecutive scenes:
 
 ```bash
 python3 -m edl_cut.cli --character dany --media /path/to/media \
-        --preview 16 --out check.edl
-mpv check.edl
+        --preview 8 --out sample.edl
+mpv sample.edl
 ```
 
-That is the first 15 seconds of 16 segments spread across the whole series —
-four minutes, every season represented. If each opening lands on a real scene
-with the character in it, the calibration is good. If one opens on a title card
-or mid-sentence, that episode's offset needs a look.
+Eight whole scenes from partway in — around half an hour that plays exactly as
+the full cut does, just shorter. This is the one to judge the tool by.
+
+**Are the timestamps right?** Add `--preview-seconds`:
+
+```bash
+python3 -m edl_cut.cli --character dany --media /path/to/media \
+        --preview 16 --preview-seconds 15 --out spotcheck.edl
+```
+
+That is the first 15 seconds of 16 segments spread across every season. Errors
+show at segment *starts* — an opening on a title card or mid-sentence means that
+episode's offset needs a look. It is a diagnostic and watches terribly by
+design: sixteen truncated stubs jumping seasons is a slideshow, not a story.
 
 ### Exporting a real video file
 

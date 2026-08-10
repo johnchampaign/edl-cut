@@ -167,33 +167,45 @@ def to_yaml(segments: list[Segment], series: str, character: str,
     return "\n".join(lines) + "\n"
 
 
-def preview(segments: list[Segment], count: int = 16,
-            seconds: float = 15.0) -> list[Segment]:
-    """A short sampler: the opening of `count` segments spread across the cut.
+def preview(segments: list[Segment], count: int = 8,
+            seconds: float | None = None,
+            at: float = 0.35) -> list[Segment]:
+    """A short sample of the cut.
 
-    Calibration errors show up at segment *starts* — a scene that begins on the
-    wrong line, or mid-title-sequence. So the fastest way to check a library is
-    to watch the first few seconds of a spread of segments rather than sit
-    through the whole cut. Sixteen 15-second openings is four minutes and covers
-    every season.
+    Two different questions get asked of a cut, and they want different samples.
 
-    Segments are picked at even intervals through the list, which for a
-    chronological cut means even coverage of the series.
+    *Does this work as a story?* — needs **whole consecutive scenes**, which is
+    the default. Truncated clips cannot answer it: a stub cut off mid-scene,
+    jumping seasons every few seconds, is a slideshow no matter how accurate the
+    timestamps are. `count` complete segments from `at` (a fraction through the
+    cut) play exactly as the real thing does, just shorter.
+
+    *Are the timestamps right?* — needs the **openings of segments spread across
+    the series**, which is what passing `seconds` gives. Calibration errors show
+    at segment starts, so a few seconds of each is enough, and covering every
+    season matters more than continuity.
     """
     if not segments:
         return []
     count = max(1, min(count, len(segments)))
+
+    if seconds is None:
+        # Story sample: consecutive, complete, from partway in so it is not all
+        # setup.
+        start = int(len(segments) * at)
+        start = min(start, len(segments) - count)
+        return list(segments[start:start + count])
+
+    # Calibration spot-check: openings only, spread wide.
     step = len(segments) / count
-    picked = []
-    for i in range(count):
-        segment = segments[int(i * step)]
-        picked.append(
-            Segment(
-                episode=segment.episode,
-                start=segment.start,
-                end=min(segment.end, segment.start + seconds),
-                label=segment.label,
-                tags=segment.tags,
-            )
+    return [
+        Segment(
+            episode=segments[int(i * step)].episode,
+            start=segments[int(i * step)].start,
+            end=min(segments[int(i * step)].end,
+                    segments[int(i * step)].start + seconds),
+            label=segments[int(i * step)].label,
+            tags=segments[int(i * step)].tags,
         )
-    return picked
+        for i in range(count)
+    ]
