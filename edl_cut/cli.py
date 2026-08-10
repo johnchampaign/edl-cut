@@ -214,6 +214,10 @@ def cmd_generate(args: argparse.Namespace) -> int:
         merge_gap=args.merge_gap, pad_pre=args.pad, pad_post=args.pad,
     )
     segments = scenelist.filter_by_tags(segments, args.tags, args.exclude_tags)
+    if args.preview:
+        segments = scenelist.preview(segments, args.preview, args.preview_seconds)
+        print(f"Preview mode: {len(segments)} openings of "
+              f"{args.preview_seconds:.0f}s each, spread across the cut.")
     total = sum(s.duration for s in segments)
     print(f"{character}: {len(segments)} segments, {total / 3600:.2f} hours "
           f"across {len({s.episode for s in segments})} episodes.")
@@ -382,6 +386,11 @@ def main(argv: list[str] | None = None) -> int:
                         help="join segments separated by less than this many seconds")
     parser.add_argument("--pad", type=float, default=scenelist.DEFAULT_PAD_PRE,
                         help="seconds of padding on each side of a segment")
+    parser.add_argument("--preview", type=int, metavar="N",
+                        help="sampler: the first few seconds of N segments spread "
+                             "across the cut, for checking calibration quickly")
+    parser.add_argument("--preview-seconds", type=float, default=15.0,
+                        help="length of each preview opening (default 15)")
     parser.add_argument("--tags", nargs="*", help="keep only segments with these tags")
     parser.add_argument("--exclude-tags", nargs="*", help="drop segments with these tags")
     args = parser.parse_args(argv)

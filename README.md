@@ -104,6 +104,23 @@ Useful flags: `--merge-gap` (join segments closer than N seconds, default 30),
 `--pad` (breathing room each side, default 1.5), `--tags` / `--exclude-tags`,
 and `--format m3u|concat`.
 
+### Checking a new library quickly
+
+Calibration errors show up at segment *starts* — a scene that opens on the wrong
+line, or halfway through the title sequence. So before committing to a 9-hour
+cut, sample it:
+
+```bash
+python3 -m edl_cut.cli --character dany --media /path/to/media \
+        --preview 16 --out check.edl
+mpv check.edl
+```
+
+That is the first 15 seconds of 16 segments spread across the whole series —
+four minutes, every season represented. If each opening lands on a real scene
+with the character in it, the calibration is good. If one opens on a title card
+or mid-sentence, that episode's offset needs a look.
+
 ### Exporting a real video file
 
 For anything that cannot open an EDL — tablets, Plex, televisions:

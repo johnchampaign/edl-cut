@@ -165,3 +165,35 @@ def to_yaml(segments: list[Segment], series: str, character: str,
         lines.append(f'    label: "{label}"')
         lines.append(f"    tags: [{tags}]")
     return "\n".join(lines) + "\n"
+
+
+def preview(segments: list[Segment], count: int = 16,
+            seconds: float = 15.0) -> list[Segment]:
+    """A short sampler: the opening of `count` segments spread across the cut.
+
+    Calibration errors show up at segment *starts* — a scene that begins on the
+    wrong line, or mid-title-sequence. So the fastest way to check a library is
+    to watch the first few seconds of a spread of segments rather than sit
+    through the whole cut. Sixteen 15-second openings is four minutes and covers
+    every season.
+
+    Segments are picked at even intervals through the list, which for a
+    chronological cut means even coverage of the series.
+    """
+    if not segments:
+        return []
+    count = max(1, min(count, len(segments)))
+    step = len(segments) / count
+    picked = []
+    for i in range(count):
+        segment = segments[int(i * step)]
+        picked.append(
+            Segment(
+                episode=segment.episode,
+                start=segment.start,
+                end=min(segment.end, segment.start + seconds),
+                label=segment.label,
+                tags=segment.tags,
+            )
+        )
+    return picked
