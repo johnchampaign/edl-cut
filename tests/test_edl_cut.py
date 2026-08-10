@@ -820,3 +820,49 @@ class TestMinimumEncodeFragment(unittest.TestCase):
         self.assertEqual(len(pieces), 1)
         self.assertTrue(pieces[0].reencode)
         self.assertEqual((pieces[0].start, pieces[0].end), (9.8, 19.0))
+
+
+class TestDialogueSnapping(unittest.TestCase):
+    """Segment ends extend to finish a line that runs across the cut."""
+
+    def _resolved(self, end):
+        seg = scenelist.Segment("S01E01", 0, 0, "l", [])
+        return [(seg, Path("/m/a.mkv"), 100.0, end)]
+
+    def _cues(self, cues):
+        return lambda path: sorted(cues)
+
+    def test_extends_when_a_line_straddles_the_end(self):
+        out, n, added = emit.snap_ends_to_dialogue(
+            self._resolved(160.0), self._cues([(158.0, 161.0)]))
+        self.assertEqual(n, 1)
+        self.assertAlmostEqual(out[0][3], 161.25)
+        self.assertAlmostEqual(added, 1.25)
+
+    def test_leaves_a_clean_boundary_alone(self):
+        out, n, _ = emit.snap_ends_to_dialogue(
+            self._resolved(160.0), self._cues([(150.0, 155.0), (162.0, 165.0)]))
+        self.assertEqual(n, 0)
+        self.assertEqual(out[0][3], 160.0)
+
+    def test_never_extends_past_the_limit(self):
+        """A cue running far past the cut is the next scene's audio, not a
+        sentence finishing, and following it would drag in unwanted footage."""
+        out, _, _ = emit.snap_ends_to_dialogue(
+            self._resolved(160.0), self._cues([(159.0, 200.0)]))
+        self.assertAlmostEqual(out[0][3], 160.0 + emit.MAX_DIALOGUE_EXTEND)
+
+    def test_never_shortens_a_segment(self):
+        out, _, _ = emit.snap_ends_to_dialogue(
+            self._resolved(160.0), self._cues([(100.0, 159.0)]))
+        self.assertGreaterEqual(out[0][3], 160.0)
+
+    def test_start_is_untouched(self):
+        out, _, _ = emit.snap_ends_to_dialogue(
+            self._resolved(160.0), self._cues([(99.0, 101.0), (158.0, 161.0)]))
+        self.assertEqual(out[0][2], 100.0)
+
+    def test_handles_no_subtitles(self):
+        out, n, _ = emit.snap_ends_to_dialogue(self._resolved(160.0), lambda p: [])
+        self.assertEqual(n, 0)
+        self.assertEqual(out[0][3], 160.0)

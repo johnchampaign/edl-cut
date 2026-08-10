@@ -242,6 +242,19 @@ def cmd_generate(args: argparse.Namespace) -> int:
         return 2
 
     resolved, skipped = emit.resolve(segments, result.matched, offsets)
+    if resolved and not args.no_snap_dialogue:
+        cache_cues: dict = {}
+
+        def cues_for(path):
+            if path not in cache_cues:
+                found, _ = subs.load_cues(path)
+                cache_cues[path] = sorted(found)
+            return cache_cues[path]
+
+        resolved, extended, added = emit.snap_ends_to_dialogue(resolved, cues_for)
+        if extended:
+            print(f"Extended {extended} segment ends by {added:.0f}s total so a "
+                  "line of dialogue is not cut in half.")
     if skipped:
         print(f"SKIPPED {len(skipped)} segments:")
         for reason in sorted(set(skipped))[:12]:
@@ -397,6 +410,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--scene-list", help="also write the scene list YAML here")
     parser.add_argument("--merge-gap", type=float, default=scenelist.DEFAULT_MERGE_GAP,
                         help="join segments separated by less than this many seconds")
+    parser.add_argument("--no-snap-dialogue", action="store_true",
+                        help="do not extend segment ends to finish a line of "
+                             "dialogue that runs across the cut")
     parser.add_argument("--pad", type=float, metavar="S",
                         help="shorthand: set both --pad-pre and --pad-post")
     parser.add_argument("--pad-pre", type=float, default=scenelist.DEFAULT_PAD_PRE,

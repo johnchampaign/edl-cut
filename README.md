@@ -116,8 +116,26 @@ mpv seeks to keyframes by default, and keyframes in a typical rip sit anywhere
 from one to eight seconds apart, so a scene can begin several seconds before its
 cut point. Exact seeking costs a short delay at each segment and removes it.
 
-Pre-padding causes the same symptom and is under your control: `--pad-pre`
-defaults to **0** for this reason. The dataset's scene boundaries are the edit's
+### Scenes that end a beat early
+
+Television runs a line of dialogue across a visual cut all the time, so a scene
+boundary is not reliably a sentence boundary. On the reference library 14% of
+segment ends landed inside a line, losing a median 0.74s of it — heard as the
+scene ending early.
+
+Segment ends are therefore extended, up to 3 seconds, so a straddling line
+finishes. Disable with `--no-snap-dialogue`. This happens at emit time, using
+subtitles timed against your own files, and never touches the published scene
+list.
+
+Worth knowing what this is *not*: a systematic timing error. Sweeping a global
+shift over the whole cut and counting how many boundaries slice dialogue gives a
+shallow minimum around +1s — 47 against 54 at zero, out of 324 boundaries, which
+is noise. It climbs steeply beyond ±1.5s, which is what confirms the offsets are
+right to within a second.
+
+Pre-padding causes the same symptom at the other end and is under your control:
+`--pad-pre` defaults to **0** for this reason. The dataset's scene boundaries are the edit's
 own cut points, so any pre-padding shows the tail of the preceding shot by
 construction. `--pad-post` defaults to 0.5s, which lets a final line finish
 without pulling in anything recognisable from the next scene.
