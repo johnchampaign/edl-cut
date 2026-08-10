@@ -134,8 +134,27 @@ shallow minimum around +1s — 47 against 54 at zero, out of 324 boundaries, whi
 is noise. It climbs steeply beyond ±1.5s, which is what confirms the offsets are
 right to within a second.
 
-Pre-padding causes the same symptom at the other end and is under your control:
-`--pad-pre` defaults to **0** for this reason. The dataset's scene boundaries are the edit's
+### Scenes that begin on the tail of the previous one
+
+The dataset's scene starts run early. Measured against ffmpeg scene-change
+detection over 30 segments, the nearest real visual cut lands *after* the logged
+start 22 times and before it 7, median **+1.19s**. That second is seen as the
+end of the previous scene.
+
+`--pad-pre` therefore defaults to **−1.2** — a trim, not a pad. This is a
+property of the dataset rather than of any library, so it lives in dataset time
+and travels with the scene list.
+
+Snapping each start to a detected cut individually was tried and **rejected**.
+ffmpeg finds *shot* changes, and a dialogue scene has one at every reverse
+angle; measured positions near a start ranged from −0.9s to +3.4s with scores
+(0.13–0.51) that do not separate a scene opening from an ordinary shot change.
+Snapping would clip wanted footage about as often as it removed unwanted. The
+population-level correction is reliable where the per-segment one is not.
+
+`--snap-to-cut` still exists for going further: it moves a start forward only
+when a strong cut (score ≥ 0.35) sits within 1.5s. It decodes video per segment
+and caches the result. The dataset's scene boundaries are the edit's
 own cut points, so any pre-padding shows the tail of the preceding shot by
 construction. `--pad-post` defaults to 0.5s, which lets a final line finish
 without pulling in anything recognisable from the next scene.

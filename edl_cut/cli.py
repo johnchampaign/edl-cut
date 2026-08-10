@@ -7,7 +7,7 @@ import json
 import sys
 from pathlib import Path
 
-from . import align, cache, calibrate as calibration, emit, export, scenelist, subs
+from . import align, cache, calibrate as calibration, cuts, emit, export, scenelist, subs
 from . import calibration as twosignal
 from .dataset import DATA_DIR, load_episodes, resolve_character
 from .media import DependencyMissing, probe_durations, require_tool, scan
@@ -242,6 +242,15 @@ def cmd_generate(args: argparse.Namespace) -> int:
         return 2
 
     resolved, skipped = emit.resolve(segments, result.matched, offsets)
+
+    if resolved and args.snap_to_cut:
+        print("Snapping starts to real visual cuts (decodes a little video; "
+              "cached per library)...", flush=True)
+        snap_cache = cuts.SnapCache(cache.CACHE_DIR / "cuts.json")
+        resolved, moved, trimmed = cuts.snap_all(resolved, snap_cache, progress=print)
+        print(f"  moved {moved} of {len(resolved)} starts forward, "
+              f"trimming {trimmed:.0f}s of preceding footage.")
+
     if resolved and not args.no_snap_dialogue:
         cache_cues: dict = {}
 
@@ -410,6 +419,10 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--scene-list", help="also write the scene list YAML here")
     parser.add_argument("--merge-gap", type=float, default=scenelist.DEFAULT_MERGE_GAP,
                         help="join segments separated by less than this many seconds")
+    parser.add_argument("--snap-to-cut", action="store_true",
+                        help="move each start forward to the next real visual "
+                             "cut, removing the tail of the previous scene. "
+                             "Decodes a little video per segment; cached.")
     parser.add_argument("--no-snap-dialogue", action="store_true",
                         help="do not extend segment ends to finish a line of "
                              "dialogue that runs across the cut")

@@ -866,3 +866,60 @@ class TestDialogueSnapping(unittest.TestCase):
         out, n, _ = emit.snap_ends_to_dialogue(self._resolved(160.0), lambda p: [])
         self.assertEqual(n, 0)
         self.assertEqual(out[0][3], 160.0)
+
+
+class TestCutSnapping(unittest.TestCase):
+    """Starts move forward to a real cut, and never backward.
+
+    ffmpeg detects shot changes, not scene changes, so a dialogue scene has a
+    cut at every reverse angle. Snapping to the *nearest* one would frequently
+    jump back into the previous scene, which is the bug being fixed.
+    """
+
+    def setUp(self):
+        from edl_cut import cuts
+        self.cuts = cuts
+        self.seg = scenelist.Segment("S01E01", 0, 0, "l", [])
+
+    def _snap(self, start, end, detected):
+        from edl_cut import cuts
+        original = cuts.detect
+        cuts.detect = lambda path, centre, **kw: sorted(detected)
+        try:
+            return cuts.snap_all([(self.seg, Path("/m/a.mkv"), start, end)])
+        finally:
+            cuts.detect = original
+
+    def test_moves_forward_to_the_next_cut(self):
+        out, moved, trimmed = self._snap(100.0, 200.0, [101.2])
+        self.assertEqual(moved, 1)
+        self.assertAlmostEqual(out[0][2], 101.2)
+        self.assertAlmostEqual(trimmed, 1.2)
+
+    def test_never_moves_backward_into_the_previous_scene(self):
+        out, moved, _ = self._snap(100.0, 200.0, [97.5])
+        self.assertEqual(moved, 0)
+        self.assertEqual(out[0][2], 100.0)
+
+    def test_prefers_the_earliest_forward_cut_not_the_nearest(self):
+        out, _, _ = self._snap(100.0, 200.0, [101.0, 102.4])
+        self.assertAlmostEqual(out[0][2], 101.0)
+
+    def test_no_detection_leaves_the_start_alone(self):
+        out, moved, _ = self._snap(100.0, 200.0, [])
+        self.assertEqual(moved, 0)
+        self.assertEqual(out[0][2], 100.0)
+
+    def test_never_snaps_past_the_end_of_the_segment(self):
+        out, moved, _ = self._snap(100.0, 100.5, [140.0])
+        self.assertEqual(moved, 0)
+        self.assertEqual(out[0][2], 100.0)
+
+    def test_cache_round_trips(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "cuts.json"
+            c = self.cuts.SnapCache(path)
+            c.put(Path("/m/a.mkv"), 100.0, 101.25)
+            c.save()
+            self.assertAlmostEqual(
+                self.cuts.SnapCache(path).get(Path("/m/a.mkv"), 100.0), 101.25)
