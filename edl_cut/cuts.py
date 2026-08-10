@@ -30,21 +30,29 @@ from pathlib import Path
 
 # How far forward to look for a cut. Beyond this, a detected change is more
 # likely an ordinary shot change inside the scene than the scene's own opening.
-LOOK_AHEAD = 1.5
+LOOK_AHEAD = 2.0
 
-# Cuts marginally before the start still count: the dataset is early far more
-# often than late, and a cut a few frames back is the same cut.
-LOOK_BEHIND = 0.35
+# A cut this recently behind means we are already just past the scene's opening
+# and must not move.
+#
+# This guard matters more than it looks. Measured across the library, the error
+# runs both ways: the median start is 0.62s before the next cut, but a third of
+# starts sit mid-shot with no cut within 4s ahead, meaning they are *late*
+# rather than early. Snapping those forward would jump to the next shot change
+# and lose more of the scene. Only starts with no recent cut behind them are
+# candidates for moving.
+LOOK_BEHIND = 1.5
 
 # Scene-change score above which a frame counts as a cut.
 #
-# Deliberately strict, and paired with a short look-ahead, because per-segment
-# snapping is only safe when it is nearly certain. Measured cut scores near
-# segment starts run 0.13-0.51 whether the cut opens a scene or is a reverse
-# angle inside one, so a loose threshold snaps to the wrong thing and clips
-# footage. The default correction is the population-level trim in scenelist.py;
-# this is for going further where a strong cut sits close by.
-THRESHOLD = 0.35
+# Set to catch real cuts in dim footage without chasing camera movement.
+#
+# The window is what keeps this safe rather than the score. Once the dataset's
+# systematic ~1.2s lead is trimmed in scenelist.py, a start sits within roughly a
+# second of the true cut, so looking only 2s forward finds that cut and rarely
+# reaches an intra-scene shot change. A high threshold was tried first and
+# missed real cuts: the opening of S01E01's Pentos scene scores under 0.35.
+THRESHOLD = 0.20
 
 _PTS = re.compile(r"pts_time:([0-9.]+)")
 
@@ -75,11 +83,20 @@ def detect(path: Path, centre: float,
 
 
 def snap_start(path: Path, start: float) -> tuple[float, bool]:
-    """Move `start` forward to the first real cut, if one is close enough."""
-    for cut in detect(path, start):
-        if cut >= start - LOOK_BEHIND:
-            moved = max(start, cut)
-            return moved, moved > start + 0.02
+    """Move `start` forward to the scene's opening cut, when that is safe.
+
+    Three outcomes, and the refusals are as important as the moves:
+
+    * a cut just behind us — we are already at or past the opening, leave it;
+    * a cut close ahead — that is the opening, snap to it exactly;
+    * nothing either side — we are mid-shot, and guessing would only lose more.
+    """
+    found = detect(path, start)
+    if any(start - LOOK_BEHIND <= cut <= start + 0.02 for cut in found):
+        return start, False
+    ahead = [cut for cut in found if start + 0.02 < cut <= start + LOOK_AHEAD]
+    if ahead:
+        return ahead[0], True
     return start, False
 
 

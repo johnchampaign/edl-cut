@@ -152,9 +152,22 @@ angle; measured positions near a start ranged from −0.9s to +3.4s with scores
 Snapping would clip wanted footage about as often as it removed unwanted. The
 population-level correction is reliable where the per-segment one is not.
 
-`--snap-to-cut` still exists for going further: it moves a start forward only
-when a strong cut (score ≥ 0.35) sits within 1.5s. It decodes video per segment
-and caches the result. The dataset's scene boundaries are the edit's
+**Starts are therefore aligned to real visual cuts by default.** Timestamps
+locate the neighbourhood; the video decides the frame. Disable with
+`--no-snap-to-cut`.
+
+The reason it has to work this way is a precision floor, not a bug worth tuning.
+Calibration aligns scene boundaries to gaps between dialogue, and those gaps are
+one to three seconds wide, so any offset inside a gap scores about equally — the
+method cannot resolve finer than the gap it aims at. Measured across the library
+after the trim, the median start still sits 0.62s before the next cut, p75
++1.58s, with outliers past 3s. No global constant collapses that spread, because
+a third of starts are *late* rather than early.
+
+Snapping is correspondingly careful. A cut just behind means the start is
+already placed and must not move; a cut close ahead is the scene opening and is
+snapped to exactly; nothing either side means mid-shot, where guessing would
+only lose more. Results cache per library, so the decoding cost is paid once. The dataset's scene boundaries are the edit's
 own cut points, so any pre-padding shows the tail of the preceding shot by
 construction. `--pad-post` defaults to 0.5s, which lets a final line finish
 without pulling in anything recognisable from the next scene.

@@ -901,6 +901,18 @@ class TestCutSnapping(unittest.TestCase):
         self.assertEqual(moved, 0)
         self.assertEqual(out[0][2], 100.0)
 
+    def test_a_cut_just_behind_means_we_are_already_placed(self):
+        """A third of starts sit just past their opening cut. Snapping those
+        forward would jump to the next shot change and lose scene."""
+        out, moved, _ = self._snap(100.0, 200.0, [99.4, 101.5])
+        self.assertEqual(moved, 0)
+        self.assertEqual(out[0][2], 100.0)
+
+    def test_mid_shot_starts_are_left_alone(self):
+        out, moved, _ = self._snap(100.0, 200.0, [90.0, 130.0])
+        self.assertEqual(moved, 0)
+        self.assertEqual(out[0][2], 100.0)
+
     def test_prefers_the_earliest_forward_cut_not_the_nearest(self):
         out, _, _ = self._snap(100.0, 200.0, [101.0, 102.4])
         self.assertAlmostEqual(out[0][2], 101.0)
