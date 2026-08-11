@@ -243,3 +243,73 @@ def refine_offset(path: Path, boundaries: list[int], current: float,
         delta += 0.05
 
     return current + best_delta, best_score, len(chosen)
+
+
+# --- Consensus refinement ----------------------------------------------------
+#
+# Match fraction turned out to be the wrong confidence signal. Detection finds
+# more cuts as the threshold drops, so a fixed fraction against a growing pool
+# says little, and episodes that align perfectly can still score low.
+#
+# What separates a real alignment from a coincidence is **stability**: run the
+# search at several detection thresholds and see whether the answer moves. On a
+# control episode the best delta held at +0.15 across thresholds while matches
+# climbed 5->7->8. On S08E03 — the near-lightless Long Night — the same sweep
+# gave -1.00, +7.25 and -1.20 from 15, 58 and 136 detected cuts: plenty of
+# candidates, no agreement, nothing really there to align to.
+CONSENSUS_THRESHOLDS = (0.15, 0.08, 0.04)
+
+# How closely two thresholds must agree to count as corroborating.
+CONSENSUS_TOLERANCE = 0.5
+
+
+def refine_offset_consensus(path: Path, boundaries: list[int], current: float,
+                            samples: int = REFINE_SAMPLES):
+    """Refine an offset, trusting it only when thresholds agree.
+
+    Returns (suggested, agreeing, tried, per_threshold). `agreeing` counts how
+    many thresholds landed within CONSENSUS_TOLERANCE of the chosen answer; two
+    or more is corroboration, one is a coincidence.
+    """
+    interior = sorted(set(boundaries))[2:-2]
+    if len(interior) < 6:
+        return current, 0, 0, {}
+    step = max(1, len(interior) // samples)
+    chosen = interior[::step][:samples]
+
+    answers: dict[float, float] = {}
+    for threshold in CONSENSUS_THRESHOLDS:
+        detected = [
+            (edge, _cuts_window(path, max(0.0, edge + current - REFINE_WINDOW - 1),
+                                REFINE_WINDOW * 2 + 2, threshold=threshold))
+            for edge in chosen
+        ]
+        best_delta, best_score = 0.0, -1
+        delta = -REFINE_WINDOW
+        while delta <= REFINE_WINDOW + 1e-9:
+            score = sum(
+                1 for edge, found in detected
+                if any(abs(c - (edge + current + delta)) <= REFINE_TOLERANCE
+                       for c in found)
+            )
+            if score > best_score or (score == best_score
+                                      and abs(delta) < abs(best_delta)):
+                best_score, best_delta = score, delta
+            delta += 0.05
+        answers[threshold] = best_delta
+
+    # The winning delta is the one the most thresholds cluster around.
+    best_delta, best_support = 0.0, 0
+    for candidate in answers.values():
+        support = sum(1 for v in answers.values()
+                      if abs(v - candidate) <= CONSENSUS_TOLERANCE)
+        if support > best_support or (support == best_support
+                                      and abs(candidate) < abs(best_delta)):
+            best_support, best_delta = support, candidate
+
+    if best_support >= 2:
+        agreed = [v for v in answers.values()
+                  if abs(v - best_delta) <= CONSENSUS_TOLERANCE]
+        best_delta = sum(agreed) / len(agreed)
+
+    return current + best_delta, best_support, len(CONSENSUS_THRESHOLDS), answers
