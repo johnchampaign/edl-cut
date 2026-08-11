@@ -159,3 +159,87 @@ def snap_all(resolved, cache: SnapCache | None = None, progress=None):
     if cache:
         cache.save()
     return out, moved, trimmed
+
+
+# --- Offset refinement against real shot cuts --------------------------------
+#
+# Subtitle calibration aims at gaps between dialogue, which are 1-3s wide, so it
+# cannot resolve finer than that. Every scene change is a *shot cut*, and shot
+# cuts are frame-exact — a far sharper target. Matching a sample of the dataset's
+# scene boundaries against detected cuts pins the offset to a fraction of a
+# second.
+#
+# Validated against offsets derived by hand from frame inspection:
+#   S01E06  refinement +0.65  vs  +0.41 measured
+#   S01E01  refinement -29.5  vs  -28.9 measured
+#   S04E08  (already correct) moved only +0.20
+
+# How far from the current offset to search.
+REFINE_WINDOW = 8.0
+
+# A boundary counts as landing on a cut within this distance.
+REFINE_TOLERANCE = 0.30
+
+# Boundaries sampled per episode. More is sharper but costs decoding.
+REFINE_SAMPLES = 14
+
+# Fraction of sampled boundaries that must land on a cut for the result to be
+# trusted. Episodes whose boundaries simply do not correspond to shot cuts —
+# and there are some — must be left alone rather than nudged by noise.
+REFINE_MIN_MATCH = 0.5
+
+
+def _cuts_window(path: Path, begin: float, span: float, threshold: float = 0.15):
+    try:
+        proc = subprocess.run(
+            ["ffmpeg", "-hide_banner", "-nostats", "-ss", f"{begin:.3f}",
+             "-i", str(path), "-t", f"{span:.3f}",
+             "-vf", f"select='gt(scene,{threshold})',showinfo",
+             "-an", "-sn", "-f", "null", "-"],
+            capture_output=True, text=True, timeout=600,
+        )
+    except (subprocess.TimeoutExpired, OSError):
+        return []
+    out = []
+    for match in _PTS.finditer(proc.stderr):
+        t = begin + float(match.group(1))
+        if begin - 0.1 <= t <= begin + span + 0.1:
+            out.append(t)
+    return out
+
+
+def refine_offset(path: Path, boundaries: list[int], current: float,
+                  samples: int = REFINE_SAMPLES):
+    """Sharpen `current` by matching scene boundaries to real cuts.
+
+    Returns (suggested_offset, matched, sampled). `matched` below
+    REFINE_MIN_MATCH of `sampled` means the episode's boundaries do not
+    correspond to shot cuts well enough to trust the result.
+    """
+    interior = sorted(set(boundaries))[2:-2]
+    if len(interior) < 6:
+        return current, 0, 0
+    step = max(1, len(interior) // samples)
+    chosen = interior[::step][:samples]
+
+    detected = []
+    for edge in chosen:
+        centre = edge + current
+        found = _cuts_window(path, max(0.0, centre - REFINE_WINDOW - 1),
+                             REFINE_WINDOW * 2 + 2)
+        detected.append((edge, found))
+
+    best_delta, best_score = 0.0, -1
+    delta = -REFINE_WINDOW
+    while delta <= REFINE_WINDOW + 1e-9:
+        score = sum(
+            1 for edge, found in detected
+            if any(abs(c - (edge + current + delta)) <= REFINE_TOLERANCE
+                   for c in found)
+        )
+        # Ties go to the smaller correction: the existing offset is evidence too.
+        if score > best_score or (score == best_score and abs(delta) < abs(best_delta)):
+            best_score, best_delta = score, delta
+        delta += 0.05
+
+    return current + best_delta, best_score, len(chosen)

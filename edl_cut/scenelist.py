@@ -21,29 +21,23 @@ from .dataset import Episode, format_timestamp
 # correct and unwatchable.
 DEFAULT_MERGE_GAP = 30.0
 
-# Breathing room around each segment. Negative trims instead of padding.
+# Breathing room around each segment. Negative values trim instead of padding.
 #
-# The dataset's scene starts run early. Measured against ffmpeg scene-change
-# detection over 30 segments of the reference library, the nearest real visual
-# cut lands *after* the logged start 22 times and before it 7, median +1.19s.
-# That second or so is seen as the tail of the previous scene before the one you
-# asked for, and it is the single most noticeable flaw in a generated cut.
+# Pre-padding is zero, and deliberately so. An earlier version trimmed 1.2s here
+# to compensate for scene starts landing before the real visual cut. That
+# compensation is now unnecessary and would actively harm: offsets are
+# calibrated by matching boundaries to real shot cuts (see cuts.refine_offset),
+# so a boundary already lands on its cut, and trimming further would cut *into*
+# the scene.
 #
-# This is a property of the *dataset*, not of anyone's library — hand-logged
-# boundaries are early — so correcting it belongs here in dataset time, where it
-# travels with the scene list and helps every user.
-#
-# Snapping each start to a detected cut individually was tried and rejected.
-# ffmpeg finds *shot* changes, and a dialogue scene has one at every reverse
-# angle; measured cut positions near a start ranged from -0.9s to +3.4s with
-# scores (0.13-0.51) that do not separate a scene opening from an ordinary shot
-# change. Snapping would as often clip wanted footage as remove unwanted. The
-# population-level correction is reliable where the per-segment one is not.
+# The lesson is worth keeping. A correction applied downstream of a root cause
+# becomes a new error once that cause is fixed. When calibration improved this
+# had to come back to zero rather than stay as belt-and-braces.
 #
 # The end is different: dialogue and music often run past the visual cut, so a
 # little after lets a line finish. Ends are further extended at emit time to
 # avoid slicing a subtitle in half.
-DEFAULT_PAD_PRE = -1.2
+DEFAULT_PAD_PRE = 0.0
 DEFAULT_PAD_POST = 0.5
 
 

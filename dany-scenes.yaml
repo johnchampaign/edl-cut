@@ -3,880 +3,880 @@ series: "Game of Thrones"
 character: "Daenerys Targaryen"
 # Timestamps are in DATASET time, not calibrated to any library.
 # edl-cut applies per-episode offsets when it emits a playlist.
-# 175 segments, 8.96 hours.
+# 175 segments, 9.02 hours.
 scenes:
   - episode: S01E01
-    start: "00:33:46"
+    start: "00:33:45"
     end: "00:40:06"
     label: "Pentos — with Viserys Targaryen, Illyrio Mopatis, Khal Drogo +1"
     tags: [pentos]
   - episode: S01E01
-    start: "00:50:30"
+    start: "00:50:29"
     end: "00:57:48"
     label: "Pentos — with Khal Drogo, Viserys Targaryen, Illyrio Mopatis +5"
     tags: [pentos]
   - episode: S01E02
-    start: "00:02:23"
+    start: "00:02:22"
     end: "00:05:28"
     label: "The Dothraki Sea — with Jorah Mormont, Khal Drogo, Viserys Targaryen +3"
     tags: [the-dothraki-sea]
   - episode: S01E02
-    start: "00:25:11"
+    start: "00:25:10"
     end: "00:25:56"
     label: "Dothraki Camp — with Khal Drogo, Drogon, Rhaegal +1"
     tags: [the-dothraki-sea, dothraki-camp]
   - episode: S01E02
-    start: "00:32:29"
+    start: "00:32:28"
     end: "00:34:22"
     label: "Dothraki Camp — with Doreah, Irri, Jhiqui +3"
     tags: [the-dothraki-sea, dothraki-camp]
   - episode: S01E02
-    start: "00:38:55"
+    start: "00:38:54"
     end: "00:42:48"
     label: "Dothraki Camp — with Doreah, Drogon, Rhaegal +2"
     tags: [the-dothraki-sea, dothraki-camp]
   - episode: S01E03
-    start: "00:34:40"
+    start: "00:34:39"
     end: "00:38:18"
     label: "The Dothraki Sea — with Khal Drogo, Jorah Mormont, Viserys Targaryen +2"
     tags: [the-dothraki-sea]
   - episode: S01E03
-    start: "00:45:47"
+    start: "00:45:46"
     end: "00:46:24"
     label: "Dothraki Camp — with Irri"
     tags: [the-dothraki-sea, dothraki-camp]
   - episode: S01E03
-    start: "00:50:42"
+    start: "00:50:41"
     end: "00:51:30"
     label: "Dothraki Camp — with Drogon, Rhaegal, Viserion +1"
     tags: [the-dothraki-sea, dothraki-camp]
   - episode: S01E04
-    start: "00:10:12"
+    start: "00:10:11"
     end: "00:12:18"
     label: "Vaes Dothrak — with Khal Drogo, Jorah Mormont, Viserys Targaryen"
     tags: [vaes-dothrak]
   - episode: S01E04
-    start: "00:37:13"
+    start: "00:37:12"
     end: "00:38:34"
     label: "Vaes Dothrak — with Viserys Targaryen, Doreah, Irri"
     tags: [vaes-dothrak]
   - episode: S01E04
-    start: "00:44:33"
+    start: "00:44:32"
     end: "00:45:38"
     label: "Vaes Dothrak — with Jorah Mormont"
     tags: [vaes-dothrak]
   - episode: S01E06
-    start: "00:06:23"
+    start: "00:06:22"
     end: "00:07:50"
     label: "Vaes Dothrak — with Drogon, Rhaegal, Viserion +1"
     tags: [vaes-dothrak]
   - episode: S01E06
-    start: "00:16:09"
+    start: "00:16:08"
     end: "00:19:40"
     label: "Vaes Dothrak — with Khal Drogo, Viserys Targaryen, Jorah Mormont +4"
     tags: [vaes-dothrak]
   - episode: S01E06
-    start: "00:46:46"
+    start: "00:46:45"
     end: "00:51:30"
     label: "Vaes Dothrak — with Khal Drogo, Doreah, Jorah Mormont +3"
     tags: [vaes-dothrak]
   - episode: S01E07
-    start: "00:26:46"
+    start: "00:26:45"
     end: "00:29:12"
     label: "Vaes Dothrak — with Khal Drogo, Jorah Mormont, Doreah +2"
     tags: [vaes-dothrak]
   - episode: S01E07
-    start: "00:29:46"
+    start: "00:29:45"
     end: "00:32:56"
     label: "Vaes Dothrak — with Wine Merchant, Doreah, Irri +2"
     tags: [vaes-dothrak]
   - episode: S01E07
-    start: "00:47:58"
+    start: "00:47:57"
     end: "00:51:58"
     label: "Vaes Dothrak — with Jorah Mormont, Wine Merchant, Rakharo +2"
     tags: [vaes-dothrak]
   - episode: S01E08
-    start: "00:26:15"
+    start: "00:26:14"
     end: "00:32:34"
     label: "Lhazareen Village — with Jorah Mormont, Rakharo, Doreah +5"
     tags: [the-dothraki-sea, lhazareen-village]
   - episode: S01E09
-    start: "00:21:39"
+    start: "00:21:38"
     end: "00:23:20"
     label: "The Desert — with Khal Drogo, Qotho, Rakharo"
     tags: [the-red-waste, the-desert]
   - episode: S01E09
-    start: "00:27:42"
+    start: "00:27:41"
     end: "00:35:26"
     label: "The Red Waste — with Khal Drogo, Jorah Mormont, Doreah +4"
     tags: [the-red-waste]
   - episode: S01E10
-    start: "00:22:38"
+    start: "00:22:37"
     end: "00:27:32"
     label: "The Red Waste — with Jorah Mormont, Rhaego, Mirri Maz Duur +3"
     tags: [the-red-waste]
   - episode: S01E10
-    start: "00:31:56"
+    start: "00:31:55"
     end: "00:34:28"
     label: "The Red Waste — with Khal Drogo"
     tags: [the-red-waste]
   - episode: S01E10
-    start: "00:45:47"
+    start: "00:45:46"
     end: "00:51:58"
     label: "The Red Waste — with Khal Drogo, Rakharo, Drogon +4"
     tags: [the-red-waste]
   - episode: S02E01
-    start: "00:14:51"
+    start: "00:14:50"
     end: "00:18:48"
     label: "The Red Waste — with Drogon, Doreah, Rakharo +3"
     tags: [the-red-waste]
   - episode: S02E02
-    start: "00:14:41"
+    start: "00:14:40"
     end: "00:17:32"
     label: "The Red Waste — with Jorah Mormont, Irri, Doreah +1"
     tags: [the-red-waste]
   - episode: S02E04
-    start: "00:18:38"
+    start: "00:18:37"
     end: "00:19:42"
     label: "The Red Waste — with Jorah Mormont, Kovarro, Doreah"
     tags: [the-red-waste]
   - episode: S02E04
-    start: "00:32:01"
+    start: "00:32:00"
     end: "00:37:28"
     label: "Qarth — with Jorah Mormont, Spice King, Xaro Xhoan Daxos +2"
     tags: [qarth]
   - episode: S02E05
-    start: "00:31:17"
+    start: "00:31:16"
     end: "00:36:26"
     label: "Qarth — with Doreah, Drogon, Irri +8"
     tags: [qarth]
   - episode: S02E05
-    start: "00:46:12"
+    start: "00:46:11"
     end: "00:51:36"
     label: "Qarth — with Xaro Xhoan Daxos, Jorah Mormont"
     tags: [qarth]
   - episode: S02E06
-    start: "00:29:44"
+    start: "00:29:43"
     end: "00:34:24"
     label: "Qarth — with Xaro Xhoan Daxos, Kovarro, Spice King"
     tags: [qarth]
   - episode: S02E06
-    start: "00:50:44"
+    start: "00:50:43"
     end: "00:52:18"
     label: "Qarth — with Xaro Xhoan Daxos, Kovarro, Irri"
     tags: [qarth]
   - episode: S02E07
-    start: "00:16:01"
+    start: "00:16:00"
     end: "00:16:56"
     label: "Qarth — with Xaro Xhoan Daxos"
     tags: [qarth]
   - episode: S02E07
-    start: "00:23:18"
+    start: "00:23:17"
     end: "00:25:44"
     label: "Qarth — with Jorah Mormont"
     tags: [qarth]
   - episode: S02E07
-    start: "00:40:51"
+    start: "00:40:50"
     end: "00:43:34"
     label: "Qarth — with Xaro Xhoan Daxos, Spice King, Silk King +3"
     tags: [qarth]
   - episode: S02E08
-    start: "00:48:16"
+    start: "00:48:15"
     end: "00:50:02"
     label: "Qarth — with Jorah Mormont, Kovarro"
     tags: [qarth]
   - episode: S02E10
-    start: "00:34:24"
+    start: "00:34:23"
     end: "00:36:32"
     label: "Qarth — with Jorah Mormont, Kovarro"
     tags: [qarth]
   - episode: S02E10
-    start: "00:43:36"
+    start: "00:43:35"
     end: "00:51:48"
     label: "Qarth — with Khal Drogo, Rhaego, Drogon +3"
     tags: [qarth, kings-landing, greensight, the-wall, vaes-dothrak]
   - episode: S02E10
-    start: "00:55:32"
+    start: "00:55:31"
     end: "00:58:12"
     label: "Qarth — with Xaro Xhoan Daxos, Kovarro, Jorah Mormont +4"
     tags: [qarth]
   - episode: S03E01
-    start: "00:35:24"
+    start: "00:35:23"
     end: "00:37:12"
     label: "The Summer Sea — with Drogon, Jorah Mormont, Viserion +1"
     tags: [the-summer-sea]
   - episode: S03E01
-    start: "00:45:51"
+    start: "00:45:50"
     end: "00:53:06"
     label: "Slaver's Bay — with Kraznys mo Nakloz, Jorah Mormont, Missandei +3"
     tags: [astapor, slavers-bay]
   - episode: S03E03
-    start: "00:28:26"
+    start: "00:28:25"
     end: "00:35:16"
     label: "Astapor — with Jorah Mormont, Barristan Selmy, Tortured Slave +3"
     tags: [astapor]
   - episode: S03E04
-    start: "00:45:32"
+    start: "00:45:31"
     end: "00:51:44"
     label: "Astapor — with Barristan Selmy, Missandei, Jorah Mormont +3"
     tags: [astapor]
   - episode: S03E05
-    start: "00:42:13"
+    start: "00:42:12"
     end: "00:45:16"
     label: "Outside Yunkai — with Jorah Mormont, Barristan Selmy, Missandei +1"
     tags: [yunkai, outside-yunkai]
   - episode: S03E07
-    start: "00:19:22"
+    start: "00:19:21"
     end: "00:20:36"
     label: "Outside Yunkai — with Jorah Mormont, Barristan Selmy, Grey Worm"
     tags: [yunkai, outside-yunkai]
   - episode: S03E07
-    start: "00:21:43"
+    start: "00:21:42"
     end: "00:25:54"
     label: "Outside Yunkai — with Missandei, Jorah Mormont, Razdal mo Eraz +5"
     tags: [yunkai, outside-yunkai]
   - episode: S03E08
-    start: "00:04:51"
+    start: "00:04:50"
     end: "00:09:06"
     label: "Outside Yunkai — with Jorah Mormont, Barristan Selmy, Grey Worm +4"
     tags: [yunkai, outside-yunkai]
   - episode: S03E08
-    start: "00:43:25"
+    start: "00:43:24"
     end: "00:47:02"
     label: "Outside Yunkai — with Missandei, Daario Naharis, Mero +1"
     tags: [yunkai, outside-yunkai]
   - episode: S03E09
-    start: "00:09:29"
+    start: "00:09:28"
     end: "00:11:22"
     label: "Outside Yunkai — with Jorah Mormont, Barristan Selmy, Grey Worm +1"
     tags: [yunkai, outside-yunkai]
   - episode: S03E09
-    start: "00:35:26"
+    start: "00:35:25"
     end: "00:36:36"
     label: "Yunkai — with Barristan Selmy, Missandei, Jorah Mormont +2"
     tags: [yunkai]
   - episode: S03E10
-    start: "00:56:41"
+    start: "00:56:40"
     end: "01:01:20"
     label: "Yunkai — with Missandei, Daario Naharis, Barristan Selmy +4"
     tags: [yunkai]
   - episode: S04E01
-    start: "00:17:00"
+    start: "00:16:59"
     end: "00:20:06"
     label: "Outside Meereen — with Drogon, Viserion, Rhaegal +5"
     tags: [meereen, outside-meereen]
   - episode: S04E01
-    start: "00:40:32"
+    start: "00:40:31"
     end: "00:43:14"
     label: "Outside Meereen — with Missandei, Daario Naharis, Jorah Mormont +2"
     tags: [meereen, outside-meereen]
   - episode: S04E03
-    start: "00:48:08"
+    start: "00:48:07"
     end: "00:55:30"
     label: "Meereen — with Missandei, Barristan Selmy, Jorah Mormont +4"
     tags: [meereen]
   - episode: S04E04
-    start: "00:03:49"
+    start: "00:03:48"
     end: "00:04:12"
     label: "Meereen — with Grey Worm, Missandei, Barristan Selmy"
     tags: [meereen]
   - episode: S04E04
-    start: "00:07:53"
+    start: "00:07:52"
     end: "00:10:10"
     label: "Meereen — with Jorah Mormont, Barristan Selmy, Grey Worm +1"
     tags: [meereen]
   - episode: S04E05
-    start: "00:06:41"
+    start: "00:06:40"
     end: "00:10:20"
     label: "Meereen — with Barristan Selmy, Missandei, Jorah Mormont +2"
     tags: [meereen]
   - episode: S04E06
-    start: "00:19:49"
+    start: "00:19:48"
     end: "00:25:00"
     label: "Meereen — with Barristan Selmy, Jorah Mormont, Missandei +4"
     tags: [meereen]
   - episode: S04E07
-    start: "00:18:08"
+    start: "00:18:07"
     end: "00:20:44"
     label: "Meereen — with Daario Naharis"
     tags: [meereen]
   - episode: S04E07
-    start: "00:25:01"
+    start: "00:25:00"
     end: "00:27:56"
     label: "Meereen — with Jorah Mormont"
     tags: [meereen]
   - episode: S04E08
-    start: "00:09:38"
+    start: "00:09:37"
     end: "00:10:44"
     label: "Meereen — with Missandei"
     tags: [meereen]
   - episode: S04E08
-    start: "00:29:31"
+    start: "00:29:30"
     end: "00:32:42"
     label: "Meereen — with Barristan Selmy, Jorah Mormont, Missandei +1"
     tags: [meereen]
   - episode: S04E10
-    start: "00:21:04"
+    start: "00:21:03"
     end: "00:28:06"
     label: "Meereen — with Missandei, Fennesz, Barristan Selmy +4"
     tags: [meereen]
   - episode: S05E01
-    start: "00:19:20"
+    start: "00:19:19"
     end: "00:20:18"
     label: "Meereen — with Barristan Selmy, Grey Worm, Mossador +1"
     tags: [meereen]
   - episode: S05E01
-    start: "00:39:33"
+    start: "00:39:32"
     end: "00:44:56"
     label: "Meereen — with Hizdahr zo Loraq, Daario Naharis, Missandei +4"
     tags: [meereen]
   - episode: S05E02
-    start: "00:25:47"
+    start: "00:25:46"
     end: "00:28:34"
     label: "Meereen — with Barristan Selmy, Missandei, Grey Worm +3"
     tags: [meereen]
   - episode: S05E02
-    start: "00:48:27"
+    start: "00:48:26"
     end: "00:55:46"
     label: "Meereen — with Mossador, Grey Worm, Missandei +4"
     tags: [meereen]
   - episode: S05E04
-    start: "00:43:59"
+    start: "00:43:58"
     end: "00:46:22"
     label: "Meereen — with Barristan Selmy, Daario Naharis, Hizdahr zo Loraq +1"
     tags: [meereen]
   - episode: S05E05
-    start: "00:03:58"
+    start: "00:03:57"
     end: "00:08:38"
     label: "Meereen — with Daario Naharis, Barristan Selmy, Hizdahr zo Loraq +9"
     tags: [meereen]
   - episode: S05E05
-    start: "00:46:02"
+    start: "00:46:01"
     end: "00:48:50"
     label: "Meereen — with Missandei, Hizdahr zo Loraq"
     tags: [meereen]
   - episode: S05E07
-    start: "00:29:18"
+    start: "00:29:17"
     end: "00:31:52"
     label: "Meereen — with Daario Naharis"
     tags: [meereen]
   - episode: S05E07
-    start: "00:47:12"
+    start: "00:47:11"
     end: "00:51:34"
     label: "Meereen — with Hizdahr zo Loraq, Yezzan zo Qaggaz, Jorah Mormont +1"
     tags: [meereen]
   - episode: S05E08
-    start: "00:03:35"
+    start: "00:03:34"
     end: "00:08:24"
     label: "Meereen — with Missandei, Jorah Mormont, Tyrion Lannister"
     tags: [meereen]
   - episode: S05E08
-    start: "00:21:26"
+    start: "00:21:25"
     end: "00:26:40"
     label: "Meereen — with Tyrion Lannister"
     tags: [meereen]
   - episode: S05E09
-    start: "00:37:03"
+    start: "00:37:02"
     end: "00:53:26"
     label: "Meereen — with Tyrion Lannister, Daario Naharis, Missandei +4"
     tags: [meereen]
   - episode: S05E10
-    start: "00:40:02"
+    start: "00:40:01"
     end: "00:43:56"
     label: "The Dothraki Sea — with Drogon"
     tags: [the-dothraki-sea]
   - episode: S06E01
-    start: "00:40:52"
+    start: "00:40:51"
     end: "00:46:28"
     label: "The Dothraki Sea — with Akho, Qhono, Khal Moro +4"
     tags: [the-dothraki-sea]
   - episode: S06E03
-    start: "00:21:38"
+    start: "00:21:37"
     end: "00:25:22"
     label: "Vaes Dothrak — with Akho, Qhono, Khal Moro +4"
     tags: [vaes-dothrak]
   - episode: S06E04
-    start: "00:28:41"
+    start: "00:28:40"
     end: "00:31:06"
     label: "Vaes Dothrak — with High Priestess, Ornela, Dothraki Widow #1 +3"
     tags: [vaes-dothrak]
   - episode: S06E04
-    start: "00:54:41"
+    start: "00:54:40"
     end: "01:00:34"
     label: "Vaes Dothrak — with Khal Moro, Dothraki Bloodrider #1, Dothraki Bloodrider #2 +8"
     tags: [vaes-dothrak]
   - episode: S06E05
-    start: "00:30:13"
+    start: "00:30:12"
     end: "00:33:24"
     label: "Vaes Dothrak — with Jorah Mormont, Daario Naharis"
     tags: [vaes-dothrak]
   - episode: S06E06
-    start: "00:05:24"
+    start: "00:05:23"
     end: "00:05:30"
     label: "Outside the Three-Eyed Raven — with The Night King, Bran Stark, Catelyn Stark +5"
     tags: [north-of-the-wall, outside-the-three-eyed-raven, flashback]
   - episode: S06E06
-    start: "00:49:02"
+    start: "00:49:01"
     end: "00:50:24"
     label: "The Dothraki Sea — with Daario Naharis"
     tags: [the-dothraki-sea]
   - episode: S06E06
-    start: "00:51:10"
+    start: "00:51:09"
     end: "00:53:04"
     label: "The Dothraki Sea — with Drogon, Daario Naharis"
     tags: [the-dothraki-sea]
   - episode: S06E08
-    start: "00:48:14"
+    start: "00:48:13"
     end: "00:48:26"
     label: "Meereen — with Tyrion Lannister, Missandei, Grey Worm +1"
     tags: [meereen]
   - episode: S06E09
-    start: "00:05:04"
+    start: "00:05:03"
     end: "00:10:14"
     label: "Meereen — with Tyrion Lannister, Grey Worm, Missandei +6"
     tags: [meereen]
   - episode: S06E09
-    start: "00:10:48"
+    start: "00:10:47"
     end: "00:12:04"
     label: "Meereen — with Drogon, Viserion, Rhaegal"
     tags: [meereen]
   - episode: S06E09
-    start: "00:28:53"
+    start: "00:28:52"
     end: "00:32:56"
     label: "Meereen — with Tyrion Lannister, Theon Greyjoy, Yara Greyjoy"
     tags: [meereen]
   - episode: S06E10
-    start: "00:44:01"
+    start: "00:44:00"
     end: "00:51:04"
     label: "Meereen — with Daario Naharis, Tyrion Lannister"
     tags: [meereen]
   - episode: S06E10
-    start: "01:09:37"
+    start: "01:09:36"
     end: "01:09:56"
     label: "The Summer Sea — with Tyrion Lannister, Lord Varys, Missandei"
     tags: [the-summer-sea]
   - episode: S07E01
-    start: "00:55:31"
+    start: "00:55:30"
     end: "01:01:04"
     label: "Dragonstone — with Tyrion Lannister, Missandei, Lord Varys +4"
     tags: [the-crownlands, dragonstone]
   - episode: S07E02
-    start: "00:05:02"
+    start: "00:05:01"
     end: "00:13:06"
     label: "Dragonstone — with Tyrion Lannister, Lord Varys, Grey Worm +2"
     tags: [the-crownlands, dragonstone]
   - episode: S07E02
-    start: "00:22:24"
+    start: "00:22:23"
     end: "00:26:38"
     label: "Dragonstone — with Yara Greyjoy, Theon Greyjoy, Tyrion Lannister +5"
     tags: [the-crownlands, dragonstone]
   - episode: S07E03
-    start: "00:09:55"
+    start: "00:09:54"
     end: "00:20:26"
     label: "Dragonstone — with Jon Snow, Davos Seaworth, Tyrion Lannister +3"
     tags: [the-crownlands, dragonstone]
   - episode: S07E03
-    start: "00:38:16"
+    start: "00:38:15"
     end: "00:42:04"
     label: "Dragonstone — with Tyrion Lannister, Jon Snow, Viserion +1"
     tags: [the-crownlands, dragonstone]
   - episode: S07E03
-    start: "00:51:48"
+    start: "00:51:47"
     end: "00:52:48"
     label: "Dragonstone — with Tyrion Lannister, Missandei, Lord Varys"
     tags: [the-crownlands, dragonstone]
   - episode: S07E03
-    start: "00:53:38"
+    start: "00:53:37"
     end: "00:54:12"
     label: "Dragonstone — with Tyrion Lannister, Missandei, Lord Varys"
     tags: [the-crownlands, dragonstone]
   - episode: S07E04
-    start: "00:21:21"
+    start: "00:21:20"
     end: "00:28:58"
     label: "Dragonstone — with Missandei, Qhono, Jon Snow +6"
     tags: [the-crownlands, dragonstone]
   - episode: S07E04
-    start: "00:40:25"
+    start: "00:40:24"
     end: "00:40:46"
     label: "Blackwater Rush — with Bronn, Jaime Lannister, Dickon Tarly +2"
     tags: [the-crownlands, blackwater-rush]
   - episode: S07E04
-    start: "00:42:12"
+    start: "00:42:11"
     end: "00:43:20"
     label: "Blackwater Rush — with Drogon, Bronn, Jaime Lannister"
     tags: [the-crownlands, blackwater-rush]
   - episode: S07E04
-    start: "00:45:53"
+    start: "00:45:52"
     end: "00:46:08"
     label: "Blackwater Rush — with Drogon, Tyrion Lannister, Qhono"
     tags: [the-crownlands, blackwater-rush]
   - episode: S07E04
-    start: "00:46:47"
+    start: "00:46:46"
     end: "00:49:44"
     label: "Blackwater Rush — with Drogon, Jaime Lannister, Bronn +2"
     tags: [the-crownlands, blackwater-rush]
   - episode: S07E05
-    start: "00:06:42"
+    start: "00:06:41"
     end: "00:11:54"
     label: "Blackwater Rush — with Drogon, Tyrion Lannister, Qhono +2"
     tags: [the-crownlands, blackwater-rush]
   - episode: S07E05
-    start: "00:14:34"
+    start: "00:14:33"
     end: "00:18:58"
     label: "Dragonstone — with Jon Snow, Drogon, Rhaegal +3"
     tags: [the-crownlands, dragonstone]
   - episode: S07E05
-    start: "00:25:10"
+    start: "00:25:09"
     end: "00:28:46"
     label: "Dragonstone — with Jon Snow, Tyrion Lannister, Lord Varys +2"
     tags: [the-crownlands, dragonstone]
   - episode: S07E05
-    start: "00:45:57"
+    start: "00:45:56"
     end: "00:47:22"
     label: "Dragonstone — with Jorah Mormont, Tyrion Lannister, Qhono +3"
     tags: [the-crownlands, dragonstone]
   - episode: S07E06
-    start: "00:19:36"
+    start: "00:19:35"
     end: "00:24:40"
     label: "Dragonstone — with Tyrion Lannister"
     tags: [the-crownlands, dragonstone]
   - episode: S07E06
-    start: "00:45:04"
+    start: "00:45:03"
     end: "00:46:10"
     label: "Dragonstone — with Drogon, Viserion, Rhaegal +1"
     tags: [the-crownlands, dragonstone]
   - episode: S07E06
-    start: "00:52:09"
+    start: "00:52:08"
     end: "00:56:28"
     label: "The Haunted Forest — with Jon Snow, Jorah Mormont, Tormund Giantsbane +7"
     tags: [north-of-the-wall, the-haunted-forest]
   - episode: S07E06
-    start: "01:00:08"
+    start: "01:00:07"
     end: "01:01:50"
     label: "Eastwatch — with Rhaegal, Jorah Mormont, Jon Snow +1"
     tags: [the-wall, eastwatch]
   - episode: S07E06
-    start: "01:05:53"
+    start: "01:05:52"
     end: "01:09:22"
     label: "The Shivering Sea — with Jon Snow"
     tags: [the-shivering-sea]
   - episode: S07E07
-    start: "00:17:22"
+    start: "00:17:21"
     end: "00:31:22"
     label: "Outside King's Landing — with Tyrion Lannister, Jon Snow, Davos Seaworth +14"
     tags: [the-crownlands, outside-kings-landing]
   - episode: S07E07
-    start: "00:38:21"
+    start: "00:38:20"
     end: "00:42:28"
     label: "Outside King's Landing — with Jon Snow, Tyrion Lannister, Davos Seaworth +11"
     tags: [the-crownlands, outside-kings-landing]
   - episode: S07E07
-    start: "00:46:11"
+    start: "00:46:10"
     end: "00:47:30"
     label: "Dragonstone — with Tyrion Lannister, Jon Snow, Davos Seaworth +5"
     tags: [the-crownlands, dragonstone]
   - episode: S07E07
-    start: "01:11:42"
+    start: "01:11:41"
     end: "01:13:10"
     label: "The Narrow Sea — with Jon Snow"
     tags: [the-narrow-sea]
   - episode: S08E01
-    start: "00:05:54"
+    start: "00:05:53"
     end: "00:06:40"
     label: "Winter Town — with Jon Snow, Qhono, Arya Stark"
     tags: [the-north, winter-town]
   - episode: S08E01
-    start: "00:07:48"
+    start: "00:07:47"
     end: "00:13:40"
     label: "Winter Town — with Jon Snow, Drogon, Rhaegal +16"
     tags: [the-north, winter-town, winterfell]
   - episode: S08E01
-    start: "00:31:45"
+    start: "00:31:44"
     end: "00:37:28"
     label: "Winterfell — with Davos Seaworth, Lord Varys, Tyrion Lannister +4"
     tags: [the-north, winterfell, outside-winterfell]
   - episode: S08E01
-    start: "00:41:50"
+    start: "00:41:49"
     end: "00:44:22"
     label: "Winterfell — with Jorah Mormont, Samwell Tarly"
     tags: [the-north, winterfell]
   - episode: S08E02
-    start: "00:03:40"
+    start: "00:03:39"
     end: "00:09:00"
     label: "Winterfell — with Jaime Lannister, Sansa Stark, Jon Snow +11"
     tags: [the-north, winterfell]
   - episode: S08E02
-    start: "00:18:14"
+    start: "00:18:13"
     end: "00:24:44"
     label: "Winterfell — with Jorah Mormont, Sansa Stark, Yohn Royce +2"
     tags: [the-north, winterfell]
   - episode: S08E02
-    start: "00:28:22"
+    start: "00:28:21"
     end: "00:31:36"
     label: "Winterfell — with Jon Snow, Theon Greyjoy, Arya Stark +17"
     tags: [the-north, winterfell]
   - episode: S08E02
-    start: "00:53:57"
+    start: "00:53:56"
     end: "00:57:50"
     label: "Winterfell — with Jon Snow, Tyrion Lannister"
     tags: [the-north, winterfell]
   - episode: S08E03
-    start: "00:08:09"
+    start: "00:08:08"
     end: "00:08:24"
     label: "Winterfell — with Jon Snow"
     tags: [the-north, winterfell]
   - episode: S08E03
-    start: "00:13:31"
+    start: "00:13:30"
     end: "00:13:38"
     label: "Winterfell — with Jon Snow"
     tags: [the-north, winterfell]
   - episode: S08E03
-    start: "00:14:15"
+    start: "00:14:14"
     end: "00:14:24"
     label: "Winterfell — with Jon Snow"
     tags: [the-north, winterfell]
   - episode: S08E03
-    start: "00:16:04"
+    start: "00:16:03"
     end: "00:16:20"
     label: "Winterfell — with Jon Snow"
     tags: [the-north, winterfell]
   - episode: S08E03
-    start: "00:18:05"
+    start: "00:18:04"
     end: "00:19:28"
     label: "Winterfell — with Drogon, Tormund Giantsbane, Jon Snow +4"
     tags: [the-north, winterfell]
   - episode: S08E03
-    start: "00:20:05"
+    start: "00:20:04"
     end: "00:20:10"
     label: "Winterfell — with Drogon"
     tags: [the-north, winterfell]
   - episode: S08E03
-    start: "00:22:39"
+    start: "00:22:38"
     end: "00:23:22"
     label: "Winterfell — with Jon Snow, Rhaegal, Drogon"
     tags: [the-north, winterfell]
   - episode: S08E03
-    start: "00:24:57"
+    start: "00:24:56"
     end: "00:25:14"
     label: "Winterfell — with Jon Snow, Rhaegal, Drogon"
     tags: [the-north, winterfell]
   - episode: S08E03
-    start: "00:28:01"
+    start: "00:28:00"
     end: "00:28:08"
     label: "Winterfell — with Drogon"
     tags: [the-north, winterfell]
   - episode: S08E03
-    start: "00:30:37"
+    start: "00:30:36"
     end: "00:30:40"
     label: "Winterfell — with Drogon"
     tags: [the-north, winterfell]
   - episode: S08E03
-    start: "00:44:21"
+    start: "00:44:20"
     end: "00:45:46"
     label: "Winterfell — with Viserion, The Night King, Drogon +2"
     tags: [the-north, winterfell]
   - episode: S08E03
-    start: "00:57:45"
+    start: "00:57:44"
     end: "01:00:04"
     label: "Winterfell — with Viserion, The Night King, Jon Snow +2"
     tags: [the-north, winterfell]
   - episode: S08E03
-    start: "01:04:25"
+    start: "01:04:24"
     end: "01:06:08"
     label: "Winterfell — with Jon Snow, Drogon, Jorah Mormont"
     tags: [the-north, winterfell]
   - episode: S08E03
-    start: "01:07:50"
+    start: "01:07:49"
     end: "01:08:06"
     label: "Winterfell — with Jorah Mormont"
     tags: [the-north, winterfell]
   - episode: S08E03
-    start: "01:09:46"
+    start: "01:09:45"
     end: "01:10:02"
     label: "Winterfell — with Jorah Mormont"
     tags: [the-north, winterfell]
   - episode: S08E03
-    start: "01:11:07"
+    start: "01:11:06"
     end: "01:11:16"
     label: "Winterfell — with Jorah Mormont"
     tags: [the-north, winterfell]
   - episode: S08E03
-    start: "01:15:13"
+    start: "01:15:12"
     end: "01:15:42"
     label: "Winterfell — with Jorah Mormont"
     tags: [the-north, winterfell]
   - episode: S08E03
-    start: "01:18:24"
+    start: "01:18:23"
     end: "01:18:34"
     label: "Winterfell — with Jorah Mormont"
     tags: [the-north, winterfell]
   - episode: S08E03
-    start: "01:19:25"
+    start: "01:19:24"
     end: "01:20:08"
     label: "Winterfell — with Jorah Mormont, Drogon"
     tags: [the-north, winterfell]
   - episode: S08E04
-    start: "00:04:12"
+    start: "00:04:11"
     end: "00:05:10"
     label: "Winterfell — with Jorah Mormont"
     tags: [the-north, winterfell]
   - episode: S08E04
-    start: "00:05:50"
+    start: "00:05:49"
     end: "00:10:18"
     label: "Winterfell — with Jon Snow, Samwell Tarly, Bran Stark +20"
     tags: [the-north, winterfell]
   - episode: S08E04
-    start: "00:10:53"
+    start: "00:10:52"
     end: "00:13:16"
     label: "Winterfell — with Gendry, Sandor Clegane, Jon Snow +12"
     tags: [the-north, winterfell]
   - episode: S08E04
-    start: "00:14:31"
+    start: "00:14:30"
     end: "00:14:34"
     label: "Winterfell — with Davos Seaworth, Tyrion Lannister, Brienne of Tarth +5"
     tags: [the-north, winterfell]
   - episode: S08E04
-    start: "00:15:50"
+    start: "00:15:49"
     end: "00:16:34"
     label: "Winterfell — with Jon Snow, Sansa Stark, Tormund Giantsbane +6"
     tags: [the-north, winterfell]
   - episode: S08E04
-    start: "00:17:08"
+    start: "00:17:07"
     end: "00:18:54"
     label: "Winterfell — with Tormund Giantsbane, Jon Snow, Davos Seaworth +5"
     tags: [the-north, winterfell]
   - episode: S08E04
-    start: "00:28:30"
+    start: "00:28:29"
     end: "00:37:10"
     label: "Winterfell — with Jon Snow, Grey Worm, Yohn Royce +8"
     tags: [the-north, winterfell]
   - episode: S08E04
-    start: "00:45:03"
+    start: "00:45:02"
     end: "00:46:00"
     label: "Outside Winterfell — with Drogon, Rhaegal, Sansa Stark +1"
     tags: [the-north, outside-winterfell, winterfell]
   - episode: S08E04
-    start: "00:54:02"
+    start: "00:54:01"
     end: "00:55:56"
     label: "Dragonstone — with Drogon, Rhaegal, Tyrion Lannister +3"
     tags: [the-crownlands, dragonstone]
   - episode: S08E04
-    start: "00:59:03"
+    start: "00:59:02"
     end: "01:01:24"
     label: "Dragonstone — with Grey Worm, Lord Varys, Tyrion Lannister"
     tags: [the-crownlands, dragonstone]
   - episode: S08E04
-    start: "01:08:57"
+    start: "01:08:56"
     end: "01:11:32"
     label: "King's Landing — with Lord Varys, Grey Worm, Tyrion Lannister +6"
     tags: [the-crownlands, kings-landing]
   - episode: S08E04
-    start: "01:12:05"
+    start: "01:12:04"
     end: "01:14:02"
     label: "King's Landing — with Tyrion Lannister, Qyburn, Gregor Clegane +5"
     tags: [the-crownlands, kings-landing]
   - episode: S08E04
-    start: "01:15:22"
+    start: "01:15:21"
     end: "01:17:56"
     label: "King's Landing — with Gregor Clegane, Cersei Lannister, Euron Greyjoy +6"
     tags: [the-crownlands, kings-landing]
   - episode: S08E05
-    start: "00:08:43"
+    start: "00:08:42"
     end: "00:11:36"
     label: "Dragonstone — with Tyrion Lannister"
     tags: [the-crownlands, dragonstone]
   - episode: S08E05
-    start: "00:12:41"
+    start: "00:12:40"
     end: "00:21:22"
     label: "Dragonstone — with Lord Varys, Grey Worm, Jon Snow +2"
     tags: [the-crownlands, dragonstone]
   - episode: S08E05
-    start: "00:35:52"
+    start: "00:35:51"
     end: "00:37:38"
     label: "Blackwater Bay — with Euron Greyjoy, Drogon"
     tags: [the-crownlands, blackwater-bay, kings-landing]
   - episode: S08E05
-    start: "00:38:13"
+    start: "00:38:12"
     end: "00:38:30"
     label: "King's Landing — with Harry Strickland, Grey Worm, Jon Snow +2"
     tags: [the-crownlands, kings-landing]
   - episode: S08E05
-    start: "00:39:40"
+    start: "00:39:39"
     end: "00:41:02"
     label: "King's Landing — with Drogon"
     tags: [the-crownlands, kings-landing]
   - episode: S08E05
-    start: "00:41:39"
+    start: "00:41:38"
     end: "00:41:42"
     label: "King's Landing — with Cersei Lannister, Qyburn, Gregor Clegane +1"
     tags: [the-crownlands, kings-landing]
   - episode: S08E05
-    start: "00:43:18"
+    start: "00:43:17"
     end: "00:43:50"
     label: "King's Landing — with Drogon"
     tags: [the-crownlands, kings-landing]
   - episode: S08E05
-    start: "00:44:59"
+    start: "00:44:58"
     end: "00:45:46"
     label: "King's Landing — with Drogon, Cersei Lannister, Tyrion Lannister"
     tags: [the-crownlands, kings-landing]
   - episode: S08E05
-    start: "00:46:22"
+    start: "00:46:21"
     end: "00:47:36"
     label: "King's Landing — with Drogon"
     tags: [the-crownlands, kings-landing]
   - episode: S08E05
-    start: "00:49:06"
+    start: "00:49:05"
     end: "00:49:38"
     label: "King's Landing — with Drogon"
     tags: [the-crownlands, kings-landing]
   - episode: S08E05
-    start: "00:50:36"
+    start: "00:50:35"
     end: "00:50:42"
     label: "King's Landing — with Drogon"
     tags: [the-crownlands, kings-landing]
   - episode: S08E05
-    start: "00:51:45"
+    start: "00:51:44"
     end: "00:52:14"
     label: "King's Landing — with Drogon, Cersei Lannister"
     tags: [the-crownlands, kings-landing]
   - episode: S08E05
-    start: "00:53:14"
+    start: "00:53:13"
     end: "00:53:32"
     label: "King's Landing — with Drogon"
     tags: [the-crownlands, kings-landing]
   - episode: S08E05
-    start: "00:57:12"
+    start: "00:57:11"
     end: "00:57:24"
     label: "King's Landing — with Drogon"
     tags: [the-crownlands, kings-landing]
   - episode: S08E05
-    start: "01:00:49"
+    start: "01:00:48"
     end: "01:00:52"
     label: "King's Landing — with Gregor Clegane, Qyburn, Sandor Clegane +1"
     tags: [the-crownlands, kings-landing]
   - episode: S08E05
-    start: "01:05:57"
+    start: "01:05:56"
     end: "01:06:00"
     label: "King's Landing — with Arya Stark, Drogon"
     tags: [the-crownlands, kings-landing]
   - episode: S08E05
-    start: "01:09:17"
+    start: "01:09:16"
     end: "01:10:06"
     label: "King's Landing — with Drogon, Jon Snow, Davos Seaworth"
     tags: [the-crownlands, kings-landing]
   - episode: S08E05
-    start: "01:12:46"
+    start: "01:12:45"
     end: "01:13:10"
     label: "King's Landing — with Arya Stark, Eleanor, Eleanor's Daughter +1"
     tags: [the-crownlands, kings-landing]
   - episode: S08E06
-    start: "00:15:46"
+    start: "00:15:45"
     end: "00:23:26"
     label: "King's Landing — with Jon Snow, Grey Worm, Drogon +2"
     tags: [the-crownlands, kings-landing]
   - episode: S08E06
-    start: "00:33:56"
+    start: "00:33:55"
     end: "00:44:52"
     label: "King's Landing — with Jon Snow, Drogon"
     tags: [the-crownlands, kings-landing, blackwater-bay]
