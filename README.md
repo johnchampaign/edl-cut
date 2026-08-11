@@ -275,12 +275,15 @@ fails the build if any test writes media into the working tree.
 |---|---|---|---|---|
 | `dany-scenes.yaml` | Daenerys Targaryen | 175 | 9.0 h | S01E01–S08E06 |
 | `jon-scenes.yaml` | Jon Snow | 219 | 11.4 h | S01E01–S08E06 |
+| `tyrion-scenes.yaml` | Tyrion Lannister | 208 | 11.7 h | S01E01–S08E06 |
 | `robert-scenes.yaml` | Robert Baratheon | 16 | 0.95 h | S01E01–S01E07 |
 
-Both are in **dataset time**, so they work against any library once it has been
-calibrated. Robert is the useful counter-example to Daenerys: a whole arc that
+All are in **dataset time**, so they work against any library once it has been
+calibrated. Robert is the useful counter-example to the leads: a whole arc that
 begins and ends inside one season, which is what a scene list has to handle for
-the format to be worth anything beyond leads.
+the format to be worth anything beyond protagonists. Tyrion appears in 67 of 73
+episodes, the widest coverage of anyone, which makes his the broadest test of a
+library's calibration.
 
 ```bash
 python3 -m edl_cut.cli --character "Robert Baratheon" --media /path/to/media \
