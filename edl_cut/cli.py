@@ -234,6 +234,11 @@ def cmd_generate(args: argparse.Namespace) -> int:
         text = scenelist.to_yaml(segments, "Game of Thrones", character)
         Path(args.scene_list).write_text(text, encoding="utf-8")
         print(f"Wrote scene list (dataset time, publishable): {args.scene_list}")
+        readable = Path(str(args.scene_list).replace("-scenes.yaml", "-scenes.md"))
+        readable.write_text(
+            scenelist.to_readable(segments, "Game of Thrones", character),
+            encoding="utf-8")
+        print(f"Wrote readable listing: {readable}")
 
     offsets = cache.offsets(root)
     if not offsets:
@@ -276,6 +281,8 @@ def cmd_generate(args: argparse.Namespace) -> int:
         return _export(resolved, args)
 
     render, suffix = emit.EMITTERS[args.format]
+    if args.format == "text":
+        render = lambda r: emit.to_readable(r, character)
     out = Path(args.out) if args.out else Path(
         character.lower().replace(" ", "-") + suffix)
     out.write_text(render(resolved), encoding="utf-8")

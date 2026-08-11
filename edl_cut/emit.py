@@ -163,3 +163,26 @@ def snap_ends_to_dialogue(
             added += finish - end
         out.append((segment, path, start, finish))
     return out, extended, added
+
+
+def to_readable(resolved: list[tuple[Segment, Path, float, float]],
+                character: str = "Character") -> str:
+    """Human-readable listing on the *local* clock.
+
+    Same document as the scene list's readable form, but with calibration
+    applied, so the numbers can be typed straight into a player. Exact for the
+    library it was made from and wrong for any other, which is why the portable
+    copy in `scenes/` stays on dataset time.
+    """
+    from .scenelist import Segment as _Segment, to_readable as _render
+
+    localised = [
+        _Segment(episode=segment.episode, start=start, end=end,
+                 label=segment.label, tags=segment.tags)
+        for segment, _path, start, end in resolved
+    ]
+    return _render(localised, "Game of Thrones", character, dataset_time=False)
+
+
+# Registered after definition: EMITTERS is declared above this point.
+EMITTERS["text"] = (to_readable, ".md")

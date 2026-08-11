@@ -271,12 +271,37 @@ fails the build if any test writes media into the working tree.
 
 ## Scene lists in this repo
 
-| File | Character | Scenes | Runtime | Span |
-|---|---|---|---|---|
-| `dany-scenes.yaml` | Daenerys Targaryen | 175 | 9.0 h | S01E01–S08E06 |
-| `jon-scenes.yaml` | Jon Snow | 219 | 11.4 h | S01E01–S08E06 |
-| `tyrion-scenes.yaml` | Tyrion Lannister | 208 | 11.7 h | S01E01–S08E06 |
-| `robert-scenes.yaml` | Robert Baratheon | 16 | 0.95 h | S01E01–S01E07 |
+Scene lists live in [`scenes/`](scenes/), two files per character:
+
+| File | Purpose |
+|---|---|
+| `<name>-scenes.yaml` | input to the tool; hand-editable and diffable |
+| `<name>-scenes.md` | a listing to read directly — episode, start, end, and what the scene is |
+
+| Character | Scenes | Runtime | Span |
+|---|---|---|---|
+| Daenerys Targaryen | 175 | 9.0 h | S01E01–S08E06 |
+| Jon Snow | 219 | 11.4 h | S01E01–S08E06 |
+| Tyrion Lannister | 208 | 11.7 h | S01E01–S08E06 |
+| Robert Baratheon | 16 | 0.95 h | S01E01–S01E07 |
+
+### Watching without the tool
+
+The `.md` listing exists so the data is useful on its own: seasons, episodes,
+start and stop times, and a description of each scene. Skip to the timestamps by
+hand and you get the same viewing without installing anything.
+
+Those times are **dataset-relative**, so they are a few seconds out against any
+particular rip and further on some episodes — seek slightly early and let the
+scene arrive. For times exact to your own files:
+
+```bash
+python3 -m edl_cut.cli --calibrate --media /path/to/media
+python3 -m edl_cut.cli --character "Arya Stark" --media /path/to/media --format text
+```
+
+That writes the same document with your calibration applied, so the numbers can
+be typed straight into a player.
 
 All are in **dataset time**, so they work against any library once it has been
 calibrated. Robert is the useful counter-example to the leads: a whole arc that

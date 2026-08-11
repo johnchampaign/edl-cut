@@ -223,3 +223,71 @@ def preview(segments: list[Segment], count: int = 8,
         )
         for i in range(count)
     ]
+
+
+def _clock(seconds: float) -> str:
+    """0:33:44 style, dropping the hour when there isn't one."""
+    total = int(round(seconds))
+    hours, rest = divmod(total, 3600)
+    minutes, secs = divmod(rest, 60)
+    return f"{hours}:{minutes:02d}:{secs:02d}" if hours else f"{minutes}:{secs:02d}"
+
+
+def to_readable(segments: list[Segment], series: str, character: str,
+                dataset_time: bool = True) -> str:
+    """A listing a person can follow with a remote control.
+
+    The point of this file is to be useful without the tool: episode, start,
+    end, and what the scene is, grouped by season.
+
+    `dataset_time` decides which clock the numbers are on, and the distinction
+    matters enough to be stated in the document itself. Dataset time is portable
+    — the same file serves every reader — but will be a few seconds out against
+    any particular rip, and tens of seconds out on some episodes. Local time is
+    exact for one library and wrong for everyone else's.
+    """
+    total = sum(s.duration for s in segments)
+    episodes = sorted({s.episode for s in segments})
+    lines = [
+        f"# {character} — {series}",
+        "",
+        f"**{len(segments)} scenes · {total / 3600:.2f} hours · "
+        f"{len(episodes)} episodes**",
+        "",
+    ]
+    if dataset_time:
+        lines += [
+            "Times are **dataset-relative**: measured from the start of the cut "
+            "the scene data was logged against, which is not exactly your copy.",
+            "Expect to be a few seconds out, and further on some episodes — "
+            "seek a little early and let the scene come to you.",
+            "",
+            "For times exact to your own files, calibrate and regenerate:",
+            "",
+            "```",
+            "python3 -m edl_cut.cli --calibrate --media /path/to/media",
+            f'python3 -m edl_cut.cli --character "{character}" '
+            "--media /path/to/media --format text",
+            "```",
+        ]
+    else:
+        lines += [
+            "Times are **exact to the library this was generated against**. "
+            "They will not match a different rip.",
+        ]
+    lines.append("")
+
+    current_season = None
+    for segment in segments:
+        season = segment.episode[:3]
+        if season != current_season:
+            current_season = season
+            lines += ["", f"## Season {int(season[1:])}", "",
+                      "| Episode | Start | End | Length | Scene |",
+                      "|---|---|---|---|---|"]
+        label = segment.label.replace("|", "/")
+        lines.append(
+            f"| {segment.episode} | {_clock(segment.start)} | "
+            f"{_clock(segment.end)} | {_clock(segment.duration)} | {label} |"
+        )
+    return "\n".join(lines) + "\n"

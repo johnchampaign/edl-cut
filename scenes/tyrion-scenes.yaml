@@ -1,0 +1,1047 @@
+version: "1.0"
+series: "Game of Thrones"
+character: "Tyrion Lannister"
+# Timestamps are in DATASET time, not calibrated to any library.
+# edl-cut applies per-episode offsets when it emits a playlist.
+# 208 segments, 11.65 hours.
+scenes:
+  - episode: S01E01
+    start: "00:30:47"
+    end: "00:32:58"
+    label: "Winterfell — with Jaime Lannister, Ros"
+    tags: [the-north, winterfell]
+  - episode: S01E01
+    start: "00:41:19"
+    end: "00:44:14"
+    label: "Winterfell — with Jon Snow, Benjen Stark"
+    tags: [the-north, winterfell]
+  - episode: S01E01
+    start: "00:57:48"
+    end: "00:59:06"
+    label: "Winterfell — with Sandor Clegane, Theon Greyjoy, Eddard Stark +5"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:05:28"
+    end: "00:09:18"
+    label: "Winterfell — with Joffrey Baratheon, Sandor Clegane, Jaime Lannister +3"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:20:07"
+    end: "00:21:52"
+    label: "Winterfell — with Benjen Stark, Eddard Stark, Jon Snow"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:25:56"
+    end: "00:29:16"
+    label: "North to the Wall — with Jon Snow, Ghost, Benjen Stark +1"
+    tags: [the-north, north-to-the-wall]
+  - episode: S01E02
+    start: "00:34:21"
+    end: "00:34:54"
+    label: "The Gift — with Benjen Stark, Jon Snow"
+    tags: [the-wall, the-gift]
+  - episode: S01E03
+    start: "00:21:42"
+    end: "00:23:18"
+    label: "Castle Black — with Jeor Mormont, Alliser Thorne, Jon Snow +3"
+    tags: [the-wall, castle-black]
+  - episode: S01E03
+    start: "00:24:42"
+    end: "00:26:42"
+    label: "Castle Black — with Jon Snow, Rast, Grenn +1"
+    tags: [the-wall, castle-black]
+  - episode: S01E03
+    start: "00:41:52"
+    end: "00:45:46"
+    label: "Castle Black — with Yoren, Benjen Stark"
+    tags: [the-wall, castle-black]
+  - episode: S01E03
+    start: "00:48:38"
+    end: "00:50:42"
+    label: "Castle Black — with Jon Snow, Pypar, Grenn +3"
+    tags: [the-wall, castle-black]
+  - episode: S01E03
+    start: "00:51:30"
+    end: "00:52:32"
+    label: "Castle Black — with Jon Snow"
+    tags: [the-wall, castle-black]
+  - episode: S01E04
+    start: "00:03:30"
+    end: "00:06:40"
+    label: "Winterfell — with Robb Stark, Maester Luwin, Yoren +4"
+    tags: [the-north, winterfell]
+  - episode: S01E04
+    start: "00:51:27"
+    end: "00:54:32"
+    label: "Crossroads Inn — with Catelyn Stark, Rodrik Cassel, Marillion +2"
+    tags: [the-riverlands, crossroads-inn]
+  - episode: S01E05
+    start: "00:10:22"
+    end: "00:13:40"
+    label: "Eastern Road — with Marillion, Catelyn Stark, Rodrik Cassel +1"
+    tags: [the-vale, eastern-road]
+  - episode: S01E05
+    start: "00:29:03"
+    end: "00:30:14"
+    label: "Eastern Road — with Catelyn Stark, Rodrik Cassel, Bronn +1"
+    tags: [the-vale, eastern-road]
+  - episode: S01E05
+    start: "00:35:13"
+    end: "00:37:54"
+    label: "The Eyrie — with Catelyn Stark, Lysa Arryn, Robin Arryn +2"
+    tags: [the-vale, the-eyrie]
+  - episode: S01E06
+    start: "00:13:09"
+    end: "00:14:16"
+    label: "The Eyrie — with Mord"
+    tags: [the-vale, the-eyrie]
+  - episode: S01E06
+    start: "00:21:54"
+    end: "00:29:28"
+    label: "The Eyrie — with Mord, Lysa Arryn, Catelyn Stark +4"
+    tags: [the-vale, the-eyrie]
+  - episode: S01E06
+    start: "00:35:25"
+    end: "00:39:52"
+    label: "The Eyrie — with Bronn, Vardis Egen, Lysa Arryn +4"
+    tags: [the-vale, the-eyrie]
+  - episode: S01E08
+    start: "00:18:31"
+    end: "00:22:46"
+    label: "To the Westerlands — with Bronn, Shagga"
+    tags: [the-vale, to-the-westerlands]
+  - episode: S01E08
+    start: "00:43:21"
+    end: "00:47:52"
+    label: "Lannister Camp — with Bronn, Shagga, Timett +4"
+    tags: [the-westerlands, lannister-camp]
+  - episode: S01E09
+    start: "00:23:19"
+    end: "00:27:42"
+    label: "Lannister Camp — with Tywin Lannister, Kevan Lannister, Bronn +1"
+    tags: [the-riverlands, lannister-camp]
+  - episode: S01E09
+    start: "00:35:26"
+    end: "00:46:32"
+    label: "Lannister Camp — with Shae, Bronn, Timett +3"
+    tags: [the-riverlands, lannister-camp, battlefield]
+  - episode: S01E10
+    start: "00:19:23"
+    end: "00:22:38"
+    label: "Lannister Camp — with Tywin Lannister, Kevan Lannister, Leo Lefford +1"
+    tags: [the-riverlands, lannister-camp]
+  - episode: S01E10
+    start: "00:28:28"
+    end: "00:29:52"
+    label: "Lannister Camp — with Shae"
+    tags: [the-riverlands, lannister-camp]
+  - episode: S02E01
+    start: "00:03:12"
+    end: "00:10:50"
+    label: "King's Landing — with Joffrey Baratheon, Tommen Baratheon, Myrcella Baratheon +10"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E01
+    start: "00:35:42"
+    end: "00:37:22"
+    label: "King's Landing — with Shae"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E02
+    start: "00:05:46"
+    end: "00:10:22"
+    label: "King's Landing — with Shae, Lord Varys, Cersei Lannister +4"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E02
+    start: "00:24:17"
+    end: "00:28:04"
+    label: "King's Landing — with Podrick Payne, Janos Slynt, Bronn"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E02
+    start: "00:43:32"
+    end: "00:46:04"
+    label: "King's Landing — with Cersei Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E03
+    start: "00:19:03"
+    end: "00:20:44"
+    label: "King's Landing — with Shae"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E03
+    start: "00:24:24"
+    end: "00:28:22"
+    label: "King's Landing — with Grand Maester Pycelle, Lord Varys, Petyr Baelish"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E03
+    start: "00:33:39"
+    end: "00:35:02"
+    label: "King's Landing — with Cersei Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E03
+    start: "00:36:58"
+    end: "00:42:12"
+    label: "King's Landing — with Petyr Baelish, Bronn, Grand Maester Pycelle +3"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E04
+    start: "00:09:03"
+    end: "00:11:04"
+    label: "King's Landing — with Joffrey Baratheon, Sansa Stark, Sandor Clegane +3"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E04
+    start: "00:39:50"
+    end: "00:43:42"
+    label: "King's Landing — with Lancel Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E05
+    start: "00:08:07"
+    end: "00:11:24"
+    label: "King's Landing — with Cersei Lannister, Bronn, Lancel Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E05
+    start: "00:14:06"
+    end: "00:15:44"
+    label: "King's Landing — with Bronn, Protestor"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E05
+    start: "00:28:15"
+    end: "00:31:16"
+    label: "King's Landing — with Hallyne, Bronn"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E06
+    start: "00:23:41"
+    end: "00:24:38"
+    label: "King's Landing — with Myrcella Baratheon, High Septon, Cersei Lannister +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E06
+    start: "00:25:12"
+    end: "00:28:34"
+    label: "King's Landing — with Joffrey Baratheon, Sandor Clegane, Sansa Stark +4"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E06
+    start: "00:29:24"
+    end: "00:29:44"
+    label: "King's Landing — with Joffrey Baratheon, Meryn Trant, Sandor Clegane +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E07
+    start: "00:46:06"
+    end: "00:49:28"
+    label: "King's Landing — with Cersei Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E08
+    start: "00:18:33"
+    end: "00:22:16"
+    label: "King's Landing — with Bronn, Lord Varys"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E08
+    start: "00:26:57"
+    end: "00:33:50"
+    label: "King's Landing — with Podrick Payne, Cersei Lannister, Ros +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E08
+    start: "00:45:03"
+    end: "00:48:16"
+    label: "King's Landing — with Joffrey Baratheon, Lord Varys"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:04:46"
+    end: "00:06:30"
+    label: "King's Landing — with Shae"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:12:08"
+    end: "00:15:00"
+    label: "King's Landing — with Lord Varys, Podrick Payne"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:15:46"
+    end: "00:17:16"
+    label: "King's Landing — with Bronn, Podrick Payne, Sansa Stark +3"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:19:02"
+    end: "00:20:12"
+    label: "King's Landing — with Podrick Payne, Joffrey Baratheon, Sandor Clegane +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:22:39"
+    end: "00:23:32"
+    label: "King's Landing — with Sandor Clegane, Lancel Lannister, Podrick Payne +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:24:17"
+    end: "00:26:22"
+    label: "King's Landing — with Hallyne, Joffrey Baratheon, Podrick Payne +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:31:24"
+    end: "00:31:56"
+    label: "King's Landing — with Sandor Clegane, Joffrey Baratheon, Captain of the Archers +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:32:55"
+    end: "00:33:18"
+    label: "King's Landing — with Joffrey Baratheon, Hallyne, Podrick Payne"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:39:36"
+    end: "00:40:22"
+    label: "King's Landing — with Sandor Clegane, Joffrey Baratheon"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:41:26"
+    end: "00:44:18"
+    label: "King's Landing — with Joffrey Baratheon, Lancel Lannister, Mandon Moore +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:48:05"
+    end: "00:50:02"
+    label: "King's Landing — with Mandon Moore, Podrick Payne"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:50:51"
+    end: "00:50:54"
+    label: "King's Landing — with Podrick Payne"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:51:58"
+    end: "00:52:14"
+    label: "King's Landing — with Podrick Payne"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E10
+    start: "00:01:54"
+    end: "00:03:34"
+    label: "King's Landing — with Grand Maester Pycelle, Podrick Payne"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E10
+    start: "00:28:54"
+    end: "00:33:32"
+    label: "King's Landing — with Lord Varys, Podrick Payne, Shae"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E01
+    start: "00:13:36"
+    end: "00:17:04"
+    label: "King's Landing — with Cersei Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E01
+    start: "00:17:57"
+    end: "00:18:52"
+    label: "King's Landing — with Bronn, Podrick Payne"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E01
+    start: "00:26:45"
+    end: "00:31:42"
+    label: "King's Landing — with Tywin Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E02
+    start: "00:36:06"
+    end: "00:39:28"
+    label: "King's Landing — with Shae"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E03
+    start: "00:06:29"
+    end: "00:10:34"
+    label: "King's Landing — with Tywin Lannister, Grand Maester Pycelle, Petyr Baelish +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E03
+    start: "00:35:15"
+    end: "00:42:06"
+    label: "King's Landing — with Ros, Podrick Payne, Petyr Baelish +4"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E04
+    start: "00:04:40"
+    end: "00:08:46"
+    label: "King's Landing — with Lord Varys, Sorcerer"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E05
+    start: "00:16:47"
+    end: "00:19:10"
+    label: "King's Landing — with Olenna Tyrell, Podrick Payne"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E05
+    start: "00:52:25"
+    end: "00:56:04"
+    label: "King's Landing — with Cersei Lannister, Tywin Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E06
+    start: "00:41:41"
+    end: "00:44:34"
+    label: "King's Landing — with Cersei Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E06
+    start: "00:45:14"
+    end: "00:46:16"
+    label: "King's Landing — with Sansa Stark, Shae, Handmaid"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E07
+    start: "00:14:32"
+    end: "00:15:54"
+    label: "King's Landing — with Bronn"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E07
+    start: "00:25:54"
+    end: "00:28:10"
+    label: "King's Landing — with Shae"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E08
+    start: "00:17:58"
+    end: "00:20:24"
+    label: "King's Landing — with Sansa Stark, Shae, Podrick Payne"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E08
+    start: "00:22:26"
+    end: "00:25:32"
+    label: "King's Landing — with Sansa Stark, Joffrey Baratheon, Bronn +8"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E08
+    start: "00:32:24"
+    end: "00:35:26"
+    label: "King's Landing — with Sansa Stark, Olenna Tyrell, Margaery Tyrell +7"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E08
+    start: "00:36:52"
+    end: "00:42:54"
+    label: "King's Landing — with Joffrey Baratheon, Sansa Stark, Margaery Tyrell +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E08
+    start: "00:47:02"
+    end: "00:47:56"
+    label: "King's Landing — with Sansa Stark, Shae"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E10
+    start: "00:03:24"
+    end: "00:12:54"
+    label: "King's Landing — with Sansa Stark, Shae, Desmond Crakehall +7"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E10
+    start: "00:35:22"
+    end: "00:38:46"
+    label: "King's Landing — with Podrick Payne, Cersei Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E01
+    start: "00:06:29"
+    end: "00:09:26"
+    label: "King's Landing — with Podrick Payne, Bronn, Lord Blackmont"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E01
+    start: "00:13:54"
+    end: "00:17:00"
+    label: "King's Landing — with Oberyn Martell, Morgan, Morgan's Friend +3"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E01
+    start: "00:20:39"
+    end: "00:25:06"
+    label: "King's Landing — with Shae, Sansa Stark"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:04:15"
+    end: "00:05:56"
+    label: "King's Landing — with Jaime Lannister, Podrick Payne"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:13:40"
+    end: "00:20:02"
+    label: "King's Landing — with Lord Varys, Podrick Payne, Mace Tyrell +8"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:28:56"
+    end: "00:29:54"
+    label: "King's Landing — with Lord Varys, Margaery Tyrell, Mace Tyrell +12"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:31:00"
+    end: "00:34:18"
+    label: "King's Landing — with Bronn, Podrick Payne, Oberyn Martell +14"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:35:26"
+    end: "00:37:26"
+    label: "King's Landing — with Brienne of Tarth, Margaery Tyrell, Cersei Lannister +8"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:38:25"
+    end: "00:38:52"
+    label: "King's Landing — with Dontos Hollard, Joffrey Baratheon, Margaery Tyrell +3"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:40:22"
+    end: "00:51:10"
+    label: "King's Landing — with Joffrey Baratheon, Margaery Tyrell, Sansa Stark +18"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E03
+    start: "00:01:55"
+    end: "00:02:14"
+    label: "King's Landing — with Joffrey Baratheon, Cersei Lannister, Podrick Payne +3"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E03
+    start: "00:38:14"
+    end: "00:43:16"
+    label: "King's Landing — with Podrick Payne"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E04
+    start: "00:12:21"
+    end: "00:15:02"
+    label: "King's Landing — with Jaime Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E06
+    start: "00:30:11"
+    end: "00:39:26"
+    label: "King's Landing — with Jaime Lannister, Tommen Baratheon, Tywin Lannister +8"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E06
+    start: "00:41:42"
+    end: "00:49:20"
+    label: "King's Landing — with Jaime Lannister, Loras Tyrell, Margaery Tyrell +5"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E07
+    start: "00:01:54"
+    end: "00:04:56"
+    label: "King's Landing — with Jaime Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E07
+    start: "00:13:39"
+    end: "00:18:08"
+    label: "King's Landing — with Bronn"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E07
+    start: "00:36:24"
+    end: "00:41:24"
+    label: "King's Landing — with Oberyn Martell"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E08
+    start: "00:40:37"
+    end: "00:52:02"
+    label: "King's Landing — with Jaime Lannister, Oberyn Martell, Ellaria Sand +6"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E10
+    start: "00:53:04"
+    end: "01:01:22"
+    label: "King's Landing — with Jaime Lannister, Shae, Tywin Lannister +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S05E01
+    start: "00:12:55"
+    end: "00:16:26"
+    label: "Pentos — with Lord Varys"
+    tags: [pentos]
+  - episode: S05E01
+    start: "00:36:04"
+    end: "00:39:14"
+    label: "Pentos — with Lord Varys"
+    tags: [pentos]
+  - episode: S05E02
+    start: "00:28:34"
+    end: "00:31:00"
+    label: "Pentos to Volantis — with Lord Varys"
+    tags: [pentos, pentos-to-volantis]
+  - episode: S05E03
+    start: "00:52:42"
+    end: "01:00:04"
+    label: "Volantis — with Lord Varys, Red Priestess, Brothel Guard +5"
+    tags: [volantis]
+  - episode: S05E04
+    start: "00:03:27"
+    end: "00:04:32"
+    label: "Volantis — with Jorah Mormont"
+    tags: [volantis]
+  - episode: S05E04
+    start: "00:40:31"
+    end: "00:43:58"
+    label: "Volantis to Valyria — with Jorah Mormont"
+    tags: [volantis, volantis-to-valyria]
+  - episode: S05E05
+    start: "00:48:50"
+    end: "00:56:38"
+    label: "Valyria — with Jorah Mormont, Drogon, Stone Man"
+    tags: [valyria]
+  - episode: S05E06
+    start: "00:09:41"
+    end: "00:12:34"
+    label: "Slaver's Bay — with Jorah Mormont"
+    tags: [valyria, slavers-bay]
+  - episode: S05E06
+    start: "00:18:45"
+    end: "00:23:44"
+    label: "Slaver's Bay — with Jorah Mormont, Malko, Slaver"
+    tags: [valyria, slavers-bay]
+  - episode: S05E07
+    start: "00:26:40"
+    end: "00:29:18"
+    label: "Outside Meereen — with Jorah Mormont, Malko, Yezzan zo Qaggaz"
+    tags: [meereen, outside-meereen]
+  - episode: S05E07
+    start: "00:46:00"
+    end: "00:47:12"
+    label: "Meereen — with Jorah Mormont, Yezzan zo Qaggaz"
+    tags: [meereen]
+  - episode: S05E07
+    start: "00:47:55"
+    end: "00:48:16"
+    label: "Meereen — with Jorah Mormont"
+    tags: [meereen]
+  - episode: S05E07
+    start: "00:49:09"
+    end: "00:51:34"
+    label: "Meereen — with Jorah Mormont, Yezzan zo Qaggaz, Daenerys Targaryen +1"
+    tags: [meereen]
+  - episode: S05E08
+    start: "00:03:34"
+    end: "00:08:24"
+    label: "Meereen — with Daenerys Targaryen, Missandei, Jorah Mormont"
+    tags: [meereen]
+  - episode: S05E08
+    start: "00:21:25"
+    end: "00:26:40"
+    label: "Meereen — with Daenerys Targaryen"
+    tags: [meereen]
+  - episode: S05E09
+    start: "00:37:02"
+    end: "00:53:26"
+    label: "Meereen — with Daenerys Targaryen, Daario Naharis, Missandei +4"
+    tags: [meereen]
+  - episode: S05E10
+    start: "00:34:03"
+    end: "00:40:02"
+    label: "Meereen — with Daario Naharis, Jorah Mormont, Grey Worm +2"
+    tags: [meereen]
+  - episode: S06E01
+    start: "00:34:09"
+    end: "00:37:42"
+    label: "Meereen — with Lord Varys, Meereenese Homeless Mother, Zanrush"
+    tags: [meereen]
+  - episode: S06E02
+    start: "00:23:45"
+    end: "00:29:56"
+    label: "Meereen — with Lord Varys, Missandei, Grey Worm +2"
+    tags: [meereen]
+  - episode: S06E03
+    start: "00:29:02"
+    end: "00:32:26"
+    label: "Meereen — with Grey Worm, Missandei, Lord Varys"
+    tags: [meereen]
+  - episode: S06E04
+    start: "00:15:53"
+    end: "00:22:58"
+    label: "Meereen — with Missandei, Grey Worm, Lord Varys +5"
+    tags: [meereen]
+  - episode: S06E05
+    start: "00:33:24"
+    end: "00:39:08"
+    label: "Meereen — with Lord Varys, Grey Worm, Missandei +2"
+    tags: [meereen]
+  - episode: S06E08
+    start: "00:13:42"
+    end: "00:15:26"
+    label: "Meereen — with Red Priestess, Lord Varys"
+    tags: [meereen]
+  - episode: S06E08
+    start: "00:29:51"
+    end: "00:34:14"
+    label: "Meereen — with Missandei, Grey Worm"
+    tags: [meereen]
+  - episode: S06E08
+    start: "00:47:10"
+    end: "00:48:26"
+    label: "Meereen — with Missandei, Grey Worm, Daenerys Targaryen +1"
+    tags: [meereen]
+  - episode: S06E09
+    start: "00:05:17"
+    end: "00:09:44"
+    label: "Meereen — with Daenerys Targaryen, Grey Worm, Missandei +4"
+    tags: [meereen]
+  - episode: S06E09
+    start: "00:12:03"
+    end: "00:14:06"
+    label: "Meereen — with Grey Worm, Missandei, Yezzan zo Qaggaz +2"
+    tags: [meereen]
+  - episode: S06E09
+    start: "00:28:52"
+    end: "00:32:56"
+    label: "Meereen — with Theon Greyjoy, Yara Greyjoy, Daenerys Targaryen"
+    tags: [meereen]
+  - episode: S06E10
+    start: "00:47:36"
+    end: "00:51:04"
+    label: "Meereen — with Daenerys Targaryen"
+    tags: [meereen]
+  - episode: S06E10
+    start: "01:09:36"
+    end: "01:09:56"
+    label: "The Summer Sea — with Daenerys Targaryen, Lord Varys, Missandei"
+    tags: [the-summer-sea]
+  - episode: S07E01
+    start: "00:55:30"
+    end: "01:01:04"
+    label: "Dragonstone — with Daenerys Targaryen, Missandei, Lord Varys +4"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E02
+    start: "00:05:01"
+    end: "00:13:06"
+    label: "Dragonstone — with Lord Varys, Daenerys Targaryen, Grey Worm +2"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E02
+    start: "00:22:23"
+    end: "00:25:44"
+    label: "Dragonstone — with Daenerys Targaryen, Yara Greyjoy, Theon Greyjoy +5"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E03
+    start: "00:04:06"
+    end: "00:08:04"
+    label: "Dragonstone — with Jon Snow, Davos Seaworth, Missandei +4"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E03
+    start: "00:09:54"
+    end: "00:20:26"
+    label: "Dragonstone — with Daenerys Targaryen, Jon Snow, Davos Seaworth +3"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E03
+    start: "00:34:24"
+    end: "00:40:10"
+    label: "Dragonstone — with Jon Snow, Daenerys Targaryen"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E03
+    start: "00:51:47"
+    end: "00:52:48"
+    label: "Dragonstone — with Daenerys Targaryen, Missandei, Lord Varys"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E03
+    start: "00:53:37"
+    end: "00:54:12"
+    label: "Dragonstone — with Daenerys Targaryen, Missandei, Lord Varys"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E04
+    start: "00:26:16"
+    end: "00:28:58"
+    label: "Dragonstone — with Daenerys Targaryen, Missandei, Jon Snow +5"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E04
+    start: "00:45:57"
+    end: "00:46:30"
+    label: "Blackwater Rush — with Daenerys Targaryen, Drogon, Qhono"
+    tags: [the-crownlands, blackwater-rush]
+  - episode: S07E04
+    start: "00:47:13"
+    end: "00:48:20"
+    label: "Blackwater Rush — with Daenerys Targaryen, Drogon, Bronn +1"
+    tags: [the-crownlands, blackwater-rush]
+  - episode: S07E04
+    start: "00:49:12"
+    end: "00:49:34"
+    label: "Blackwater Rush — with Jaime Lannister, Drogon, Daenerys Targaryen +1"
+    tags: [the-crownlands, blackwater-rush]
+  - episode: S07E05
+    start: "00:05:46"
+    end: "00:11:54"
+    label: "Blackwater Rush — with Drogon, Daenerys Targaryen, Qhono +2"
+    tags: [the-crownlands, blackwater-rush]
+  - episode: S07E05
+    start: "00:23:27"
+    end: "00:28:46"
+    label: "Dragonstone — with Lord Varys, Jon Snow, Daenerys Targaryen +2"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E05
+    start: "00:31:43"
+    end: "00:34:46"
+    label: "King's Landing — with Davos Seaworth, Bronn, Jaime Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S07E05
+    start: "00:39:16"
+    end: "00:40:20"
+    label: "King's Landing — with Davos Seaworth, Gendry, Kevin Eldon +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S07E05
+    start: "00:45:18"
+    end: "00:47:22"
+    label: "Dragonstone — with Jorah Mormont, Daenerys Targaryen, Qhono +3"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E06
+    start: "00:19:35"
+    end: "00:24:40"
+    label: "Dragonstone — with Daenerys Targaryen"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E06
+    start: "00:45:03"
+    end: "00:46:10"
+    label: "Dragonstone — with Drogon, Viserion, Rhaegal +1"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E07
+    start: "00:07:36"
+    end: "00:08:08"
+    label: "Blackwater Bay — with Lord Varys, Theon Greyjoy, Qhono +4"
+    tags: [the-crownlands, blackwater-bay]
+  - episode: S07E07
+    start: "00:09:23"
+    end: "00:11:04"
+    label: "Outside King's Landing — with Jon Snow, Davos Seaworth, Jorah Mormont +8"
+    tags: [the-crownlands, outside-kings-landing]
+  - episode: S07E07
+    start: "00:11:59"
+    end: "00:38:20"
+    label: "Outside King's Landing — with Jon Snow, Davos Seaworth, Jorah Mormont +16"
+    tags: [the-crownlands, outside-kings-landing, kings-landing]
+  - episode: S07E07
+    start: "00:41:02"
+    end: "00:42:28"
+    label: "Outside King's Landing — with Jon Snow, Davos Seaworth, Jorah Mormont +11"
+    tags: [the-crownlands, outside-kings-landing]
+  - episode: S07E07
+    start: "00:46:10"
+    end: "00:47:30"
+    label: "Dragonstone — with Daenerys Targaryen, Jon Snow, Davos Seaworth +5"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E07
+    start: "01:12:01"
+    end: "01:12:12"
+    label: "The Narrow Sea — alone"
+    tags: [the-narrow-sea]
+  - episode: S07E07
+    start: "01:13:09"
+    end: "01:13:20"
+    label: "The Narrow Sea — alone"
+    tags: [the-narrow-sea]
+  - episode: S08E01
+    start: "00:07:05"
+    end: "00:07:28"
+    label: "Winter Town — with Lord Varys"
+    tags: [the-north, winter-town]
+  - episode: S08E01
+    start: "00:09:52"
+    end: "00:16:24"
+    label: "Winterfell — with Jon Snow, Daenerys Targaryen, Bran Stark +15"
+    tags: [the-north, winterfell]
+  - episode: S08E01
+    start: "00:30:33"
+    end: "00:32:14"
+    label: "Winterfell — with Yohn Royce, Alys Karstark, Davos Seaworth +3"
+    tags: [the-north, winterfell]
+  - episode: S08E01
+    start: "00:35:00"
+    end: "00:35:04"
+    label: "Winterfell — with Jon Snow, Rhaegal, Davos Seaworth +1"
+    tags: [the-north, winterfell]
+  - episode: S08E02
+    start: "00:03:39"
+    end: "00:09:12"
+    label: "Winterfell — with Jaime Lannister, Daenerys Targaryen, Sansa Stark +11"
+    tags: [the-north, winterfell]
+  - episode: S08E02
+    start: "00:13:16"
+    end: "00:16:18"
+    label: "Winterfell — with Jaime Lannister, Brienne of Tarth"
+    tags: [the-north, winterfell]
+  - episode: S08E02
+    start: "00:28:21"
+    end: "00:32:08"
+    label: "Winterfell — with Jon Snow, Theon Greyjoy, Arya Stark +17"
+    tags: [the-north, winterfell]
+  - episode: S08E02
+    start: "00:35:54"
+    end: "00:39:54"
+    label: "Winterfell — with Jaime Lannister, Brienne of Tarth, Podrick Payne +2"
+    tags: [the-north, winterfell]
+  - episode: S08E02
+    start: "00:45:39"
+    end: "00:49:50"
+    label: "Winterfell — with Jaime Lannister, Brienne of Tarth, Podrick Payne +2"
+    tags: [the-north, winterfell]
+  - episode: S08E02
+    start: "00:52:07"
+    end: "00:53:04"
+    label: "Winterfell — with Jaime Lannister, Brienne of Tarth, Podrick Payne +2"
+    tags: [the-north, winterfell]
+  - episode: S08E02
+    start: "00:57:16"
+    end: "00:57:50"
+    label: "Winterfell — with Daenerys Targaryen, Jon Snow"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:04:26"
+    end: "00:05:02"
+    label: "Winterfell — with Bran Stark, Theon Greyjoy, Alys Karstark"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:21:47"
+    end: "00:22:38"
+    label: "Winterfell — with Sansa Stark, Gilly, Baby Sam +3"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:31:23"
+    end: "00:33:38"
+    label: "Winterfell — with Sansa Stark, Gilly, Baby Sam +3"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:50:16"
+    end: "00:51:32"
+    label: "Winterfell — with Teela, Lord Varys, Sansa Stark +2"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:03:05"
+    end: "01:03:50"
+    label: "Winterfell — with Lord Varys, Sansa Stark, Missandei +3"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:08:19"
+    end: "01:09:16"
+    label: "Winterfell — with Sansa Stark"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:10:01"
+    end: "01:10:22"
+    label: "Winterfell — with Sansa Stark, Lord Varys, Teela"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:18:48"
+    end: "01:19:08"
+    label: "Winterfell — with Lord Varys, Sansa Stark, Missandei +3"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:05:53"
+    end: "00:08:10"
+    label: "Winterfell — with Jon Snow, Samwell Tarly, Bran Stark +15"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:08:48"
+    end: "00:10:18"
+    label: "Winterfell — with Jon Snow, Samwell Tarly, Bran Stark +20"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:10:52"
+    end: "00:15:46"
+    label: "Winterfell — with Gendry, Sandor Clegane, Jon Snow +13"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:16:37"
+    end: "00:17:08"
+    label: "Winterfell — with Brienne of Tarth, Podrick Payne, Jaime Lannister"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:18:21"
+    end: "00:20:50"
+    label: "Winterfell — with Brienne of Tarth, Podrick Payne, Jaime Lannister +2"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:33:20"
+    end: "00:37:10"
+    label: "Winterfell — with Grey Worm, Jon Snow, Yohn Royce +8"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:39:36"
+    end: "00:43:42"
+    label: "Winter Town — with Jaime Lannister, Bronn"
+    tags: [the-north, winter-town]
+  - episode: S08E04
+    start: "00:45:39"
+    end: "00:48:22"
+    label: "Winterfell — with Sansa Stark, Daenerys Targaryen, Drogon +1"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:52:14"
+    end: "00:54:02"
+    label: "Dragonstone — with Lord Varys"
+    tags: [the-crownlands, dragonstone]
+  - episode: S08E04
+    start: "00:54:45"
+    end: "00:54:54"
+    label: "Dragonstone — with Lord Varys, Daenerys Targaryen, Drogon +1"
+    tags: [the-crownlands, dragonstone]
+  - episode: S08E04
+    start: "00:55:47"
+    end: "00:57:40"
+    label: "Dragonstone — with Daenerys Targaryen, Drogon, Missandei +2"
+    tags: [the-crownlands, dragonstone]
+  - episode: S08E04
+    start: "00:59:02"
+    end: "01:05:08"
+    label: "Dragonstone — with Daenerys Targaryen, Grey Worm, Lord Varys"
+    tags: [the-crownlands, dragonstone]
+  - episode: S08E04
+    start: "01:08:56"
+    end: "01:17:56"
+    label: "King's Landing — with Lord Varys, Grey Worm, Daenerys Targaryen +6"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:06:18"
+    end: "00:06:28"
+    label: "Dragonstone — with Lord Varys, Jon Snow"
+    tags: [the-crownlands, dragonstone]
+  - episode: S08E05
+    start: "00:08:17"
+    end: "00:11:36"
+    label: "Dragonstone — with Lord Varys, Jon Snow, Daenerys Targaryen"
+    tags: [the-crownlands, dragonstone]
+  - episode: S08E05
+    start: "00:12:40"
+    end: "00:15:20"
+    label: "Dragonstone — with Lord Varys, Grey Worm, Jon Snow +2"
+    tags: [the-crownlands, dragonstone]
+  - episode: S08E05
+    start: "00:18:48"
+    end: "00:22:52"
+    label: "Dragonstone — with Daenerys Targaryen, Grey Worm, Jon Snow +1"
+    tags: [the-crownlands, dragonstone, blackwater-bay, kings-landing]
+  - episode: S08E05
+    start: "00:23:36"
+    end: "00:29:16"
+    label: "King's Landing — with Unsullied Soldier, Jaime Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:32:45"
+    end: "00:33:18"
+    label: "King's Landing — with Jon Snow, Davos Seaworth, Grey Worm"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:35:12"
+    end: "00:35:18"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:40:44"
+    end: "00:41:00"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:42:46"
+    end: "00:43:02"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:44:52"
+    end: "00:46:54"
+    label: "King's Landing — with Daenerys Targaryen, Drogon"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:47:30"
+    end: "00:47:32"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:49:31"
+    end: "00:49:34"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E06
+    start: "00:05:08"
+    end: "00:08:04"
+    label: "King's Landing — with Jon Snow, Davos Seaworth, Eleanor +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E06
+    start: "00:09:41"
+    end: "00:14:06"
+    label: "King's Landing — with Jaime Lannister, Cersei Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E06
+    start: "00:18:14"
+    end: "00:22:26"
+    label: "King's Landing — with Jon Snow, Grey Worm, Drogon +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E06
+    start: "00:23:40"
+    end: "00:32:30"
+    label: "King's Landing — with Jon Snow"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E06
+    start: "00:44:56"
+    end: "01:00:48"
+    label: "Outside King's Landing — with Grey Worm, Samwell Tarly, Edmure Tully +15"
+    tags: [the-crownlands, outside-kings-landing, kings-landing]
+  - episode: S08E06
+    start: "01:07:57"
+    end: "01:13:28"
+    label: "King's Landing — with Davos Seaworth, Bronn, Samwell Tarly +3"
+    tags: [the-crownlands, kings-landing]
