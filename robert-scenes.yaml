@@ -1,0 +1,87 @@
+version: "1.0"
+series: "Game of Thrones"
+character: "Robert Baratheon"
+# Timestamps are in DATASET time, not calibrated to any library.
+# edl-cut applies per-episode offsets when it emits a playlist.
+# 16 segments, 0.95 hours.
+scenes:
+  - episode: S01E01
+    start: "00:23:39"
+    end: "00:30:48"
+    label: "Winterfell — with Bran Stark, Catelyn Stark, Maester Luwin +16"
+    tags: [the-north, winterfell]
+  - episode: S01E01
+    start: "00:32:57"
+    end: "00:33:46"
+    label: "Winterfell — with Eddard Stark"
+    tags: [the-north, winterfell]
+  - episode: S01E01
+    start: "00:40:56"
+    end: "00:41:20"
+    label: "Winterfell — with Catelyn Stark, Cersei Lannister, Rodrik Cassel"
+    tags: [the-north, winterfell]
+  - episode: S01E01
+    start: "00:44:14"
+    end: "00:47:28"
+    label: "Winterfell — with Rodrik Cassel, Benjen Stark, Eddard Stark +8"
+    tags: [the-north, winterfell]
+  - episode: S01E01
+    start: "00:57:48"
+    end: "00:59:06"
+    label: "Winterfell — with Tyrion Lannister, Sandor Clegane, Theon Greyjoy +5"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:21:51"
+    end: "00:25:10"
+    label: "The Kingsroad South to King's Landing — with Eddard Stark"
+    tags: [the-north, the-kingsroad-south-to-kings-landing]
+  - episode: S01E02
+    start: "00:48:50"
+    end: "00:53:00"
+    label: "Crossroads Inn — with Eddard Stark, Arya Stark, Joffrey Baratheon +4"
+    tags: [the-riverlands, crossroads-inn]
+  - episode: S01E03
+    start: "00:30:07"
+    end: "00:34:40"
+    label: "King's Landing — with Barristan Selmy, Lancel Lannister, Jaime Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E04
+    start: "00:45:38"
+    end: "00:49:48"
+    label: "King's Landing — with Cersei Lannister, Tommen Baratheon, Myrcella Baratheon +10"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E05
+    start: "00:03:50"
+    end: "00:10:22"
+    label: "King's Landing — with Lancel Lannister, Eddard Stark, Gregor Clegane +11"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E05
+    start: "00:30:31"
+    end: "00:34:06"
+    label: "King's Landing — with Eddard Stark, Renly Baratheon, Grand Maester Pycelle +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E05
+    start: "00:41:50"
+    end: "00:48:10"
+    label: "King's Landing — with Cersei Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E06
+    start: "00:01:53"
+    end: "00:06:22"
+    label: "King's Landing — with Eddard Stark, Cersei Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E06
+    start: "00:29:27"
+    end: "00:31:20"
+    label: "The Kingswood — with Lancel Lannister, Renly Baratheon, Barristan Selmy"
+    tags: [the-crownlands, the-kingswood]
+  - episode: S01E07
+    start: "00:20:13"
+    end: "00:25:08"
+    label: "King's Landing — with Joffrey Baratheon, Cersei Lannister, Grand Maester Pycelle +3"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E07
+    start: "00:51:57"
+    end: "00:52:18"
+    label: "King's Landing — with Eddard Stark, Varly, Royal Steward"
+    tags: [the-crownlands, kings-landing]

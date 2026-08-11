@@ -269,6 +269,24 @@ The suite leans toward the *silent* failure modes: a playlist that opens fine
 and plays the wrong footage is far more dangerous than one that crashes. CI also
 fails the build if any test writes media into the working tree.
 
+## Scene lists in this repo
+
+| File | Character | Scenes | Runtime | Span |
+|---|---|---|---|---|
+| `dany-scenes.yaml` | Daenerys Targaryen | 175 | 9.0 h | S01E01–S08E06 |
+| `robert-scenes.yaml` | Robert Baratheon | 16 | 0.95 h | S01E01–S01E07 |
+
+Both are in **dataset time**, so they work against any library once it has been
+calibrated. Robert is the useful counter-example to Daenerys: a whole arc that
+begins and ends inside one season, which is what a scene list has to handle for
+the format to be worth anything beyond leads.
+
+```bash
+python3 -m edl_cut.cli --character "Robert Baratheon" --media /path/to/media \
+        --format edl --out robert.edl
+mpv --hr-seek=yes robert.edl
+```
+
 ## Contributing
 
 The interesting contribution is **another character's scene list**, or another
