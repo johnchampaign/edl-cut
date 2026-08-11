@@ -270,3 +270,44 @@ plausible-looking 15 GB file showing the wrong scenes, and the only symptom
 would have been a viewer thinking the timestamps were bad. Because the tolerance
 is now measured against TS output, which lands within 0.1 s of plan, it sits at
 1.0 s — far below the failures worth catching, which overshot by 5 s and 30 s.
+
+
+## Season 8, and why the automated refinement missed by ten seconds
+
+Cut-based refinement corrected 52 of 73 episodes but refused all of season 8.
+Two of those, hand-verified by frame, turned out to be the worst offsets in the
+library:
+
+| Episode | Was | Is | Out by |
+|---|---|---|---|
+| S08E03 | −95.60 | **−105.90** | 10.3 s |
+| S08E06 | −148.40 | **−136.00** | 12.4 s |
+
+Both were derived the same way: take several scene boundaries, find the real
+visual cut nearest each, and check that the implied offsets agree. S08E06 gave
+−136.30, −135.71 and −135.96 from three boundaries; S08E03 matched 4 of 5
+boundaries within 0.35 s. Frames confirmed both — Tyrion entering the dragonpit,
+Jon in his cell, the Stark farewell at the harbour; Varys with a lantern in the
+crypt, the Night King walking through fire, Theon in the godswood.
+
+**The refinement could not have found these.** Its search window was ±8 s, sized
+from seasons 1–7 where every correction was smaller than that. With an 8 s
+search the detection window spans only ±9 s, so a cut 12 s away is never even
+detected. The search was not converging on a wrong answer — it was choosing
+among candidates that did not include the right one, which is why its thresholds
+disagreed and it correctly refused.
+
+That is a useful shape to recognise. The refusal was right, the diagnosis
+("these episodes have no alignable boundaries") was wrong, and the difference
+only became visible by measuring outside the range the tool was looking in.
+
+Two fixes followed:
+
+* **Retry wider on refusal.** When thresholds disagree, search ±20 s once more
+  before giving up. The cost falls only on episodes that need it. The trigger is
+  refusal rather than any property of the winning value, because the failure is
+  invisible in a single result.
+* **No cuts anywhere is not consensus.** If detection finds nothing at any
+  threshold, every threshold trivially returns a delta of zero and they appear
+  to agree unanimously. That is consensus on nothing, and it now reports no
+  support rather than a confident non-answer.

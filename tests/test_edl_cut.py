@@ -935,3 +935,68 @@ class TestCutSnapping(unittest.TestCase):
             c.save()
             self.assertAlmostEqual(
                 self.cuts.SnapCache(path).get(Path("/m/a.mkv"), 100.0), 101.25)
+
+
+class TestRefineWindow(unittest.TestCase):
+    """A search pinned to its own edge must widen rather than report the edge.
+
+    Season 8 needed corrections of 10.3s and 12.4s against an 8s window, so the
+    true answer was never a candidate and the search returned the best of a set
+    that did not contain it. Its thresholds then disagreed, each picking
+    different noise, which looked like "no signal" rather than "wrong window".
+    """
+
+    def setUp(self):
+        from edl_cut import cuts
+        self.cuts = cuts
+
+    def test_widened_window_is_larger_than_the_default(self):
+        self.assertGreater(self.cuts.REFINE_WINDOW_WIDE,
+                           self.cuts.REFINE_WINDOW * 2)
+
+    def test_consensus_widens_the_search_when_thresholds_disagree(self):
+        """The failure is invisible in any single result, so refusal triggers
+        the retry rather than any property of the winning value."""
+        from edl_cut import cuts
+        spans = []
+
+        def fake(path, begin, span, threshold=0.15):
+            spans.append(round(span, 1))
+            # Each threshold finds a cut in a different place, so they cannot
+            # agree and the search must widen.
+            shift = {0.15: 2.0, 0.08: 5.0, 0.04: 9.0}.get(threshold, 2.0)
+            return [begin + 1.0 + shift]
+
+        original = cuts._cuts_window
+        cuts._cuts_window = fake
+        try:
+            cuts.refine_offset_consensus(
+                Path("/m/a.mkv"), list(range(100, 2000, 90)), 0.0)
+        finally:
+            cuts._cuts_window = original
+
+        self.assertIn(round(cuts.REFINE_WINDOW * 2 + 2, 1), spans)
+        self.assertIn(round(cuts.REFINE_WINDOW_WIDE * 2 + 2, 1), spans)
+
+    def test_no_cuts_anywhere_is_not_consensus(self):
+        """Every threshold returning nothing means all deltas are trivially
+        zero and appear to agree. That is consensus on nothing."""
+        from edl_cut import cuts
+        original = cuts._cuts_window
+        cuts._cuts_window = lambda path, begin, span, threshold=0.15: []
+        try:
+            _, support, _, _ = cuts.refine_offset_consensus(
+                Path("/m/a.mkv"), list(range(100, 2000, 90)), 0.0)
+        finally:
+            cuts._cuts_window = original
+        self.assertEqual(support, 0)
+
+    def test_wide_window_reaches_the_season_8_corrections(self):
+        """10.3s and 12.4s were the real corrections; the window must cover
+        them or the answer is not a candidate."""
+        self.assertGreater(cuts_module().REFINE_WINDOW_WIDE, 12.4)
+
+
+def cuts_module():
+    from edl_cut import cuts
+    return cuts

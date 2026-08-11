@@ -175,7 +175,25 @@ def snap_all(resolved, cache: SnapCache | None = None, progress=None):
 #   S04E08  (already correct) moved only +0.20
 
 # How far from the current offset to search.
+#
+# Sized from seasons 1-7, whose corrections were all under 8s. Season 8 needed
+# 10.3s and 12.4s, so the true answer was never a candidate and the search
+# returned the best of a set that did not contain it — which is exactly why its
+# thresholds disagreed. They were each picking different noise.
+#
+# A search whose winner sits against the edge of its own window is evidence the
+# window is too small, so `refine_offset` widens and retries rather than
+# reporting a boundary value as if it were a peak.
 REFINE_WINDOW = 8.0
+
+# Widened window used when the first search lands against the edge.
+REFINE_WINDOW_WIDE = 20.0
+
+# Detecting this from the result is not possible: with an 8s search the
+# detection window spans only +/-9s, so a cut 12s away is never found at all.
+# The search is not pinned to an edge, it is choosing among candidates that do
+# not include the answer — which shows up as thresholds disagreeing, not as a
+# boundary value. So the retry is triggered by refusal, in the consensus pass.
 
 # A boundary counts as landing on a cut within this distance.
 REFINE_TOLERANCE = 0.30
@@ -209,12 +227,13 @@ def _cuts_window(path: Path, begin: float, span: float, threshold: float = 0.15)
 
 
 def refine_offset(path: Path, boundaries: list[int], current: float,
-                  samples: int = REFINE_SAMPLES):
+                  samples: int = REFINE_SAMPLES, window: float = REFINE_WINDOW):
     """Sharpen `current` by matching scene boundaries to real cuts.
 
     Returns (suggested_offset, matched, sampled). `matched` below
     REFINE_MIN_MATCH of `sampled` means the episode's boundaries do not
     correspond to shot cuts well enough to trust the result.
+
     """
     interior = sorted(set(boundaries))[2:-2]
     if len(interior) < 6:
@@ -225,13 +244,13 @@ def refine_offset(path: Path, boundaries: list[int], current: float,
     detected = []
     for edge in chosen:
         centre = edge + current
-        found = _cuts_window(path, max(0.0, centre - REFINE_WINDOW - 1),
-                             REFINE_WINDOW * 2 + 2)
+        found = _cuts_window(path, max(0.0, centre - window - 1),
+                             window * 2 + 2)
         detected.append((edge, found))
 
     best_delta, best_score = 0.0, -1
-    delta = -REFINE_WINDOW
-    while delta <= REFINE_WINDOW + 1e-9:
+    delta = -window
+    while delta <= window + 1e-9:
         score = sum(
             1 for edge, found in detected
             if any(abs(c - (edge + current + delta)) <= REFINE_TOLERANCE
@@ -264,7 +283,9 @@ CONSENSUS_TOLERANCE = 0.5
 
 
 def refine_offset_consensus(path: Path, boundaries: list[int], current: float,
-                            samples: int = REFINE_SAMPLES):
+                            samples: int = REFINE_SAMPLES,
+                            window: float = REFINE_WINDOW,
+                            _retried: bool = False):
     """Refine an offset, trusting it only when thresholds agree.
 
     Returns (suggested, agreeing, tried, per_threshold). `agreeing` counts how
@@ -278,15 +299,18 @@ def refine_offset_consensus(path: Path, boundaries: list[int], current: float,
     chosen = interior[::step][:samples]
 
     answers: dict[float, float] = {}
+    any_cuts = False
     for threshold in CONSENSUS_THRESHOLDS:
         detected = [
-            (edge, _cuts_window(path, max(0.0, edge + current - REFINE_WINDOW - 1),
-                                REFINE_WINDOW * 2 + 2, threshold=threshold))
+            (edge, _cuts_window(path, max(0.0, edge + current - window - 1),
+                                window * 2 + 2, threshold=threshold))
             for edge in chosen
         ]
+        if any(found for _, found in detected):
+            any_cuts = True
         best_delta, best_score = 0.0, -1
-        delta = -REFINE_WINDOW
-        while delta <= REFINE_WINDOW + 1e-9:
+        delta = -window
+        while delta <= window + 1e-9:
             score = sum(
                 1 for edge, found in detected
                 if any(abs(c - (edge + current + delta)) <= REFINE_TOLERANCE
@@ -311,5 +335,19 @@ def refine_offset_consensus(path: Path, boundaries: list[int], current: float,
         agreed = [v for v in answers.values()
                   if abs(v - best_delta) <= CONSENSUS_TOLERANCE]
         best_delta = sum(agreed) / len(agreed)
+
+    if not any_cuts:
+        # No cuts detected anywhere means every threshold trivially returns a
+        # delta of zero and they "agree" — consensus on nothing. Report no
+        # support rather than a confident non-answer.
+        best_support = 0
+
+    if best_support < 2 and not _retried:
+        # Thresholds disagreeing usually means the answer lies outside the
+        # search. Season 8 needed 10.3s and 12.4s against an 8s window, so the
+        # true cut was never even detected and each threshold settled on
+        # different noise. Widen once before giving up.
+        return refine_offset_consensus(path, boundaries, current, samples,
+                                       window=REFINE_WINDOW_WIDE, _retried=True)
 
     return current + best_delta, best_support, len(CONSENSUS_THRESHOLDS), answers
