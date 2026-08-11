@@ -274,6 +274,7 @@ fails the build if any test writes media into the working tree.
 | File | Character | Scenes | Runtime | Span |
 |---|---|---|---|---|
 | `dany-scenes.yaml` | Daenerys Targaryen | 175 | 9.0 h | S01E01–S08E06 |
+| `jon-scenes.yaml` | Jon Snow | 219 | 11.4 h | S01E01–S08E06 |
 | `robert-scenes.yaml` | Robert Baratheon | 16 | 0.95 h | S01E01–S01E07 |
 
 Both are in **dataset time**, so they work against any library once it has been

@@ -1,0 +1,1102 @@
+version: "1.0"
+series: "Game of Thrones"
+character: "Jon Snow"
+# Timestamps are in DATASET time, not calibrated to any library.
+# edl-cut applies per-episode offsets when it emits a playlist.
+# 219 segments, 11.44 hours.
+scenes:
+  - episode: S01E01
+    start: "00:09:27"
+    end: "00:18:44"
+    label: "Winterfell — with Will, Bran Stark, Robb Stark +15"
+    tags: [the-north, winterfell, outside-winterfell]
+  - episode: S01E01
+    start: "00:23:09"
+    end: "00:29:16"
+    label: "Winterfell — with Robb Stark, Theon Greyjoy, Bran Stark +17"
+    tags: [the-north, winterfell]
+  - episode: S01E01
+    start: "00:41:19"
+    end: "00:44:14"
+    label: "Winterfell — with Benjen Stark, Tyrion Lannister"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:11:44"
+    end: "00:21:52"
+    label: "Winterfell — with Jaime Lannister, Arya Stark, Nymeria +6"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:25:56"
+    end: "00:29:16"
+    label: "North to the Wall — with Ghost, Benjen Stark, Tyrion Lannister +1"
+    tags: [the-north, north-to-the-wall]
+  - episode: S01E02
+    start: "00:34:21"
+    end: "00:34:54"
+    label: "The Gift — with Benjen Stark, Tyrion Lannister"
+    tags: [the-wall, the-gift]
+  - episode: S01E03
+    start: "00:21:42"
+    end: "00:23:18"
+    label: "Castle Black — with Tyrion Lannister, Jeor Mormont, Alliser Thorne +3"
+    tags: [the-wall, castle-black]
+  - episode: S01E03
+    start: "00:24:42"
+    end: "00:26:42"
+    label: "Castle Black — with Rast, Grenn, Pypar +1"
+    tags: [the-wall, castle-black]
+  - episode: S01E03
+    start: "00:38:17"
+    end: "00:41:52"
+    label: "Castle Black — with Benjen Stark"
+    tags: [the-wall, castle-black]
+  - episode: S01E03
+    start: "00:48:38"
+    end: "00:50:42"
+    label: "Castle Black — with Tyrion Lannister, Pypar, Grenn +3"
+    tags: [the-wall, castle-black]
+  - episode: S01E03
+    start: "00:51:30"
+    end: "00:52:32"
+    label: "Castle Black — with Tyrion Lannister"
+    tags: [the-wall, castle-black]
+  - episode: S01E04
+    start: "00:06:40"
+    end: "00:10:12"
+    label: "Castle Black — with Grenn, Alliser Thorne, Samwell Tarly +2"
+    tags: [the-wall, castle-black]
+  - episode: S01E04
+    start: "00:25:30"
+    end: "00:27:42"
+    label: "Castle Black — with Samwell Tarly"
+    tags: [the-wall, castle-black]
+  - episode: S01E04
+    start: "00:34:27"
+    end: "00:37:12"
+    label: "Castle Black — with Pypar, Grenn, Rast +3"
+    tags: [the-wall, castle-black]
+  - episode: S01E04
+    start: "00:38:33"
+    end: "00:44:32"
+    label: "Castle Black — with Samwell Tarly, Alliser Thorne"
+    tags: [the-wall, castle-black]
+  - episode: S01E07
+    start: "00:18:22"
+    end: "00:20:00"
+    label: "Castle Black — with Samwell Tarly, Jeor Mormont"
+    tags: [the-wall, castle-black]
+  - episode: S01E07
+    start: "00:32:56"
+    end: "00:40:12"
+    label: "Castle Black — with Jeor Mormont, Pypar, Samwell Tarly +6"
+    tags: [the-wall, castle-black]
+  - episode: S01E07
+    start: "00:45:49"
+    end: "00:47:58"
+    label: "Castle Black — with Samwell Tarly, Ghost, Othell Yarwyck"
+    tags: [the-wall, castle-black, north-of-the-wall, the-haunted-forest]
+  - episode: S01E08
+    start: "00:10:14"
+    end: "00:13:00"
+    label: "Castle Black — with Samwell Tarly, Jeor Mormont, Othor +2"
+    tags: [the-wall, castle-black]
+  - episode: S01E08
+    start: "00:22:45"
+    end: "00:26:14"
+    label: "Castle Black — with Samwell Tarly, Pypar, Alliser Thorne +4"
+    tags: [the-wall, castle-black]
+  - episode: S01E08
+    start: "00:38:35"
+    end: "00:39:46"
+    label: "Castle Black — with Pypar, Grenn, Rast +1"
+    tags: [the-wall, castle-black]
+  - episode: S01E09
+    start: "00:11:41"
+    end: "00:15:36"
+    label: "Castle Black — with Jeor Mormont, Pypar, Samwell Tarly +2"
+    tags: [the-wall, castle-black]
+  - episode: S01E09
+    start: "00:17:58"
+    end: "00:21:38"
+    label: "Castle Black — with Maester Aemon"
+    tags: [the-wall, castle-black]
+  - episode: S01E10
+    start: "00:27:31"
+    end: "00:28:28"
+    label: "Castle Black — with Samwell Tarly, Ghost"
+    tags: [the-wall, castle-black]
+  - episode: S01E10
+    start: "00:29:52"
+    end: "00:31:56"
+    label: "The Gift — with Ghost, Pypar, Samwell Tarly +1"
+    tags: [the-north, the-gift]
+  - episode: S01E10
+    start: "00:43:03"
+    end: "00:45:46"
+    label: "Castle Black — with Jeor Mormont"
+    tags: [the-wall, castle-black]
+  - episode: S02E01
+    start: "00:18:48"
+    end: "00:25:02"
+    label: "Craster's Keep — with Samwell Tarly, Grenn, Eddison Tollett +3"
+    tags: [north-of-the-wall, crasters-keep]
+  - episode: S02E02
+    start: "00:12:37"
+    end: "00:14:40"
+    label: "Craster's Keep — with Samwell Tarly, Gilly"
+    tags: [north-of-the-wall, crasters-keep]
+  - episode: S02E02
+    start: "00:49:57"
+    end: "00:52:10"
+    label: "Craster's Keep — with Craster, White Walker"
+    tags: [north-of-the-wall, crasters-keep]
+  - episode: S02E03
+    start: "00:01:53"
+    end: "00:04:24"
+    label: "Craster's Keep — with Craster, Jeor Mormont, Samwell Tarly"
+    tags: [north-of-the-wall, crasters-keep]
+  - episode: S02E05
+    start: "00:25:14"
+    end: "00:28:16"
+    label: "Fist of the First Men — with Jeor Mormont, Samwell Tarly, Grenn +2"
+    tags: [north-of-the-wall, fist-of-the-first-men]
+  - episode: S02E05
+    start: "00:43:25"
+    end: "00:46:12"
+    label: "Fist of the First Men — with Samwell Tarly, Grenn, Eddison Tollett +2"
+    tags: [north-of-the-wall, fist-of-the-first-men]
+  - episode: S02E06
+    start: "00:10:03"
+    end: "00:12:44"
+    label: "Frostfang Mountains — with Ghost, Qhorin Halfhand"
+    tags: [north-of-the-wall, frostfang-mountains]
+  - episode: S02E06
+    start: "00:17:20"
+    end: "00:23:42"
+    label: "Frostfang Mountains — with Qhorin Halfhand, Ygritte"
+    tags: [north-of-the-wall, frostfang-mountains]
+  - episode: S02E06
+    start: "00:42:24"
+    end: "00:45:08"
+    label: "Frostfang Mountains — with Ygritte"
+    tags: [north-of-the-wall, frostfang-mountains]
+  - episode: S02E07
+    start: "00:05:30"
+    end: "00:09:00"
+    label: "Frostfang Mountains — with Ygritte"
+    tags: [north-of-the-wall, frostfang-mountains]
+  - episode: S02E07
+    start: "00:16:55"
+    end: "00:18:32"
+    label: "Frostfang Mountains — with Ygritte"
+    tags: [north-of-the-wall, frostfang-mountains]
+  - episode: S02E07
+    start: "00:25:44"
+    end: "00:28:22"
+    label: "Frostfang Mountains — with Ygritte"
+    tags: [north-of-the-wall, frostfang-mountains]
+  - episode: S02E08
+    start: "00:05:53"
+    end: "00:07:46"
+    label: "Frostfang Mountains — with Ygritte, Rattleshirt, Qhorin Halfhand"
+    tags: [north-of-the-wall, frostfang-mountains]
+  - episode: S02E08
+    start: "00:17:46"
+    end: "00:18:34"
+    label: "Frostfang Mountains — with Qhorin Halfhand, Ygritte, Rattleshirt"
+    tags: [north-of-the-wall, frostfang-mountains]
+  - episode: S02E10
+    start: "00:51:47"
+    end: "00:55:32"
+    label: "Frostfang Mountains — with Ygritte, Qhorin Halfhand, Rattleshirt"
+    tags: [north-of-the-wall, frostfang-mountains]
+  - episode: S03E01
+    start: "00:05:05"
+    end: "00:12:28"
+    label: "Frostfang Mountains — with Rattleshirt, Ygritte, Dongo the Giant +2"
+    tags: [north-of-the-wall, frostfang-mountains]
+  - episode: S03E02
+    start: "00:02:42"
+    end: "00:03:00"
+    label: "Outside Winterfell — with Bran Stark, Three-Eyed Raven, Robb Stark"
+    tags: [the-north, outside-winterfell, greensight]
+  - episode: S03E02
+    start: "00:24:23"
+    end: "00:26:46"
+    label: "Wildlings March South — with Mance Rayder, Tormund Giantsbane, Ygritte +1"
+    tags: [north-of-the-wall, wildlings-march-south]
+  - episode: S03E03
+    start: "00:18:37"
+    end: "00:20:54"
+    label: "Fist of the First Men — with Mance Rayder, Tormund Giantsbane, Ygritte +1"
+    tags: [north-of-the-wall, fist-of-the-first-men]
+  - episode: S03E05
+    start: "00:05:31"
+    end: "00:11:50"
+    label: "Wildling Camp — with Ygritte, Orell, Tormund Giantsbane"
+    tags: [north-of-the-wall, wildling-camp, cave-outside-wildling-camp]
+  - episode: S03E06
+    start: "00:08:14"
+    end: "00:12:12"
+    label: "The Wall — with Tormund Giantsbane, Orell, Ygritte"
+    tags: [north-of-the-wall, the-wall]
+  - episode: S03E06
+    start: "00:20:38"
+    end: "00:22:08"
+    label: "The Wall — with Tormund Giantsbane, Ygritte"
+    tags: [north-of-the-wall, the-wall]
+  - episode: S03E06
+    start: "00:37:28"
+    end: "00:40:08"
+    label: "The Wall — with Tormund Giantsbane, Ygritte, Orell"
+    tags: [north-of-the-wall, the-wall]
+  - episode: S03E06
+    start: "00:49:21"
+    end: "00:52:00"
+    label: "Top of the Wall — with Ygritte, Tormund Giantsbane, Orell"
+    tags: [the-wall, top-of-the-wall]
+  - episode: S03E07
+    start: "00:02:06"
+    end: "00:04:14"
+    label: "The Gift — with Ygritte, Orell"
+    tags: [the-wall, the-gift]
+  - episode: S03E07
+    start: "00:09:28"
+    end: "00:10:08"
+    label: "The Gift — with Ygritte, Tormund Giantsbane, Orell"
+    tags: [the-north, the-gift]
+  - episode: S03E07
+    start: "00:40:24"
+    end: "00:44:22"
+    label: "The Gift — with Ygritte"
+    tags: [the-north, the-gift]
+  - episode: S03E09
+    start: "00:15:52"
+    end: "00:17:46"
+    label: "The Gift — with Tormund Giantsbane, Ygritte, Orell +1"
+    tags: [the-north, the-gift]
+  - episode: S03E09
+    start: "00:22:46"
+    end: "00:25:34"
+    label: "The Gift — with Ygritte, Old Man, Orell +1"
+    tags: [the-north, the-gift]
+  - episode: S03E09
+    start: "00:26:05"
+    end: "00:27:08"
+    label: "The Gift — with Summer, Orell, Shaggydog +2"
+    tags: [the-north, the-gift]
+  - episode: S03E10
+    start: "00:40:55"
+    end: "00:42:42"
+    label: "The Gift — with Ygritte"
+    tags: [the-north, the-gift]
+  - episode: S03E10
+    start: "00:51:25"
+    end: "00:52:20"
+    label: "Castle Black — with Todder, Samwell Tarly, Pypar"
+    tags: [the-wall, castle-black]
+  - episode: S04E01
+    start: "00:32:18"
+    end: "00:35:52"
+    label: "Castle Black — with Samwell Tarly, Alliser Thorne, Janos Slynt +2"
+    tags: [the-wall, castle-black]
+  - episode: S04E03
+    start: "00:45:25"
+    end: "00:48:08"
+    label: "Castle Black — with Olly, Othell Yarwyck, Janos Slynt +5"
+    tags: [the-wall, castle-black]
+  - episode: S04E04
+    start: "00:20:28"
+    end: "00:24:42"
+    label: "Castle Black — with Grenn, Olly, Locke +2"
+    tags: [the-wall, castle-black]
+  - episode: S04E04
+    start: "00:35:17"
+    end: "00:39:44"
+    label: "Castle Black — with Samwell Tarly, Locke, Alliser Thorne +5"
+    tags: [the-wall, castle-black]
+  - episode: S04E05
+    start: "00:39:09"
+    end: "00:40:10"
+    label: "Craster's Keep — with Eddison Tollett, Locke, Grenn"
+    tags: [north-of-the-wall, crasters-keep]
+  - episode: S04E05
+    start: "00:42:50"
+    end: "00:43:20"
+    label: "Craster's Keep — with Grenn, Locke"
+    tags: [north-of-the-wall, crasters-keep]
+  - episode: S04E05
+    start: "00:44:31"
+    end: "00:44:44"
+    label: "Craster's Keep — alone"
+    tags: [north-of-the-wall, crasters-keep]
+  - episode: S04E05
+    start: "00:45:33"
+    end: "00:49:16"
+    label: "Craster's Keep — with Bran Stark, Meera Reed, Jojen Reed +6"
+    tags: [north-of-the-wall, crasters-keep]
+  - episode: S04E05
+    start: "00:49:54"
+    end: "00:51:52"
+    label: "Craster's Keep — with Grenn, Ghost, Eddison Tollett +2"
+    tags: [north-of-the-wall, crasters-keep]
+  - episode: S04E07
+    start: "00:10:49"
+    end: "00:13:40"
+    label: "Castle Black — with Samwell Tarly, Grenn, Eddison Tollett +6"
+    tags: [the-wall, castle-black]
+  - episode: S04E08
+    start: "00:06:52"
+    end: "00:08:44"
+    label: "Castle Black — with Samwell Tarly, Pypar, Grenn +1"
+    tags: [the-wall, castle-black]
+  - episode: S04E09
+    start: "00:02:44"
+    end: "00:06:04"
+    label: "Castle Black — with Samwell Tarly"
+    tags: [the-wall, castle-black]
+  - episode: S04E09
+    start: "00:14:18"
+    end: "00:16:34"
+    label: "Castle Black — with Janos Slynt, Grenn, Eddison Tollett +1"
+    tags: [the-wall, castle-black]
+  - episode: S04E09
+    start: "00:21:28"
+    end: "00:23:50"
+    label: "Castle Black — with Grenn, Eddison Tollett, Alliser Thorne +1"
+    tags: [the-wall, castle-black]
+  - episode: S04E09
+    start: "00:26:09"
+    end: "00:28:24"
+    label: "Castle Black — with Grenn, Eddison Tollett, Janos Slynt"
+    tags: [the-wall, castle-black]
+  - episode: S04E09
+    start: "00:31:02"
+    end: "00:31:54"
+    label: "Castle Black — with Eddison Tollett, Grenn"
+    tags: [the-wall, castle-black]
+  - episode: S04E09
+    start: "00:32:43"
+    end: "00:33:20"
+    label: "Castle Black — with Grenn, Donnel Hill, Cooper +1"
+    tags: [the-wall, castle-black]
+  - episode: S04E09
+    start: "00:37:15"
+    end: "00:38:04"
+    label: "Castle Black — with Samwell Tarly, Eddison Tollett"
+    tags: [the-wall, castle-black]
+  - episode: S04E09
+    start: "00:39:09"
+    end: "00:44:00"
+    label: "Castle Black — with Samwell Tarly, Tormund Giantsbane, Ghost +3"
+    tags: [the-wall, castle-black]
+  - episode: S04E09
+    start: "00:44:57"
+    end: "00:50:04"
+    label: "Castle Black — with Tormund Giantsbane, Samwell Tarly, Grenn +3"
+    tags: [the-wall, castle-black]
+  - episode: S04E10
+    start: "00:02:50"
+    end: "00:13:58"
+    label: "The Wall — with Dongo the Giant, Mance Rayder, Stannis Baratheon +1"
+    tags: [north-of-the-wall, the-wall, the-haunted-forest]
+  - episode: S04E10
+    start: "00:28:06"
+    end: "00:32:50"
+    label: "Castle Black — with Maester Aemon, Pypar, Grenn +11"
+    tags: [the-wall, castle-black, north-of-the-wall, the-haunted-forest]
+  - episode: S05E01
+    start: "00:21:33"
+    end: "00:26:36"
+    label: "Castle Black — with Olly, Samwell Tarly, Gilly +7"
+    tags: [the-wall, castle-black]
+  - episode: S05E01
+    start: "00:45:03"
+    end: "00:54:24"
+    label: "Castle Black — with Mance Rayder, Melisandre, Stannis Baratheon +10"
+    tags: [the-wall, castle-black]
+  - episode: S05E02
+    start: "00:37:34"
+    end: "00:45:38"
+    label: "Castle Black — with Stannis Baratheon, Davos Seaworth, Samwell Tarly +8"
+    tags: [the-wall, castle-black]
+  - episode: S05E03
+    start: "00:25:25"
+    end: "00:29:46"
+    label: "Castle Black — with Stannis Baratheon, Olly, Davos Seaworth"
+    tags: [the-wall, castle-black]
+  - episode: S05E03
+    start: "00:37:22"
+    end: "00:42:14"
+    label: "Castle Black — with Alliser Thorne, Janos Slynt, Samwell Tarly +4"
+    tags: [the-wall, castle-black]
+  - episode: S05E04
+    start: "00:17:22"
+    end: "00:17:56"
+    label: "Castle Black — with Olly, Selyse Baratheon, Eddison Tollett +2"
+    tags: [the-wall, castle-black]
+  - episode: S05E04
+    start: "00:18:49"
+    end: "00:23:24"
+    label: "Castle Black — with Olly, Stannis Baratheon, Melisandre +1"
+    tags: [the-wall, castle-black]
+  - episode: S05E05
+    start: "00:09:19"
+    end: "00:18:06"
+    label: "Castle Black — with Samwell Tarly, Maester Aemon, Tormund Giantsbane +7"
+    tags: [the-wall, castle-black]
+  - episode: S05E05
+    start: "00:42:10"
+    end: "00:43:34"
+    label: "Castle Black — with Stannis Baratheon, Melisandre"
+    tags: [the-wall, castle-black]
+  - episode: S05E07
+    start: "00:03:39"
+    end: "00:05:54"
+    label: "Castle Black — with Alliser Thorne, Othell Yarwyck, Bowen Marsh +4"
+    tags: [the-wall, castle-black]
+  - episode: S05E08
+    start: "00:31:50"
+    end: "00:43:04"
+    label: "Hardhome — with Tormund Giantsbane, Eddison Tollett, Todder +7"
+    tags: [north-of-the-wall, hardhome]
+  - episode: S05E08
+    start: "00:43:35"
+    end: "00:45:20"
+    label: "Hardhome — with Tormund Giantsbane, Karsi, Loboda"
+    tags: [north-of-the-wall, hardhome]
+  - episode: S05E08
+    start: "00:46:18"
+    end: "00:46:28"
+    label: "Hardhome — with Tormund Giantsbane"
+    tags: [north-of-the-wall, hardhome]
+  - episode: S05E08
+    start: "00:47:30"
+    end: "00:48:28"
+    label: "Hardhome — with Tormund Giantsbane, Karsi, Todder"
+    tags: [north-of-the-wall, hardhome]
+  - episode: S05E08
+    start: "00:49:31"
+    end: "01:00:16"
+    label: "Hardhome — with Tormund Giantsbane, Loboda, Karsi +4"
+    tags: [north-of-the-wall, hardhome]
+  - episode: S05E09
+    start: "00:06:38"
+    end: "00:09:54"
+    label: "The Wall — with Tormund Giantsbane, Wun Wun, Eddison Tollett +7"
+    tags: [north-of-the-wall, the-wall, castle-black]
+  - episode: S05E10
+    start: "00:07:56"
+    end: "00:12:08"
+    label: "Castle Black — with Samwell Tarly, Gilly, Baby Sam"
+    tags: [the-wall, castle-black]
+  - episode: S05E10
+    start: "00:57:12"
+    end: "01:02:02"
+    label: "Castle Black — with Davos Seaworth, Melisandre, Olly +3"
+    tags: [the-wall, castle-black]
+  - episode: S06E01
+    start: "00:07:04"
+    end: "00:11:36"
+    label: "Castle Black — with Davos Seaworth, Eddison Tollett, Loyal Night's Watchman #1 +2"
+    tags: [the-wall, castle-black]
+  - episode: S06E01
+    start: "00:13:33"
+    end: "00:14:42"
+    label: "Castle Black — with Ghost, Davos Seaworth, Eddison Tollett +2"
+    tags: [the-wall, castle-black]
+  - episode: S06E01
+    start: "00:48:46"
+    end: "00:51:04"
+    label: "Castle Black — with Alliser Thorne, Bowen Marsh, Othell Yarwyck +4"
+    tags: [the-wall, castle-black]
+  - episode: S06E02
+    start: "00:10:40"
+    end: "00:12:02"
+    label: "Castle Black — with Alliser Thorne, Davos Seaworth, Olly +5"
+    tags: [the-wall, castle-black]
+  - episode: S06E02
+    start: "00:13:39"
+    end: "00:14:20"
+    label: "Castle Black — with Tormund Giantsbane, Eddison Tollett, Davos Seaworth"
+    tags: [the-wall, castle-black]
+  - episode: S06E02
+    start: "00:49:45"
+    end: "00:55:18"
+    label: "Castle Black — with Melisandre, Davos Seaworth, Eddison Tollett +2"
+    tags: [the-wall, castle-black]
+  - episode: S06E03
+    start: "00:05:24"
+    end: "00:11:16"
+    label: "Castle Black — with Davos Seaworth, Ghost, Melisandre +2"
+    tags: [the-wall, castle-black]
+  - episode: S06E03
+    start: "00:49:47"
+    end: "00:54:14"
+    label: "Castle Black — with Eddison Tollett, Melisandre, Tormund Giantsbane +5"
+    tags: [the-wall, castle-black]
+  - episode: S06E04
+    start: "00:05:08"
+    end: "00:06:16"
+    label: "Castle Black — with Eddison Tollett"
+    tags: [the-wall, castle-black]
+  - episode: S06E04
+    start: "00:06:47"
+    end: "00:10:38"
+    label: "Castle Black — with Sansa Stark, Eddison Tollett, Brienne of Tarth +2"
+    tags: [the-wall, castle-black]
+  - episode: S06E04
+    start: "00:50:11"
+    end: "00:53:56"
+    label: "Castle Black — with Sansa Stark, Brienne of Tarth, Tormund Giantsbane +3"
+    tags: [the-wall, castle-black]
+  - episode: S06E05
+    start: "00:43:14"
+    end: "00:45:46"
+    label: "Castle Black — with Sansa Stark, Eddison Tollett, Brienne of Tarth +3"
+    tags: [the-wall, castle-black]
+  - episode: S06E05
+    start: "00:46:58"
+    end: "00:48:28"
+    label: "Castle Black — with Melisandre, Sansa Stark, Tormund Giantsbane +3"
+    tags: [the-wall, castle-black]
+  - episode: S06E07
+    start: "00:15:10"
+    end: "00:18:14"
+    label: "Stannis Baratheon's Camp — with Dim Dalba, Sansa Stark, Davos Seaworth +2"
+    tags: [the-north, stannis-baratheons-camp]
+  - episode: S06E07
+    start: "00:25:41"
+    end: "00:30:56"
+    label: "Bear Island — with Sansa Stark, Davos Seaworth, Lyanna Mormont +1"
+    tags: [the-north, bear-island]
+  - episode: S06E07
+    start: "00:34:26"
+    end: "00:36:56"
+    label: "Deepwood Motte — with Robett Glover, Sansa Stark, Davos Seaworth"
+    tags: [the-north, deepwood-motte]
+  - episode: S06E07
+    start: "00:40:38"
+    end: "00:42:16"
+    label: "Stannis Baratheon's Camp — with Sansa Stark, Davos Seaworth, Northman Rioter +1"
+    tags: [the-north, stannis-baratheons-camp]
+  - episode: S06E09
+    start: "00:14:21"
+    end: "00:23:30"
+    label: "Outside Winterfell — with Sansa Stark, Lyanna Mormont, Ramsay Snow +5"
+    tags: [the-north, outside-winterfell, stannis-baratheons-camp]
+  - episode: S06E09
+    start: "00:25:27"
+    end: "00:27:24"
+    label: "Stannis Baratheon's Camp — with Melisandre"
+    tags: [the-north, stannis-baratheons-camp]
+  - episode: S06E09
+    start: "00:33:12"
+    end: "00:34:12"
+    label: "Outside Winterfell — with Wun Wun, Tormund Giantsbane, Davos Seaworth"
+    tags: [the-north, outside-winterfell]
+  - episode: S06E09
+    start: "00:35:15"
+    end: "00:41:10"
+    label: "Outside Winterfell — with Ramsay Snow, Rickon Stark, Tormund Giantsbane +2"
+    tags: [the-north, outside-winterfell]
+  - episode: S06E09
+    start: "00:41:47"
+    end: "00:43:42"
+    label: "Outside Winterfell — with Ramsay Snow"
+    tags: [the-north, outside-winterfell]
+  - episode: S06E09
+    start: "00:44:32"
+    end: "00:52:36"
+    label: "Outside Winterfell — with Tormund Giantsbane, Wun Wun, Smalljon Umber +4"
+    tags: [the-north, outside-winterfell]
+  - episode: S06E09
+    start: "00:53:59"
+    end: "00:56:04"
+    label: "Winterfell — with Wun Wun, Tormund Giantsbane, Ramsay Snow +1"
+    tags: [the-north, winterfell]
+  - episode: S06E09
+    start: "00:56:34"
+    end: "00:57:12"
+    label: "Winterfell — with Melisandre, Davos Seaworth, Tormund Giantsbane +2"
+    tags: [the-north, winterfell]
+  - episode: S06E10
+    start: "00:35:33"
+    end: "00:42:24"
+    label: "Winterfell — with Melisandre, Davos Seaworth, Sansa Stark"
+    tags: [the-north, winterfell]
+  - episode: S06E10
+    start: "01:00:51"
+    end: "01:05:30"
+    label: "Winterfell — with Yohn Royce, Sansa Stark, Tormund Giantsbane +6"
+    tags: [the-north, winterfell]
+  - episode: S07E01
+    start: "00:13:00"
+    end: "00:20:50"
+    label: "Winterfell — with Davos Seaworth, Sansa Stark, Brienne of Tarth +9"
+    tags: [the-north, winterfell]
+  - episode: S07E02
+    start: "00:13:05"
+    end: "00:14:30"
+    label: "Winterfell — with Sansa Stark, Davos Seaworth"
+    tags: [the-north, winterfell]
+  - episode: S07E02
+    start: "00:40:14"
+    end: "00:47:06"
+    label: "Winterfell — with Maester Wolkan, Lyanna Mormont, Alys Karstark +7"
+    tags: [the-north, winterfell]
+  - episode: S07E03
+    start: "00:04:06"
+    end: "00:08:04"
+    label: "Dragonstone — with Davos Seaworth, Tyrion Lannister, Missandei +4"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E03
+    start: "00:09:54"
+    end: "00:20:06"
+    label: "Dragonstone — with Daenerys Targaryen, Davos Seaworth, Tyrion Lannister +3"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E03
+    start: "00:34:24"
+    end: "00:38:16"
+    label: "Dragonstone — with Tyrion Lannister"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E03
+    start: "00:40:09"
+    end: "00:42:04"
+    label: "Dragonstone — with Daenerys Targaryen, Viserion, Rhaegal"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E04
+    start: "00:21:50"
+    end: "00:28:58"
+    label: "Dragonstone — with Daenerys Targaryen, Missandei, Qhono +6"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E04
+    start: "00:32:26"
+    end: "00:36:22"
+    label: "Dragonstone — with Davos Seaworth, Missandei, Theon Greyjoy +1"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E05
+    start: "00:14:33"
+    end: "00:18:58"
+    label: "Dragonstone — with Drogon, Daenerys Targaryen, Rhaegal +3"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E05
+    start: "00:25:09"
+    end: "00:28:46"
+    label: "Dragonstone — with Daenerys Targaryen, Tyrion Lannister, Lord Varys +2"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E05
+    start: "00:43:34"
+    end: "00:45:18"
+    label: "Dragonstone — with Davos Seaworth, Gendry"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E05
+    start: "00:46:19"
+    end: "00:47:22"
+    label: "Dragonstone — with Jorah Mormont, Tyrion Lannister, Daenerys Targaryen +3"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E05
+    start: "00:54:33"
+    end: "00:59:10"
+    label: "Eastwatch — with Gendry, Davos Seaworth, Jorah Mormont +4"
+    tags: [the-wall, eastwatch, north-of-the-wall]
+  - episode: S07E06
+    start: "00:04:17"
+    end: "00:09:42"
+    label: "The Haunted Forest — with Gendry, Jorah Mormont, Tormund Giantsbane +3"
+    tags: [north-of-the-wall, the-haunted-forest]
+  - episode: S07E06
+    start: "00:15:17"
+    end: "00:15:32"
+    label: "The Haunted Forest — with Gendry, Jorah Mormont, Tormund Giantsbane +3"
+    tags: [north-of-the-wall, the-haunted-forest]
+  - episode: S07E06
+    start: "00:17:10"
+    end: "00:19:36"
+    label: "The Haunted Forest — with Beric Dondarrion, Gendry, Thoros of Myr +3"
+    tags: [north-of-the-wall, the-haunted-forest]
+  - episode: S07E06
+    start: "00:24:40"
+    end: "00:29:04"
+    label: "The Haunted Forest — with Gendry, Jorah Mormont, Tormund Giantsbane +3"
+    tags: [north-of-the-wall, the-haunted-forest]
+  - episode: S07E06
+    start: "00:31:00"
+    end: "00:31:08"
+    label: "The Haunted Forest — with Gendry, Jorah Mormont, Tormund Giantsbane +3"
+    tags: [north-of-the-wall, the-haunted-forest]
+  - episode: S07E06
+    start: "00:31:54"
+    end: "00:32:36"
+    label: "The Haunted Forest — with Gendry, Jorah Mormont, Tormund Giantsbane +4"
+    tags: [north-of-the-wall, the-haunted-forest]
+  - episode: S07E06
+    start: "00:33:20"
+    end: "00:37:06"
+    label: "The Haunted Forest — with White Walker, Gendry, Jorah Mormont +4"
+    tags: [north-of-the-wall, the-haunted-forest]
+  - episode: S07E06
+    start: "00:37:38"
+    end: "00:38:06"
+    label: "The Haunted Forest — with Jorah Mormont, Tormund Giantsbane, Sandor Clegane +2"
+    tags: [north-of-the-wall, the-haunted-forest]
+  - episode: S07E06
+    start: "00:38:56"
+    end: "00:42:52"
+    label: "The Haunted Forest — with Jorah Mormont, Tormund Giantsbane, Sandor Clegane +4"
+    tags: [north-of-the-wall, the-haunted-forest]
+  - episode: S07E06
+    start: "00:46:09"
+    end: "00:55:40"
+    label: "The Haunted Forest — with Jorah Mormont, Tormund Giantsbane, Sandor Clegane +7"
+    tags: [north-of-the-wall, the-haunted-forest]
+  - episode: S07E06
+    start: "00:56:48"
+    end: "00:59:22"
+    label: "The Haunted Forest — with Benjen Stark"
+    tags: [north-of-the-wall, the-haunted-forest]
+  - episode: S07E06
+    start: "01:01:06"
+    end: "01:01:50"
+    label: "The Wall — with Davos Seaworth, Daenerys Targaryen"
+    tags: [north-of-the-wall, the-wall, eastwatch]
+  - episode: S07E06
+    start: "01:05:52"
+    end: "01:09:22"
+    label: "The Shivering Sea — with Daenerys Targaryen"
+    tags: [the-shivering-sea]
+  - episode: S07E07
+    start: "00:07:44"
+    end: "00:08:08"
+    label: "Blackwater Bay — with Tyrion Lannister, Davos Seaworth, Jorah Mormont +1"
+    tags: [the-crownlands, blackwater-bay]
+  - episode: S07E07
+    start: "00:09:23"
+    end: "00:10:44"
+    label: "Outside King's Landing — with Tyrion Lannister, Davos Seaworth, Jorah Mormont +8"
+    tags: [the-crownlands, outside-kings-landing]
+  - episode: S07E07
+    start: "00:11:59"
+    end: "00:31:22"
+    label: "Outside King's Landing — with Tyrion Lannister, Davos Seaworth, Jorah Mormont +16"
+    tags: [the-crownlands, outside-kings-landing]
+  - episode: S07E07
+    start: "00:38:20"
+    end: "00:42:28"
+    label: "Outside King's Landing — with Daenerys Targaryen, Tyrion Lannister, Davos Seaworth +11"
+    tags: [the-crownlands, outside-kings-landing]
+  - episode: S07E07
+    start: "00:46:10"
+    end: "00:51:20"
+    label: "Dragonstone — with Daenerys Targaryen, Tyrion Lannister, Davos Seaworth +5"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E07
+    start: "01:11:27"
+    end: "01:13:10"
+    label: "The Narrow Sea — with Daenerys Targaryen"
+    tags: [the-narrow-sea]
+  - episode: S08E01
+    start: "00:05:53"
+    end: "00:06:40"
+    label: "Winter Town — with Daenerys Targaryen, Qhono, Arya Stark"
+    tags: [the-north, winter-town]
+  - episode: S08E01
+    start: "00:07:47"
+    end: "00:08:14"
+    label: "Winter Town — with Daenerys Targaryen, Drogon, Rhaegal"
+    tags: [the-north, winter-town]
+  - episode: S08E01
+    start: "00:08:46"
+    end: "00:13:40"
+    label: "Winterfell — with Daenerys Targaryen, Bran Stark, Sansa Stark +14"
+    tags: [the-north, winterfell]
+  - episode: S08E01
+    start: "00:16:23"
+    end: "00:18:32"
+    label: "Winterfell — with Arya Stark"
+    tags: [the-north, winterfell]
+  - episode: S08E01
+    start: "00:31:44"
+    end: "00:37:28"
+    label: "Winterfell — with Davos Seaworth, Lord Varys, Tyrion Lannister +4"
+    tags: [the-north, winterfell, outside-winterfell]
+  - episode: S08E01
+    start: "00:40:05"
+    end: "00:41:50"
+    label: "Winterfell — with Sansa Stark"
+    tags: [the-north, winterfell]
+  - episode: S08E01
+    start: "00:45:18"
+    end: "00:49:26"
+    label: "Winterfell — with Samwell Tarly"
+    tags: [the-north, winterfell]
+  - episode: S08E02
+    start: "00:03:39"
+    end: "00:08:22"
+    label: "Winterfell — with Jaime Lannister, Daenerys Targaryen, Sansa Stark +11"
+    tags: [the-north, winterfell]
+  - episode: S08E02
+    start: "00:26:41"
+    end: "00:31:32"
+    label: "Winterfell — with Eddison Tollett, Samwell Tarly, Beric Dondarrion +18"
+    tags: [the-north, winterfell]
+  - episode: S08E02
+    start: "00:33:45"
+    end: "00:35:54"
+    label: "Winterfell — with Samwell Tarly, Ghost, Eddison Tollett"
+    tags: [the-north, winterfell]
+  - episode: S08E02
+    start: "00:53:56"
+    end: "00:57:50"
+    label: "Winterfell — with Daenerys Targaryen, Tyrion Lannister"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:07:58"
+    end: "00:08:24"
+    label: "Winterfell — with Rhaegal, Drogon, Daenerys Targaryen"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:13:30"
+    end: "00:13:38"
+    label: "Winterfell — with Daenerys Targaryen"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:14:14"
+    end: "00:14:24"
+    label: "Winterfell — with Daenerys Targaryen"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:16:03"
+    end: "00:16:20"
+    label: "Winterfell — with Daenerys Targaryen"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:18:11"
+    end: "00:19:10"
+    label: "Winterfell — with Tormund Giantsbane, Daenerys Targaryen, Drogon +4"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:22:38"
+    end: "00:23:22"
+    label: "Winterfell — with Rhaegal, Daenerys Targaryen, Drogon"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:24:56"
+    end: "00:25:34"
+    label: "Winterfell — with Rhaegal, Daenerys Targaryen, Drogon +1"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:30:43"
+    end: "00:30:48"
+    label: "Winterfell — with Rhaegal"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:37:16"
+    end: "00:37:42"
+    label: "Winterfell — with Rhaegal, Viserion, The Night King"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:44:36"
+    end: "00:45:46"
+    label: "Winterfell — with Daenerys Targaryen, Drogon, Rhaegal +2"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:56:59"
+    end: "00:58:18"
+    label: "Winterfell — with Viserion, The Night King, Rhaegal +4"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:59:12"
+    end: "01:01:40"
+    label: "Winterfell — with Daenerys Targaryen, Drogon, The Night King"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:02:27"
+    end: "01:02:42"
+    label: "Winterfell — with The Night King"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:04:07"
+    end: "01:04:46"
+    label: "Winterfell — with Daenerys Targaryen, Drogon"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:06:08"
+    end: "01:07:12"
+    label: "Winterfell — with Gendry, Tormund Giantsbane, Samwell Tarly +4"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:09:15"
+    end: "01:09:38"
+    label: "Winterfell — with Viserion"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:10:22"
+    end: "01:10:44"
+    label: "Winterfell — with Viserion"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:14:29"
+    end: "01:14:50"
+    label: "Winterfell — with Viserion"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:15:58"
+    end: "01:16:12"
+    label: "Winterfell — with Viserion"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:17:05"
+    end: "01:17:16"
+    label: "Winterfell — with Viserion"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:17:47"
+    end: "01:17:56"
+    label: "Winterfell — with Viserion"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:18:34"
+    end: "01:18:40"
+    label: "Winterfell — alone"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:05:44"
+    end: "00:10:18"
+    label: "Winterfell — with Samwell Tarly, Bran Stark, Arya Stark +20"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:10:52"
+    end: "00:13:16"
+    label: "Winterfell — with Gendry, Sandor Clegane, Bran Stark +12"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:14:30"
+    end: "00:14:34"
+    label: "Winterfell — with Davos Seaworth, Tyrion Lannister, Brienne of Tarth +5"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:15:45"
+    end: "00:16:34"
+    label: "Winterfell — with Grey Worm, Sansa Stark, Tormund Giantsbane +7"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:17:07"
+    end: "00:18:42"
+    label: "Winterfell — with Tormund Giantsbane, Davos Seaworth, Daenerys Targaryen +1"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:28:29"
+    end: "00:39:30"
+    label: "Winterfell — with Daenerys Targaryen, Grey Worm, Yohn Royce +8"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:48:21"
+    end: "00:51:46"
+    label: "Winterfell — with Davos Seaworth, Tormund Giantsbane, Ghost +2"
+    tags: [the-north, winterfell]
+  - episode: S08E05
+    start: "00:06:24"
+    end: "00:08:28"
+    label: "Dragonstone — with Tyrion Lannister, Lord Varys"
+    tags: [the-crownlands, dragonstone]
+  - episode: S08E05
+    start: "00:12:40"
+    end: "00:15:20"
+    label: "Dragonstone — with Lord Varys, Grey Worm, Tyrion Lannister +2"
+    tags: [the-crownlands, dragonstone]
+  - episode: S08E05
+    start: "00:16:22"
+    end: "00:18:48"
+    label: "Dragonstone — with Grey Worm, Daenerys Targaryen"
+    tags: [the-crownlands, dragonstone]
+  - episode: S08E05
+    start: "00:21:44"
+    end: "00:22:38"
+    label: "Blackwater Bay — with Tyrion Lannister, Davos Seaworth"
+    tags: [the-crownlands, blackwater-bay, kings-landing]
+  - episode: S08E05
+    start: "00:32:39"
+    end: "00:33:18"
+    label: "King's Landing — with Davos Seaworth, Grey Worm, Tyrion Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:37:37"
+    end: "00:38:34"
+    label: "King's Landing — with Harry Strickland, Grey Worm, Davos Seaworth +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:41:53"
+    end: "00:42:46"
+    label: "King's Landing — with Grey Worm, Davos Seaworth"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:43:40"
+    end: "00:44:12"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:46:00"
+    end: "00:46:08"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:47:36"
+    end: "00:48:28"
+    label: "King's Landing — with Grey Worm, Davos Seaworth"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:49:56"
+    end: "00:50:02"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:50:41"
+    end: "00:51:44"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "01:09:07"
+    end: "01:09:54"
+    label: "King's Landing — with Davos Seaworth, Daenerys Targaryen, Drogon"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E06
+    start: "00:06:08"
+    end: "00:07:34"
+    label: "King's Landing — with Tyrion Lannister, Davos Seaworth, Eleanor +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E06
+    start: "00:08:15"
+    end: "00:09:42"
+    label: "King's Landing — with Grey Worm, Davos Seaworth"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E06
+    start: "00:14:17"
+    end: "00:20:16"
+    label: "King's Landing — with Arya Stark, Grey Worm, Drogon +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E06
+    start: "00:20:56"
+    end: "00:33:56"
+    label: "King's Landing — with Grey Worm, Drogon, Daenerys Targaryen +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E06
+    start: "00:35:53"
+    end: "00:44:36"
+    label: "King's Landing — with Daenerys Targaryen, Drogon"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E06
+    start: "00:58:29"
+    end: "01:05:56"
+    label: "King's Landing — with Tyrion Lannister, Grey Worm, Sansa Stark +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E06
+    start: "01:13:27"
+    end: "01:17:24"
+    label: "Castle Black — with Tormund Giantsbane, Ghost"
+    tags: [the-wall, castle-black]
+  - episode: S08E06
+    start: "01:18:11"
+    end: "01:20:20"
+    label: "Castle Black — with Tormund Giantsbane, Ghost"
+    tags: [the-wall, castle-black, north-of-the-wall, the-haunted-forest]
