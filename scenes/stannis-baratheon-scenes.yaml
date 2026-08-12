@@ -1,0 +1,257 @@
+version: "1.0"
+series: "Game of Thrones"
+character: "Stannis Baratheon"
+# Timestamps are in DATASET time, not calibrated to any library.
+# edl-cut applies per-episode offsets when it emits a playlist.
+# 50 segments, 1.81 hours.
+scenes:
+  - episode: S02E01
+    start: "00:25:02"
+    end: "00:28:12"
+    label: "Dragonstone — with Melisandre, Maester Cressen, Davos Seaworth +2"
+    tags: [the-crownlands, dragonstone]
+  - episode: S02E01
+    start: "00:29:10"
+    end: "00:32:14"
+    label: "Dragonstone — with Matthos Seaworth, Davos Seaworth, Melisandre +1"
+    tags: [the-crownlands, dragonstone]
+  - episode: S02E02
+    start: "00:46:03"
+    end: "00:49:58"
+    label: "Dragonstone — with Davos Seaworth, Matthos Seaworth, Melisandre"
+    tags: [the-crownlands, dragonstone]
+  - episode: S02E04
+    start: "00:28:47"
+    end: "00:32:00"
+    label: "Storm's End — with Renly Baratheon, Catelyn Stark, Brienne of Tarth +3"
+    tags: [the-stormlands, storms-end]
+  - episode: S02E04
+    start: "00:43:41"
+    end: "00:45:34"
+    label: "Storm's End — with Davos Seaworth"
+    tags: [the-stormlands, storms-end]
+  - episode: S02E05
+    start: "00:11:23"
+    end: "00:14:06"
+    label: "Storm's End — with Davos Seaworth"
+    tags: [the-stormlands, storms-end]
+  - episode: S02E08
+    start: "00:42:07"
+    end: "00:45:04"
+    label: "Blackwater Bay — with Davos Seaworth, Matthos Seaworth"
+    tags: [the-crownlands, blackwater-bay]
+  - episode: S02E09
+    start: "00:02:41"
+    end: "00:02:58"
+    label: "Blackwater Bay — alone"
+    tags: [the-crownlands, blackwater-bay]
+  - episode: S02E09
+    start: "00:15:42"
+    end: "00:15:46"
+    label: "Blackwater Bay — alone"
+    tags: [the-crownlands, blackwater-bay]
+  - episode: S02E09
+    start: "00:23:01"
+    end: "00:23:06"
+    label: "Blackwater Bay — alone"
+    tags: [the-crownlands, blackwater-bay]
+  - episode: S02E09
+    start: "00:24:58"
+    end: "00:25:16"
+    label: "Blackwater Bay — with Matthos Seaworth, Davos Seaworth"
+    tags: [the-crownlands, blackwater-bay]
+  - episode: S02E09
+    start: "00:26:25"
+    end: "00:27:26"
+    label: "Blackwater Bay — alone"
+    tags: [the-crownlands, blackwater-bay]
+  - episode: S02E09
+    start: "00:31:20"
+    end: "00:31:24"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:32:10"
+    end: "00:32:34"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:33:07"
+    end: "00:33:40"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:38:34"
+    end: "00:39:10"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:49:25"
+    end: "00:49:36"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:51:01"
+    end: "00:51:02"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:52:36"
+    end: "00:52:46"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E10
+    start: "00:18:31"
+    end: "00:22:06"
+    label: "Dragonstone — with Melisandre"
+    tags: [the-crownlands, dragonstone]
+  - episode: S03E01
+    start: "00:37:31"
+    end: "00:40:14"
+    label: "Dragonstone — with Davos Seaworth, Melisandre"
+    tags: [the-crownlands, dragonstone]
+  - episode: S03E03
+    start: "00:26:31"
+    end: "00:28:26"
+    label: "Dragonstone — with Melisandre"
+    tags: [the-crownlands, dragonstone]
+  - episode: S03E05
+    start: "00:29:16"
+    end: "00:33:48"
+    label: "Dragonstone — with Selyse Baratheon, Shireen Baratheon"
+    tags: [the-crownlands, dragonstone]
+  - episode: S03E08
+    start: "00:09:32"
+    end: "00:10:56"
+    label: "Dragonstone — with Gendry, Melisandre"
+    tags: [the-crownlands, dragonstone]
+  - episode: S03E08
+    start: "00:11:43"
+    end: "00:15:36"
+    label: "Dragonstone — with Davos Seaworth"
+    tags: [the-crownlands, dragonstone]
+  - episode: S03E08
+    start: "00:31:05"
+    end: "00:32:20"
+    label: "Dragonstone — with Gendry, Melisandre, Davos Seaworth"
+    tags: [the-crownlands, dragonstone]
+  - episode: S03E10
+    start: "00:47:23"
+    end: "00:49:54"
+    label: "Dragonstone — with Melisandre, Davos Seaworth"
+    tags: [the-crownlands, dragonstone]
+  - episode: S03E10
+    start: "00:53:49"
+    end: "00:56:40"
+    label: "Dragonstone — with Davos Seaworth, Melisandre"
+    tags: [the-crownlands, dragonstone]
+  - episode: S04E02
+    start: "00:20:01"
+    end: "00:23:16"
+    label: "Dragonstone — with Melisandre, Davos Seaworth, Axell Florent +1"
+    tags: [the-crownlands, dragonstone]
+  - episode: S04E03
+    start: "00:25:30"
+    end: "00:27:20"
+    label: "Dragonstone — with Davos Seaworth"
+    tags: [the-crownlands, dragonstone]
+  - episode: S04E06
+    start: "00:01:54"
+    end: "00:07:50"
+    label: "Braavos — with Davos Seaworth, Tycho Nestoris"
+    tags: [braavos]
+  - episode: S04E10
+    start: "00:11:06"
+    end: "00:13:58"
+    label: "The Wall — with Mance Rayder, Jon Snow, Davos Seaworth"
+    tags: [north-of-the-wall, the-wall]
+  - episode: S04E10
+    start: "00:28:44"
+    end: "00:29:46"
+    label: "Castle Black — with Maester Aemon, Olly, Eddison Tollett +8"
+    tags: [the-wall, castle-black]
+  - episode: S05E01
+    start: "00:24:21"
+    end: "00:26:36"
+    label: "Castle Black — with Davos Seaworth, Jon Snow, Melisandre"
+    tags: [the-wall, castle-black]
+  - episode: S05E01
+    start: "00:49:27"
+    end: "00:54:18"
+    label: "Castle Black — with Mance Rayder, Melisandre, Davos Seaworth +10"
+    tags: [the-wall, castle-black]
+  - episode: S05E02
+    start: "00:37:34"
+    end: "00:39:56"
+    label: "Castle Black — with Jon Snow, Davos Seaworth"
+    tags: [the-wall, castle-black]
+  - episode: S05E03
+    start: "00:25:25"
+    end: "00:28:02"
+    label: "Castle Black — with Olly, Jon Snow, Davos Seaworth"
+    tags: [the-wall, castle-black]
+  - episode: S05E03
+    start: "00:40:20"
+    end: "00:42:14"
+    label: "Castle Black — with Janos Slynt, Eddison Tollett, Jon Snow +3"
+    tags: [the-wall, castle-black]
+  - episode: S05E04
+    start: "00:17:22"
+    end: "00:18:52"
+    label: "Castle Black — with Olly, Selyse Baratheon, Jon Snow +3"
+    tags: [the-wall, castle-black]
+  - episode: S05E04
+    start: "00:23:23"
+    end: "00:26:32"
+    label: "Castle Black — with Shireen Baratheon"
+    tags: [the-wall, castle-black]
+  - episode: S05E05
+    start: "00:14:48"
+    end: "00:16:20"
+    label: "Castle Black — with Jon Snow, Othell Yarwyck, Bowen Marsh +5"
+    tags: [the-wall, castle-black]
+  - episode: S05E05
+    start: "00:38:19"
+    end: "00:41:00"
+    label: "Castle Black — with Gilly, Samwell Tarly, Davos Seaworth"
+    tags: [the-wall, castle-black]
+  - episode: S05E05
+    start: "00:42:10"
+    end: "00:43:34"
+    label: "Castle Black — with Jon Snow, Melisandre"
+    tags: [the-wall, castle-black]
+  - episode: S05E07
+    start: "00:17:22"
+    end: "00:20:54"
+    label: "Stannis Baratheon's Camp — with Davos Seaworth, Melisandre"
+    tags: [the-north, stannis-baratheons-camp]
+  - episode: S05E09
+    start: "00:05:23"
+    end: "00:06:38"
+    label: "Stannis Baratheon's Camp — with Davos Seaworth, Melisandre, Selyse Baratheon"
+    tags: [the-north, stannis-baratheons-camp]
+  - episode: S05E09
+    start: "00:09:53"
+    end: "00:11:22"
+    label: "Stannis Baratheon's Camp — with Davos Seaworth"
+    tags: [the-north, stannis-baratheons-camp]
+  - episode: S05E09
+    start: "00:30:43"
+    end: "00:36:42"
+    label: "Stannis Baratheon's Camp — with Shireen Baratheon, Melisandre, Selyse Baratheon"
+    tags: [the-north, stannis-baratheons-camp]
+  - episode: S05E10
+    start: "00:05:25"
+    end: "00:07:56"
+    label: "Stannis Baratheon's Camp — with Melisandre, Baratheon General, Baratheon Soldier #1 +2"
+    tags: [the-north, stannis-baratheons-camp]
+  - episode: S05E10
+    start: "00:12:08"
+    end: "00:12:46"
+    label: "Outside Winterfell — with Baratheon General"
+    tags: [the-north, outside-winterfell]
+  - episode: S05E10
+    start: "00:14:46"
+    end: "00:19:28"
+    label: "Outside Winterfell — with Baratheon General, Gordy, Simpson +1"
+    tags: [the-north, outside-winterfell, the-wolfswood]

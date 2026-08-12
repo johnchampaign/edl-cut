@@ -1,0 +1,237 @@
+version: "1.0"
+series: "Game of Thrones"
+character: "Robb Stark"
+# Timestamps are in DATASET time, not calibrated to any library.
+# edl-cut applies per-episode offsets when it emits a playlist.
+# 46 segments, 2.18 hours.
+scenes:
+  - episode: S01E01
+    start: "00:09:27"
+    end: "00:18:44"
+    label: "Winterfell — with Will, Jon Snow, Bran Stark +15"
+    tags: [the-north, winterfell, outside-winterfell]
+  - episode: S01E01
+    start: "00:23:09"
+    end: "00:23:40"
+    label: "Winterfell — with Theon Greyjoy, Jon Snow"
+    tags: [the-north, winterfell]
+  - episode: S01E01
+    start: "00:44:14"
+    end: "00:47:28"
+    label: "Winterfell — with Rodrik Cassel, Benjen Stark, Eddard Stark +8"
+    tags: [the-north, winterfell]
+  - episode: S01E01
+    start: "00:57:48"
+    end: "00:59:06"
+    label: "Winterfell — with Tyrion Lannister, Sandor Clegane, Theon Greyjoy +5"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:19:22"
+    end: "00:20:08"
+    label: "Winterfell — with Jon Snow"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:29:16"
+    end: "00:32:28"
+    label: "Winterfell — with Catelyn Stark, Bran Stark, Maester Luwin +2"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:36:12"
+    end: "00:38:02"
+    label: "Winterfell — with Catelyn Stark, Maester Luwin, Rodrik Cassel +1"
+    tags: [the-north, winterfell]
+  - episode: S01E03
+    start: "00:15:48"
+    end: "00:18:50"
+    label: "Winterfell — with Bran Stark, Old Nan"
+    tags: [the-north, winterfell]
+  - episode: S01E04
+    start: "00:03:30"
+    end: "00:05:14"
+    label: "Winterfell — with Tyrion Lannister, Maester Luwin, Yoren +4"
+    tags: [the-north, winterfell]
+  - episode: S01E06
+    start: "00:08:36"
+    end: "00:13:10"
+    label: "The Wolfswood — with Bran Stark, Theon Greyjoy, Osha +2"
+    tags: [the-north, the-wolfswood]
+  - episode: S01E08
+    start: "00:15:11"
+    end: "00:16:24"
+    label: "Winterfell — with Maester Luwin, Theon Greyjoy"
+    tags: [the-north, winterfell]
+  - episode: S01E08
+    start: "00:32:33"
+    end: "00:36:20"
+    label: "Winterfell — with Grey Wind, Greatjon Umber, Bran Stark +2"
+    tags: [the-north, winterfell]
+  - episode: S01E08
+    start: "00:40:10"
+    end: "00:43:22"
+    label: "The Neck — with Greatjon Umber, Theon Greyjoy, Catelyn Stark +1"
+    tags: [the-north, the-neck]
+  - episode: S01E08
+    start: "00:47:52"
+    end: "00:50:40"
+    label: "The Neck — with Rodrik Cassel, Catelyn Stark, Greatjon Umber +2"
+    tags: [the-north, the-neck]
+  - episode: S01E09
+    start: "00:06:25"
+    end: "00:08:12"
+    label: "The Twins — with Theon Greyjoy, Catelyn Stark, Greatjon Umber +1"
+    tags: [the-riverlands, the-twins]
+  - episode: S01E09
+    start: "00:15:49"
+    end: "00:17:32"
+    label: "The Twins — with Theon Greyjoy, Catelyn Stark, Rodrik Cassel +1"
+    tags: [the-riverlands, the-twins]
+  - episode: S01E09
+    start: "00:46:52"
+    end: "00:49:26"
+    label: "Riverrun — with Catelyn Stark, Rodrik Cassel, Jaime Lannister +2"
+    tags: [the-riverlands, riverrun]
+  - episode: S01E10
+    start: "00:06:07"
+    end: "00:08:08"
+    label: "Camp of the North — with Catelyn Stark"
+    tags: [the-riverlands, camp-of-the-north]
+  - episode: S01E10
+    start: "00:13:32"
+    end: "00:15:48"
+    label: "Camp of the North — with Catelyn Stark, Rodrik Cassel, Theon Greyjoy +3"
+    tags: [the-riverlands, camp-of-the-north]
+  - episode: S02E01
+    start: "00:32:14"
+    end: "00:35:42"
+    label: "Camp of the North — with Jaime Lannister, Grey Wind"
+    tags: [the-riverlands, camp-of-the-north]
+  - episode: S02E01
+    start: "00:40:06"
+    end: "00:45:38"
+    label: "Camp of the North — with Alton Lannister, Rodrik Cassel, Theon Greyjoy +1"
+    tags: [the-riverlands, camp-of-the-north]
+  - episode: S02E04
+    start: "00:03:42"
+    end: "00:07:48"
+    label: "Oxcross — with Rennick, Roose Bolton, Talisa Maegyr +1"
+    tags: [the-westerlands, oxcross]
+  - episode: S02E06
+    start: "00:38:51"
+    end: "00:42:24"
+    label: "Camp of the North — with Quent, Talisa Maegyr, Catelyn Stark +2"
+    tags: [the-westerlands, camp-of-the-north]
+  - episode: S02E06
+    start: "00:45:08"
+    end: "00:46:30"
+    label: "Camp of the North — with Catelyn Stark, Roose Bolton"
+    tags: [the-westerlands, camp-of-the-north]
+  - episode: S02E07
+    start: "00:18:54"
+    end: "00:21:38"
+    label: "Camp of the North — with Alton Lannister, Rickard Karstark, Roose Bolton +2"
+    tags: [the-westerlands, camp-of-the-north]
+  - episode: S02E08
+    start: "00:07:45"
+    end: "00:11:58"
+    label: "Camp of the North — with Talisa Maegyr, Stark Messenger, Rickard Karstark +1"
+    tags: [the-westerlands, camp-of-the-north]
+  - episode: S02E08
+    start: "00:33:50"
+    end: "00:40:52"
+    label: "Camp of the North — with Roose Bolton, Talisa Maegyr"
+    tags: [the-westerlands, camp-of-the-north]
+  - episode: S02E10
+    start: "00:16:47"
+    end: "00:18:32"
+    label: "Camp of the North — with Catelyn Stark"
+    tags: [the-westerlands, camp-of-the-north]
+  - episode: S02E10
+    start: "00:33:32"
+    end: "00:34:24"
+    label: "Camp of the North — with Septon, Talisa Maegyr"
+    tags: [the-westerlands, camp-of-the-north]
+  - episode: S03E01
+    start: "00:23:32"
+    end: "00:26:46"
+    label: "Harrenhal — with Roose Bolton, Rickard Karstark, Catelyn Stark +2"
+    tags: [the-riverlands, harrenhal]
+  - episode: S03E02
+    start: "00:02:42"
+    end: "00:03:00"
+    label: "Outside Winterfell — with Bran Stark, Three-Eyed Raven, Jon Snow"
+    tags: [the-north, outside-winterfell, greensight]
+  - episode: S03E02
+    start: "00:04:28"
+    end: "00:06:30"
+    label: "Harrenhal — with Talisa Maegyr, Roose Bolton, Catelyn Stark"
+    tags: [the-riverlands, harrenhal]
+  - episode: S03E02
+    start: "00:19:54"
+    end: "00:21:00"
+    label: "To Riverrun — with Grey Wind, Rickard Karstark, Talisa Maegyr"
+    tags: [the-riverlands, to-riverrun]
+  - episode: S03E03
+    start: "00:01:55"
+    end: "00:06:30"
+    label: "Riverrun — with Hoster Tully, Brynden Tully, Catelyn Stark +2"
+    tags: [the-riverlands, riverrun]
+  - episode: S03E05
+    start: "00:21:07"
+    end: "00:25:42"
+    label: "Riverrun — with Talisa Maegyr, Brynden Tully, Edmure Tully +3"
+    tags: [the-riverlands, riverrun]
+  - episode: S03E05
+    start: "00:46:53"
+    end: "00:49:02"
+    label: "Riverrun — with Talisa Maegyr"
+    tags: [the-riverlands, riverrun]
+  - episode: S03E06
+    start: "00:27:39"
+    end: "00:31:26"
+    label: "Riverrun — with Black Walder Rivers, Lothar Frey, Catelyn Stark +2"
+    tags: [the-riverlands, riverrun]
+  - episode: S03E07
+    start: "00:04:14"
+    end: "00:09:22"
+    label: "Camp of the North — with Talisa Maegyr, Catelyn Stark, Brynden Tully +1"
+    tags: [the-riverlands, camp-of-the-north]
+  - episode: S03E09
+    start: "00:01:54"
+    end: "00:09:20"
+    label: "The Twins — with Catelyn Stark, Brynden Tully, Talisa Maegyr +6"
+    tags: [the-riverlands, the-twins]
+  - episode: S03E09
+    start: "00:29:25"
+    end: "00:32:02"
+    label: "The Twins — with Walder Frey, Septon, Talisa Maegyr +6"
+    tags: [the-riverlands, the-twins]
+  - episode: S03E09
+    start: "00:36:35"
+    end: "00:37:12"
+    label: "The Twins — with Walder Frey, Roslin Frey, Edmure Tully +8"
+    tags: [the-riverlands, the-twins]
+  - episode: S03E09
+    start: "00:38:02"
+    end: "00:41:58"
+    label: "The Twins — with Talisa Maegyr, Catelyn Stark, Roose Bolton +6"
+    tags: [the-riverlands, the-twins]
+  - episode: S03E09
+    start: "00:43:32"
+    end: "00:44:34"
+    label: "The Twins — with Catelyn Stark, Walder Frey, Joyeuse Erenford +4"
+    tags: [the-riverlands, the-twins]
+  - episode: S03E09
+    start: "00:46:44"
+    end: "00:48:56"
+    label: "The Twins — with Talisa Maegyr, Walder Frey, Catelyn Stark +2"
+    tags: [the-riverlands, the-twins]
+  - episode: S03E10
+    start: "00:02:48"
+    end: "00:03:10"
+    label: "The Twins — with Sandor Clegane, Arya Stark, Grey Wind"
+    tags: [the-riverlands, the-twins]
+  - episode: S06E06
+    start: "00:05:47"
+    end: "00:05:58"
+    label: "Outside the Three-Eyed Raven — with The Night King, Bran Stark, Aerys Targaryen +3"
+    tags: [north-of-the-wall, outside-the-three-eyed-raven, flashback]
