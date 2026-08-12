@@ -1,0 +1,452 @@
+version: "1.0"
+series: "Game of Thrones"
+character: "Bran Stark"
+# Timestamps are in DATASET time, not calibrated to any library.
+# edl-cut applies per-episode offsets when it emits a playlist.
+# 89 segments, 4.11 hours.
+scenes:
+  - episode: S01E01
+    start: "00:09:27"
+    end: "00:18:44"
+    label: "Winterfell — with Will, Jon Snow, Robb Stark +15"
+    tags: [the-north, winterfell, outside-winterfell]
+  - episode: S01E01
+    start: "00:23:39"
+    end: "00:29:16"
+    label: "Winterfell — with Catelyn Stark, Maester Luwin, Summer +16"
+    tags: [the-north, winterfell]
+  - episode: S01E01
+    start: "00:57:48"
+    end: "01:00:58"
+    label: "Winterfell — with Tyrion Lannister, Sandor Clegane, Theon Greyjoy +7"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:09:18"
+    end: "00:11:44"
+    label: "Winterfell — with Catelyn Stark, Cersei Lannister"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:15:43"
+    end: "00:19:22"
+    label: "Winterfell — with Catelyn Stark, Jon Snow, Eddard Stark"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:29:16"
+    end: "00:32:28"
+    label: "Winterfell — with Catelyn Stark, Maester Luwin, Robb Stark +2"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:38:01"
+    end: "00:38:54"
+    label: "Winterfell — with Catelyn Stark"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:53:30"
+    end: "00:54:44"
+    label: "Winterfell — with Summer"
+    tags: [the-north, winterfell]
+  - episode: S01E03
+    start: "00:15:48"
+    end: "00:18:50"
+    label: "Winterfell — with Old Nan, Robb Stark"
+    tags: [the-north, winterfell]
+  - episode: S01E04
+    start: "00:01:47"
+    end: "00:05:14"
+    label: "Winterfell — with Three-Eyed Raven, Summer, Old Nan +7"
+    tags: [the-north, winterfell, greensight]
+  - episode: S01E05
+    start: "00:13:40"
+    end: "00:16:16"
+    label: "Winterfell — with Maester Luwin, Theon Greyjoy"
+    tags: [the-north, winterfell]
+  - episode: S01E06
+    start: "00:07:50"
+    end: "00:13:10"
+    label: "Winterfell — with Three-Eyed Raven, Hodor, Theon Greyjoy +4"
+    tags: [the-north, winterfell, greensight, the-wolfswood]
+  - episode: S01E08
+    start: "00:32:33"
+    end: "00:38:36"
+    label: "Winterfell — with Grey Wind, Greatjon Umber, Theon Greyjoy +4"
+    tags: [the-north, winterfell]
+  - episode: S01E10
+    start: "00:03:25"
+    end: "00:06:08"
+    label: "Winterfell — with Three-Eyed Raven, Osha, Hodor +3"
+    tags: [the-north, winterfell, greensight]
+  - episode: S02E01
+    start: "00:10:50"
+    end: "00:12:46"
+    label: "Winterfell — with Maester Luwin, Lord Portan, Northern Lord"
+    tags: [the-north, winterfell]
+  - episode: S02E01
+    start: "00:13:19"
+    end: "00:14:50"
+    label: "Winterfell — with Hodor, Osha"
+    tags: [the-north, winterfell]
+  - episode: S02E03
+    start: "00:06:11"
+    end: "00:09:16"
+    label: "Winterfell — with Hodor, Summer, Maester Luwin"
+    tags: [the-north, winterfell]
+  - episode: S02E05
+    start: "00:39:56"
+    end: "00:43:26"
+    label: "Winterfell — with Rickon Stark, Maester Luwin, Winterfell Shepherd +3"
+    tags: [the-north, winterfell]
+  - episode: S02E06
+    start: "00:02:33"
+    end: "00:10:04"
+    label: "Winterfell — with Theon Greyjoy, Dagmer Cleftjaw, Hodor +6"
+    tags: [the-north, winterfell]
+  - episode: S02E06
+    start: "00:50:24"
+    end: "00:50:44"
+    label: "Winterfell — with Osha, Rickon Stark, Hodor +2"
+    tags: [the-north, winterfell]
+  - episode: S02E07
+    start: "00:04:29"
+    end: "00:05:30"
+    label: "Outside Winterfell — with Osha, Rickon Stark, Hodor +2"
+    tags: [the-north, outside-winterfell]
+  - episode: S02E08
+    start: "00:51:04"
+    end: "00:52:00"
+    label: "Winterfell — with Osha, Maester Luwin, Rickon Stark +1"
+    tags: [the-north, winterfell]
+  - episode: S02E10
+    start: "00:39:36"
+    end: "00:42:30"
+    label: "Winterfell — with Osha, Hodor, Rickon Stark +3"
+    tags: [the-north, winterfell]
+  - episode: S02E10
+    start: "00:43:08"
+    end: "00:43:36"
+    label: "Winterfell — with Shaggydog, Summer, Osha +2"
+    tags: [the-north, winterfell]
+  - episode: S03E02
+    start: "00:01:54"
+    end: "00:04:28"
+    label: "Outside Winterfell — with Three-Eyed Raven, Jon Snow, Robb Stark +6"
+    tags: [the-north, outside-winterfell, greensight, north-to-the-wall]
+  - episode: S03E02
+    start: "00:29:26"
+    end: "00:32:00"
+    label: "North to the Wall — with Osha, Summer, Jojen Reed +1"
+    tags: [the-north, north-to-the-wall]
+  - episode: S03E02
+    start: "00:46:23"
+    end: "00:48:46"
+    label: "North to the Wall — with Hodor, Rickon Stark, Jojen Reed +3"
+    tags: [the-north, north-to-the-wall]
+  - episode: S03E04
+    start: "00:11:09"
+    end: "00:12:28"
+    label: "North to the Wall — with Jojen Reed, Catelyn Stark"
+    tags: [the-north, north-to-the-wall, greensight]
+  - episode: S03E06
+    start: "00:05:13"
+    end: "00:08:14"
+    label: "North to the Wall — with Osha, Meera Reed, Hodor +2"
+    tags: [the-north, north-to-the-wall]
+  - episode: S03E07
+    start: "00:44:21"
+    end: "00:48:20"
+    label: "North to the Wall — with Meera Reed, Hodor, Osha +2"
+    tags: [the-north, north-to-the-wall]
+  - episode: S03E09
+    start: "00:14:44"
+    end: "00:15:44"
+    label: "The Gift — with Rickon Stark, Osha, Meera Reed +2"
+    tags: [the-north, the-gift]
+  - episode: S03E09
+    start: "00:20:14"
+    end: "00:22:46"
+    label: "The Gift — with Rickon Stark, Osha, Meera Reed +2"
+    tags: [the-north, the-gift]
+  - episode: S03E09
+    start: "00:24:03"
+    end: "00:24:26"
+    label: "The Gift — with Jojen Reed"
+    tags: [the-north, the-gift]
+  - episode: S03E09
+    start: "00:25:52"
+    end: "00:26:06"
+    label: "The Gift — with Jojen Reed, Rickon Stark, Osha +1"
+    tags: [the-north, the-gift]
+  - episode: S03E09
+    start: "00:32:02"
+    end: "00:35:14"
+    label: "The Gift — with Jojen Reed, Rickon Stark, Osha +2"
+    tags: [the-north, the-gift]
+  - episode: S03E10
+    start: "00:12:54"
+    end: "00:14:52"
+    label: "Nightfort — with Meera Reed, Jojen Reed, Hodor +1"
+    tags: [the-wall, nightfort]
+  - episode: S03E10
+    start: "00:20:50"
+    end: "00:23:50"
+    label: "Nightfort — with Summer, Hodor, Meera Reed +4"
+    tags: [the-wall, nightfort]
+  - episode: S03E10
+    start: "00:27:05"
+    end: "00:29:02"
+    label: "Nightfort — with Hodor, Meera Reed, Jojen Reed +4"
+    tags: [the-wall, nightfort]
+  - episode: S04E02
+    start: "00:25:16"
+    end: "00:28:18"
+    label: "The Haunted Forest — with Hodor, Jojen Reed, Meera Reed +5"
+    tags: [north-of-the-wall, the-haunted-forest, warg]
+  - episode: S04E04
+    start: "00:45:49"
+    end: "00:51:16"
+    label: "Craster's Keep — with Hodor, Jojen Reed, Meera Reed +4"
+    tags: [north-of-the-wall, crasters-keep]
+  - episode: S04E05
+    start: "00:36:57"
+    end: "00:39:10"
+    label: "Craster's Keep — with Meera Reed, Jojen Reed, Hodor"
+    tags: [north-of-the-wall, crasters-keep, greensight]
+  - episode: S04E05
+    start: "00:40:09"
+    end: "00:46:26"
+    label: "Craster's Keep — with Karl Tanner, Meera Reed, Jojen Reed +4"
+    tags: [north-of-the-wall, crasters-keep]
+  - episode: S04E10
+    start: "00:32:49"
+    end: "00:41:22"
+    label: "Outside the Three-Eyed Raven — with Hodor, Meera Reed, Jojen Reed +3"
+    tags: [north-of-the-wall, outside-the-three-eyed-raven, the-three-eyed-raven]
+  - episode: S06E02
+    start: "00:04:53"
+    end: "00:09:46"
+    label: "The Three-Eyed Raven — with Three-Eyed Raven, Young Ned Stark, Young Rodrik Cassel +7"
+    tags: [north-of-the-wall, the-three-eyed-raven, the-north, winterfell, flashback]
+  - episode: S06E03
+    start: "00:15:04"
+    end: "00:21:38"
+    label: "Tower of Joy — with Arthur Dayne, Gerold Hightower, Three-Eyed Raven +3"
+    tags: [dorne, tower-of-joy, flashback, north-of-the-wall, the-three-eyed-raven]
+  - episode: S06E05
+    start: "00:19:12"
+    end: "00:21:12"
+    label: "The Three-Eyed Raven — with Three-Eyed Raven, Leaf, The Night King"
+    tags: [north-of-the-wall, the-three-eyed-raven, the-lands-of-always-winter, flashback]
+  - episode: S06E05
+    start: "00:39:07"
+    end: "00:43:14"
+    label: "The Three-Eyed Raven — with Hodor, Three-Eyed Raven, Meera Reed +4"
+    tags: [north-of-the-wall, the-three-eyed-raven, the-lands-of-always-winter, greensight]
+  - episode: S06E05
+    start: "00:48:51"
+    end: "00:49:44"
+    label: "The Three-Eyed Raven — with Three-Eyed Raven, Hodor, Meera Reed"
+    tags: [north-of-the-wall, the-three-eyed-raven]
+  - episode: S06E05
+    start: "00:50:33"
+    end: "00:51:06"
+    label: "The Three-Eyed Raven — with Meera Reed, Hodor, Three-Eyed Raven +3"
+    tags: [north-of-the-wall, the-three-eyed-raven, the-north, winterfell, flashback]
+  - episode: S06E05
+    start: "00:52:09"
+    end: "00:58:30"
+    label: "The Three-Eyed Raven — with Meera Reed, Hodor, Three-Eyed Raven +8"
+    tags: [north-of-the-wall, the-three-eyed-raven, the-north, winterfell, flashback]
+  - episode: S06E06
+    start: "00:04:58"
+    end: "00:08:52"
+    label: "Outside the Three-Eyed Raven — with Meera Reed, The Night King, Catelyn Stark +11"
+    tags: [north-of-the-wall, outside-the-three-eyed-raven, flashback]
+  - episode: S06E06
+    start: "00:46:34"
+    end: "00:49:02"
+    label: "Outside the Three-Eyed Raven — with Meera Reed, Benjen Stark"
+    tags: [north-of-the-wall, outside-the-three-eyed-raven]
+  - episode: S06E10
+    start: "00:56:05"
+    end: "01:00:52"
+    label: "The Haunted Forest — with Benjen Stark, Meera Reed, Young Ned Stark +2"
+    tags: [north-of-the-wall, the-haunted-forest, dorne, tower-of-joy, flashback]
+  - episode: S07E01
+    start: "00:11:19"
+    end: "00:12:48"
+    label: "The Wall — with Meera Reed, Eddison Tollett"
+    tags: [north-of-the-wall, the-wall]
+  - episode: S07E03
+    start: "00:44:58"
+    end: "00:47:32"
+    label: "Winterfell — with Sansa Stark, Meera Reed"
+    tags: [the-north, winterfell]
+  - episode: S07E04
+    start: "00:08:12"
+    end: "00:12:04"
+    label: "Winterfell — with Petyr Baelish, Meera Reed"
+    tags: [the-north, winterfell]
+  - episode: S07E04
+    start: "00:17:55"
+    end: "00:21:20"
+    label: "Winterfell — with Arya Stark, Sansa Stark, Brienne of Tarth +2"
+    tags: [the-north, winterfell]
+  - episode: S07E05
+    start: "00:18:58"
+    end: "00:19:10"
+    label: "Winterfell — alone"
+    tags: [the-north, winterfell]
+  - episode: S07E05
+    start: "00:20:14"
+    end: "00:20:26"
+    label: "Winterfell — with Maester Wolkan"
+    tags: [the-north, winterfell]
+  - episode: S07E07
+    start: "00:56:07"
+    end: "01:01:48"
+    label: "Winterfell — with Sansa Stark, Maester Wolkan, Arya Stark +2"
+    tags: [the-north, winterfell]
+  - episode: S07E07
+    start: "01:08:28"
+    end: "01:11:28"
+    label: "Winterfell — with Samwell Tarly, Lyanna Stark, Rhaegar Targaryen +1"
+    tags: [the-north, winterfell, dorne, flashback]
+  - episode: S07E07
+    start: "01:12:11"
+    end: "01:12:32"
+    label: "Tower of Joy — with Young Ned Stark, Lyanna Stark"
+    tags: [dorne, tower-of-joy, flashback]
+  - episode: S07E07
+    start: "01:15:23"
+    end: "01:15:48"
+    label: "Winterfell — alone"
+    tags: [the-north, winterfell]
+  - episode: S08E01
+    start: "00:08:46"
+    end: "00:10:34"
+    label: "Winterfell — with Jon Snow, Daenerys Targaryen, Sansa Stark +12"
+    tags: [the-north, winterfell]
+  - episode: S08E01
+    start: "00:11:14"
+    end: "00:13:40"
+    label: "Winterfell — with Sansa Stark, Jon Snow, Daenerys Targaryen +9"
+    tags: [the-north, winterfell]
+  - episode: S08E01
+    start: "00:16:16"
+    end: "00:16:24"
+    label: "Winterfell — with Tyrion Lannister"
+    tags: [the-north, winterfell]
+  - episode: S08E01
+    start: "00:44:29"
+    end: "00:45:18"
+    label: "Winterfell — with Samwell Tarly"
+    tags: [the-north, winterfell]
+  - episode: S08E01
+    start: "00:54:10"
+    end: "00:54:30"
+    label: "Winterfell — with Jaime Lannister"
+    tags: [the-north, winterfell]
+  - episode: S08E02
+    start: "00:03:39"
+    end: "00:08:42"
+    label: "Winterfell — with Jaime Lannister, Daenerys Targaryen, Sansa Stark +11"
+    tags: [the-north, winterfell]
+  - episode: S08E02
+    start: "00:11:54"
+    end: "00:13:16"
+    label: "Winterfell — with Jaime Lannister"
+    tags: [the-north, winterfell]
+  - episode: S08E02
+    start: "00:28:21"
+    end: "00:32:08"
+    label: "Winterfell — with Jon Snow, Theon Greyjoy, Arya Stark +17"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:04:53"
+    end: "00:05:10"
+    label: "Winterfell — with Tyrion Lannister, Theon Greyjoy, Alys Karstark"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:20:10"
+    end: "00:20:24"
+    label: "Winterfell — with Theon Greyjoy, Alys Karstark"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:25:13"
+    end: "00:25:34"
+    label: "Winterfell — with Theon Greyjoy, Alys Karstark, Jon Snow +1"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:33:37"
+    end: "00:34:54"
+    label: "Winterfell — with Theon Greyjoy"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:55:59"
+    end: "00:57:10"
+    label: "Winterfell — with Theon Greyjoy, Viserion, The Night King +2"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:03:49"
+    end: "01:04:08"
+    label: "Winterfell — with Theon Greyjoy"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:07:11"
+    end: "01:07:50"
+    label: "Winterfell — with Theon Greyjoy"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:10:44"
+    end: "01:10:58"
+    label: "Winterfell — with Theon Greyjoy"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:11:43"
+    end: "01:17:48"
+    label: "Winterfell — with Theon Greyjoy, The Night King, White Walker +1"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:19:08"
+    end: "01:19:24"
+    label: "Winterfell — with Arya Stark"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:05:49"
+    end: "00:08:10"
+    label: "Winterfell — with Jon Snow, Samwell Tarly, Arya Stark +15"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:08:48"
+    end: "00:10:18"
+    label: "Winterfell — with Jon Snow, Samwell Tarly, Arya Stark +20"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:10:52"
+    end: "00:13:16"
+    label: "Winterfell — with Gendry, Sandor Clegane, Jon Snow +12"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:14:30"
+    end: "00:15:46"
+    label: "Winterfell — with Davos Seaworth, Tyrion Lannister, Brienne of Tarth +6"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:33:20"
+    end: "00:39:30"
+    label: "Winterfell — with Grey Worm, Jon Snow, Yohn Royce +8"
+    tags: [the-north, winterfell]
+  - episode: S08E06
+    start: "00:45:58"
+    end: "00:58:30"
+    label: "Outside King's Landing — with Tyrion Lannister, Grey Worm, Samwell Tarly +14"
+    tags: [the-crownlands, outside-kings-landing]
+  - episode: S08E06
+    start: "01:02:47"
+    end: "01:05:56"
+    label: "King's Landing — with Jon Snow, Sansa Stark, Arya Stark"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E06
+    start: "01:10:33"
+    end: "01:12:04"
+    label: "King's Landing — with Tyrion Lannister, Davos Seaworth, Bronn +3"
+    tags: [the-crownlands, kings-landing]
