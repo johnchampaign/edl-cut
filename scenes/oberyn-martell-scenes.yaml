@@ -1,0 +1,77 @@
+version: "1.0"
+series: "Game of Thrones"
+character: "Oberyn Martell"
+# Timestamps are in DATASET time, not calibrated to any library.
+# edl-cut applies per-episode offsets when it emits a playlist.
+# 14 segments, 0.94 hours.
+scenes:
+  - episode: S04E01
+    start: "00:09:25"
+    end: "00:17:00"
+    label: "King's Landing — with Olyvar, Ellaria Sand, Marei +6"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:28:56"
+    end: "00:29:42"
+    label: "King's Landing — with Lord Varys, Margaery Tyrell, Mace Tyrell +11"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:31:43"
+    end: "00:31:58"
+    label: "King's Landing — with Podrick Payne, Tyrion Lannister, Ellaria Sand +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:33:31"
+    end: "00:33:40"
+    label: "King's Landing — with Joffrey Baratheon, Margaery Tyrell, Tommen Baratheon +3"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:34:18"
+    end: "00:34:32"
+    label: "King's Landing — with Loras Tyrell, Ellaria Sand"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:38:52"
+    end: "00:40:22"
+    label: "King's Landing — with Tywin Lannister, Cersei Lannister, Ellaria Sand"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:40:55"
+    end: "00:45:28"
+    label: "King's Landing — with Joffrey Baratheon, King Joffrey Baratheon Dwarf, King Stannis Baratheon Dwarf +15"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E03
+    start: "00:31:58"
+    end: "00:38:14"
+    label: "King's Landing — with Ellaria Sand, Olyvar, Marei +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E05
+    start: "00:29:55"
+    end: "00:33:16"
+    label: "King's Landing — with Cersei Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E06
+    start: "00:24:59"
+    end: "00:30:12"
+    label: "King's Landing — with Cersei Lannister, Mace Tyrell, Grand Maester Pycelle +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E06
+    start: "00:30:59"
+    end: "00:39:26"
+    label: "King's Landing — with Jaime Lannister, Tyrion Lannister, Tommen Baratheon +8"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E06
+    start: "00:41:42"
+    end: "00:49:20"
+    label: "King's Landing — with Jaime Lannister, Tyrion Lannister, Loras Tyrell +5"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E07
+    start: "00:36:24"
+    end: "00:41:24"
+    label: "King's Landing — with Tyrion Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E08
+    start: "00:46:44"
+    end: "00:52:02"
+    label: "King's Landing — with Tyrion Lannister, Ellaria Sand, Gregor Clegane +6"
+    tags: [the-crownlands, kings-landing]

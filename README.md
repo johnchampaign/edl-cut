@@ -280,10 +280,29 @@ Scene lists live in [`scenes/`](scenes/), two files per character:
 
 | Character | Scenes | Runtime | Span |
 |---|---|---|---|
-| Daenerys Targaryen | 175 | 9.0 h | S01E01–S08E06 |
-| Jon Snow | 219 | 11.4 h | S01E01–S08E06 |
-| Tyrion Lannister | 208 | 11.7 h | S01E01–S08E06 |
+| Jon Snow | 219 | 11.44 h | S01E01–S08E06 |
+| Tyrion Lannister | 208 | 11.65 h | S01E01–S08E06 |
+| Daenerys Targaryen | 175 | 9.02 h | S01E01–S08E06 |
+| Sansa Stark | 154 | 7.26 h | S01E01–S08E06 |
+| Jaime Lannister | 152 | 6.70 h | S01E01–S08E06 |
+| Arya Stark | 143 | 6.86 h | S01E01–S08E06 |
+| Cersei Lannister | 139 | 7.22 h | S01E01–S08E06 |
+| Davos Seaworth | 122 | 5.14 h | S02E01–S08E06 |
+| Jorah Mormont | 119 | 5.54 h | S01E01–S08E04 |
+| Samwell Tarly | 106 | 4.57 h | S01E04–S08E06 |
+| Sandor Clegane | 104 | 3.96 h | S01E01–S08E05 |
+| Lord Varys | 102 | 4.50 h | S01E03–S08E05 |
+| Brienne of Tarth | 96 | 4.08 h | S02E03–S08E06 |
+| Bran Stark | 89 | 4.11 h | S01E01–S08E06 |
+| Petyr Baelish | 71 | 3.59 h | S01E03–S07E07 |
+| Stannis Baratheon | 50 | 1.81 h | S02E01–S05E10 |
+| Melisandre | 48 | 2.06 h | S02E01–S08E03 |
+| Robb Stark | 46 | 2.18 h | S01E01–S06E06 |
+| Tywin Lannister | 44 | 2.42 h | S01E07–S05E01 |
+| Eddard Stark | 39 | 2.41 h | S01E01–S06E06 |
 | Robert Baratheon | 16 | 0.95 h | S01E01–S01E07 |
+| Oberyn Martell | 14 | 0.94 h | S04E01–S04E08 |
+| **22 characters** | **2256** | **108 h** | |
 
 ### Watching without the tool
 

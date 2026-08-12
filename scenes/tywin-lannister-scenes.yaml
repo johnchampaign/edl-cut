@@ -1,0 +1,227 @@
+version: "1.0"
+series: "Game of Thrones"
+character: "Tywin Lannister"
+# Timestamps are in DATASET time, not calibrated to any library.
+# edl-cut applies per-episode offsets when it emits a playlist.
+# 44 segments, 2.42 hours.
+scenes:
+  - episode: S01E07
+    start: "00:01:52"
+    end: "00:06:36"
+    label: "Lannister Camp — with Jaime Lannister"
+    tags: [the-westerlands, lannister-camp]
+  - episode: S01E08
+    start: "00:44:34"
+    end: "00:47:52"
+    label: "Lannister Camp — with Tyrion Lannister, Bronn, Shagga +4"
+    tags: [the-westerlands, lannister-camp]
+  - episode: S01E09
+    start: "00:23:19"
+    end: "00:25:08"
+    label: "Lannister Camp — with Tyrion Lannister, Kevan Lannister"
+    tags: [the-riverlands, lannister-camp]
+  - episode: S01E09
+    start: "00:44:52"
+    end: "00:46:32"
+    label: "Battlefield — with Tyrion Lannister, Bronn"
+    tags: [the-riverlands, battlefield]
+  - episode: S01E10
+    start: "00:19:23"
+    end: "00:22:38"
+    label: "Lannister Camp — with Kevan Lannister, Tyrion Lannister, Leo Lefford +1"
+    tags: [the-riverlands, lannister-camp]
+  - episode: S02E04
+    start: "00:38:15"
+    end: "00:39:50"
+    label: "Harrenhal — with Arya Stark, Hot Pie, Gregor Clegane +3"
+    tags: [the-riverlands, harrenhal]
+  - episode: S02E05
+    start: "00:19:27"
+    end: "00:22:38"
+    label: "Harrenhal — with Arya Stark, Reginald Lannister"
+    tags: [the-riverlands, harrenhal]
+  - episode: S02E06
+    start: "00:12:44"
+    end: "00:17:20"
+    label: "Harrenhal — with Arya Stark, Amory Lorch, Petyr Baelish"
+    tags: [the-riverlands, harrenhal]
+  - episode: S02E06
+    start: "00:34:23"
+    end: "00:36:54"
+    label: "Harrenhal — with Arya Stark"
+    tags: [the-riverlands, harrenhal]
+  - episode: S02E06
+    start: "00:38:41"
+    end: "00:38:52"
+    label: "Harrenhal — with Amory Lorch"
+    tags: [the-riverlands, harrenhal]
+  - episode: S02E07
+    start: "00:08:59"
+    end: "00:15:02"
+    label: "Harrenhal — with Gregor Clegane, Arya Stark"
+    tags: [the-riverlands, harrenhal]
+  - episode: S02E08
+    start: "00:14:28"
+    end: "00:16:16"
+    label: "Harrenhal — with Arya Stark, Kevan Lannister, Gregor Clegane"
+    tags: [the-riverlands, harrenhal]
+  - episode: S02E08
+    start: "00:17:30"
+    end: "00:17:36"
+    label: "Harrenhal — with Arya Stark, Hot Pie, Gendry"
+    tags: [the-riverlands, harrenhal]
+  - episode: S02E09
+    start: "00:52:45"
+    end: "00:53:04"
+    label: "King's Landing — with Cersei Lannister, Tommen Baratheon, Loras Tyrell"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E10
+    start: "00:03:34"
+    end: "00:04:38"
+    label: "King's Landing — with Joffrey Baratheon, Sansa Stark, Cersei Lannister +5"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E01
+    start: "00:26:45"
+    end: "00:31:42"
+    label: "King's Landing — with Tyrion Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E03
+    start: "00:06:29"
+    end: "00:10:34"
+    label: "King's Landing — with Grand Maester Pycelle, Petyr Baelish, Lord Varys +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E04
+    start: "00:25:07"
+    end: "00:27:54"
+    label: "King's Landing — with Cersei Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E05
+    start: "00:52:25"
+    end: "00:56:04"
+    label: "King's Landing — with Tyrion Lannister, Cersei Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E06
+    start: "00:33:43"
+    end: "00:37:28"
+    label: "King's Landing — with Olenna Tyrell"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E07
+    start: "00:15:53"
+    end: "00:19:22"
+    label: "King's Landing — with Joffrey Baratheon"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E08
+    start: "00:22:26"
+    end: "00:25:32"
+    label: "King's Landing — with Sansa Stark, Tyrion Lannister, Joffrey Baratheon +8"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E08
+    start: "00:32:19"
+    end: "00:35:16"
+    label: "King's Landing — with Joffrey Baratheon, Cersei Lannister, Grand Maester Pycelle +5"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E08
+    start: "00:36:52"
+    end: "00:38:44"
+    label: "King's Landing — with Joffrey Baratheon, Sansa Stark, Tyrion Lannister +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E10
+    start: "00:05:16"
+    end: "00:12:20"
+    label: "King's Landing — with Tyrion Lannister, Joffrey Baratheon, Cersei Lannister +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E01
+    start: "00:00:07"
+    end: "00:01:48"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E01
+    start: "00:03:36"
+    end: "00:06:30"
+    label: "King's Landing — with Jaime Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:14:43"
+    end: "00:17:16"
+    label: "King's Landing — with Mace Tyrell, Cersei Lannister, Joffrey Baratheon +6"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:28:22"
+    end: "00:31:00"
+    label: "King's Landing — with Lord Varys, Margaery Tyrell, Mace Tyrell +11"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:36:11"
+    end: "00:36:18"
+    label: "King's Landing — with Brienne of Tarth, Margaery Tyrell, Jaime Lannister +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:38:52"
+    end: "00:51:10"
+    label: "King's Landing — with Cersei Lannister, Oberyn Martell, Ellaria Sand +19"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E03
+    start: "00:02:07"
+    end: "00:02:22"
+    label: "King's Landing — with Tyrion Lannister, Cersei Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E03
+    start: "00:07:54"
+    end: "00:12:14"
+    label: "King's Landing — with Tommen Baratheon, Cersei Lannister, Joffrey Baratheon +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E03
+    start: "00:34:00"
+    end: "00:38:14"
+    label: "King's Landing — with Ellaria Sand, Olyvar, Marei +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E05
+    start: "00:01:55"
+    end: "00:04:20"
+    label: "King's Landing — with Tommen Baratheon, High Septon, Jaime Lannister +5"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E05
+    start: "00:05:11"
+    end: "00:05:20"
+    label: "King's Landing — with Margaery Tyrell, Cersei Lannister, Tommen Baratheon +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E05
+    start: "00:06:16"
+    end: "00:06:22"
+    label: "King's Landing — with Margaery Tyrell, Cersei Lannister, Tommen Baratheon +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E05
+    start: "00:17:23"
+    end: "00:20:56"
+    label: "King's Landing — with Cersei Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E06
+    start: "00:25:18"
+    end: "00:27:46"
+    label: "King's Landing — with Oberyn Martell, Cersei Lannister, Mace Tyrell +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E06
+    start: "00:30:59"
+    end: "00:49:20"
+    label: "King's Landing — with Jaime Lannister, Tyrion Lannister, Tommen Baratheon +9"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E08
+    start: "00:46:39"
+    end: "00:52:02"
+    label: "King's Landing — with Mace Tyrell, Cersei Lannister, Lord Varys +6"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E10
+    start: "00:16:08"
+    end: "00:19:08"
+    label: "King's Landing — with Cersei Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E10
+    start: "00:57:59"
+    end: "01:00:50"
+    label: "King's Landing — with Tyrion Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S05E01
+    start: "00:10:39"
+    end: "00:12:56"
+    label: "King's Landing — with Cersei Lannister, Jaime Lannister"
+    tags: [the-crownlands, kings-landing]
