@@ -1,0 +1,722 @@
+version: "1.0"
+series: "Game of Thrones"
+character: "Arya Stark"
+# Timestamps are in DATASET time, not calibrated to any library.
+# edl-cut applies per-episode offsets when it emits a playlist.
+# 143 segments, 6.86 hours.
+scenes:
+  - episode: S01E01
+    start: "00:09:27"
+    end: "00:12:38"
+    label: "Winterfell — with Will, Jon Snow, Bran Stark +8"
+    tags: [the-north, winterfell]
+  - episode: S01E01
+    start: "00:23:39"
+    end: "00:29:16"
+    label: "Winterfell — with Bran Stark, Catelyn Stark, Maester Luwin +16"
+    tags: [the-north, winterfell]
+  - episode: S01E01
+    start: "00:44:14"
+    end: "00:47:28"
+    label: "Winterfell — with Rodrik Cassel, Benjen Stark, Eddard Stark +8"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:13:26"
+    end: "00:15:44"
+    label: "Winterfell — with Nymeria, Jon Snow"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:44:38"
+    end: "00:48:12"
+    label: "Crossroads Inn — with Mycah, Joffrey Baratheon, Sansa Stark +1"
+    tags: [the-riverlands, crossroads-inn]
+  - episode: S01E02
+    start: "00:48:50"
+    end: "00:53:00"
+    label: "Crossroads Inn — with Eddard Stark, Joffrey Baratheon, Cersei Lannister +4"
+    tags: [the-riverlands, crossroads-inn]
+  - episode: S01E03
+    start: "00:01:47"
+    end: "00:02:42"
+    label: "King's Landing — with Eddard Stark, Sansa Stark, Jory Cassel +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E03
+    start: "00:10:50"
+    end: "00:15:48"
+    label: "King's Landing — with Sansa Stark, Septa Mordane, Eddard Stark"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E03
+    start: "00:52:32"
+    end: "00:56:04"
+    label: "King's Landing — with Syrio Forel, Eddard Stark"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E04
+    start: "00:23:42"
+    end: "00:25:30"
+    label: "King's Landing — with Eddard Stark"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E04
+    start: "00:45:38"
+    end: "00:49:48"
+    label: "King's Landing — with Robert Baratheon, Cersei Lannister, Tommen Baratheon +10"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E05
+    start: "00:17:59"
+    end: "00:18:14"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E05
+    start: "00:20:47"
+    end: "00:22:18"
+    label: "King's Landing — with Lord Varys, Illyrio Mopatis"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E05
+    start: "00:25:50"
+    end: "00:28:50"
+    label: "King's Landing — with Eddard Stark, Jory Cassel, Yoren"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E06
+    start: "00:14:16"
+    end: "00:16:08"
+    label: "King's Landing — with Syrio Forel"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E06
+    start: "00:44:18"
+    end: "00:46:46"
+    label: "King's Landing — with Eddard Stark, Sansa Stark"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E08
+    start: "00:01:53"
+    end: "00:02:22"
+    label: "King's Landing — with Syrio Forel"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E08
+    start: "00:03:19"
+    end: "00:07:12"
+    label: "King's Landing — with Syrio Forel, Meryn Trant, Red Keep Stableboy"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E09
+    start: "00:49:26"
+    end: "00:55:54"
+    label: "King's Landing — with King's Landing Baker, Street Urchin, Eddard Stark +9"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E10
+    start: "00:02:17"
+    end: "00:03:26"
+    label: "King's Landing — with Sandor Clegane, Ilyn Payne, Eddard Stark +3"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E10
+    start: "00:39:58"
+    end: "00:43:04"
+    label: "King's Landing — with Yoren, Hot Pie, Lommy Greenhands +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E01
+    start: "00:51:23"
+    end: "00:51:52"
+    label: "The Kingsroad — with Gendry, Hot Pie, Lommy Greenhands"
+    tags: [the-riverlands, the-kingsroad]
+  - episode: S02E02
+    start: "00:01:55"
+    end: "00:05:46"
+    label: "The Kingsroad — with Jaqen H'ghar, Rorge, Biter +3"
+    tags: [the-riverlands, the-kingsroad]
+  - episode: S02E02
+    start: "00:28:03"
+    end: "00:32:00"
+    label: "The Kingsroad — with Gendry, Hot Pie, Lommy Greenhands"
+    tags: [the-riverlands, the-kingsroad]
+  - episode: S02E03
+    start: "00:42:11"
+    end: "00:51:22"
+    label: "The Kingsroad — with Yoren, Gendry, Hot Pie +4"
+    tags: [the-riverlands, the-kingsroad]
+  - episode: S02E04
+    start: "00:19:42"
+    end: "00:21:58"
+    label: "Harrenhal — with Hot Pie, Gendry, Old Woman Prisoner"
+    tags: [the-riverlands, harrenhal]
+  - episode: S02E04
+    start: "00:25:46"
+    end: "00:28:48"
+    label: "Harrenhal — with Gendry, Hot Pie, Gregor Clegane +5"
+    tags: [the-riverlands, harrenhal]
+  - episode: S02E04
+    start: "00:38:15"
+    end: "00:39:50"
+    label: "Harrenhal — with Tywin Lannister, Hot Pie, Gregor Clegane +3"
+    tags: [the-riverlands, harrenhal]
+  - episode: S02E05
+    start: "00:19:27"
+    end: "00:25:14"
+    label: "Harrenhal — with Tywin Lannister, Reginald Lannister, Jaqen H'ghar"
+    tags: [the-riverlands, harrenhal]
+  - episode: S02E05
+    start: "00:51:35"
+    end: "00:52:48"
+    label: "Harrenhal — with Gendry, The Tickler, Hot Pie +1"
+    tags: [the-riverlands, harrenhal]
+  - episode: S02E06
+    start: "00:12:44"
+    end: "00:17:20"
+    label: "Harrenhal — with Tywin Lannister, Amory Lorch, Petyr Baelish"
+    tags: [the-riverlands, harrenhal]
+  - episode: S02E06
+    start: "00:34:23"
+    end: "00:38:42"
+    label: "Harrenhal — with Tywin Lannister, Amory Lorch, Jaqen H'ghar"
+    tags: [the-riverlands, harrenhal]
+  - episode: S02E07
+    start: "00:08:59"
+    end: "00:15:02"
+    label: "Harrenhal — with Tywin Lannister, Gregor Clegane"
+    tags: [the-riverlands, harrenhal]
+  - episode: S02E08
+    start: "00:14:28"
+    end: "00:17:46"
+    label: "Harrenhal — with Tywin Lannister, Kevan Lannister, Gregor Clegane +4"
+    tags: [the-riverlands, harrenhal]
+  - episode: S02E08
+    start: "00:24:38"
+    end: "00:26:58"
+    label: "Harrenhal — with Jaqen H'ghar"
+    tags: [the-riverlands, harrenhal]
+  - episode: S02E08
+    start: "00:40:52"
+    end: "00:42:08"
+    label: "Harrenhal — with Hot Pie, Gendry"
+    tags: [the-riverlands, harrenhal]
+  - episode: S02E10
+    start: "00:36:31"
+    end: "00:39:36"
+    label: "Outside Harrenhal — with Hot Pie, Gendry, Jaqen H'ghar +1"
+    tags: [the-riverlands, outside-harrenhal]
+  - episode: S03E02
+    start: "00:32:00"
+    end: "00:36:06"
+    label: "North to the Red Fork — with Gendry, Hot Pie, Thoros of Myr +1"
+    tags: [the-riverlands, north-to-the-red-fork]
+  - episode: S03E02
+    start: "00:48:46"
+    end: "00:51:30"
+    label: "Crossroads Inn — with Gendry, Hot Pie, Thoros of Myr +2"
+    tags: [the-riverlands, crossroads-inn]
+  - episode: S03E03
+    start: "00:12:22"
+    end: "00:15:22"
+    label: "Crossroads Inn — with Gendry, Thoros of Myr, Sandor Clegane +2"
+    tags: [the-riverlands, crossroads-inn]
+  - episode: S03E04
+    start: "00:40:29"
+    end: "00:45:32"
+    label: "Hollow Hill — with Thoros of Myr, Anguy, Gendry +2"
+    tags: [the-riverlands, hollow-hill]
+  - episode: S03E05
+    start: "00:01:54"
+    end: "00:05:32"
+    label: "Hollow Hill — with Thoros of Myr, Sandor Clegane, Anguy +2"
+    tags: [the-riverlands, hollow-hill]
+  - episode: S03E05
+    start: "00:11:50"
+    end: "00:12:24"
+    label: "Hollow Hill — with Beric Dondarrion, Thoros of Myr, Sandor Clegane +2"
+    tags: [the-riverlands, hollow-hill]
+  - episode: S03E05
+    start: "00:19:10"
+    end: "00:20:38"
+    label: "Hollow Hill — with Gendry"
+    tags: [the-riverlands, hollow-hill]
+  - episode: S03E05
+    start: "00:25:41"
+    end: "00:28:44"
+    label: "Hollow Hill — with Thoros of Myr, Beric Dondarrion"
+    tags: [the-riverlands, hollow-hill]
+  - episode: S03E06
+    start: "00:12:12"
+    end: "00:14:54"
+    label: "Hollow Hill — with Anguy, Thoros of Myr, Melisandre"
+    tags: [the-riverlands, hollow-hill]
+  - episode: S03E06
+    start: "00:18:03"
+    end: "00:20:38"
+    label: "Hollow Hill — with Gendry, Anguy, Melisandre +2"
+    tags: [the-riverlands, hollow-hill]
+  - episode: S03E07
+    start: "00:30:01"
+    end: "00:32:20"
+    label: "Hollow Hill — with Beric Dondarrion, Thoros of Myr, Anguy +1"
+    tags: [the-riverlands, hollow-hill]
+  - episode: S03E08
+    start: "00:01:54"
+    end: "00:04:42"
+    label: "Red Fork — with Sandor Clegane"
+    tags: [the-riverlands, red-fork]
+  - episode: S03E09
+    start: "00:12:59"
+    end: "00:14:44"
+    label: "To The Twins — with Sandor Clegane, Hog Farmer"
+    tags: [the-riverlands, to-the-twins]
+  - episode: S03E09
+    start: "00:17:45"
+    end: "00:20:14"
+    label: "To The Twins — with Sandor Clegane"
+    tags: [the-riverlands, to-the-twins]
+  - episode: S03E09
+    start: "00:42:39"
+    end: "00:43:26"
+    label: "The Twins — with Sandor Clegane, Frey Guard"
+    tags: [the-riverlands, the-twins]
+  - episode: S03E09
+    start: "00:44:53"
+    end: "00:46:34"
+    label: "The Twins — with Grey Wind, Sandor Clegane"
+    tags: [the-riverlands, the-twins]
+  - episode: S03E10
+    start: "00:02:33"
+    end: "00:03:24"
+    label: "The Twins — with Sandor Clegane, Robb Stark, Grey Wind"
+    tags: [the-riverlands, the-twins]
+  - episode: S03E10
+    start: "00:38:45"
+    end: "00:40:56"
+    label: "Away from the Twins — with Sandor Clegane, Frey Soldier #1, Frey Soldier #2"
+    tags: [the-riverlands, away-from-the-twins]
+  - episode: S04E01
+    start: "00:46:36"
+    end: "00:56:52"
+    label: "To The Eyrie — with Sandor Clegane, Polliver, Innkeeper's Daughter +1"
+    tags: [the-riverlands, to-the-eyrie]
+  - episode: S04E03
+    start: "00:15:31"
+    end: "00:21:52"
+    label: "To The Eyrie — with Sandor Clegane, Farmer Hamlet, Farmer's Daughter"
+    tags: [the-riverlands, to-the-eyrie]
+  - episode: S04E05
+    start: "00:20:56"
+    end: "00:22:36"
+    label: "To The Eyrie — with Sandor Clegane"
+    tags: [the-riverlands, to-the-eyrie]
+  - episode: S04E05
+    start: "00:27:35"
+    end: "00:29:56"
+    label: "To The Eyrie — with Sandor Clegane"
+    tags: [the-riverlands, to-the-eyrie]
+  - episode: S04E07
+    start: "00:05:56"
+    end: "00:10:50"
+    label: "To The Eyrie — with Sandor Clegane, Old Man, Biter +1"
+    tags: [the-riverlands, to-the-eyrie]
+  - episode: S04E07
+    start: "00:27:56"
+    end: "00:31:10"
+    label: "To The Eyrie — with Sandor Clegane"
+    tags: [the-riverlands, to-the-eyrie]
+  - episode: S04E08
+    start: "00:37:22"
+    end: "00:39:30"
+    label: "The Eyrie — with Sandor Clegane, Donnel Waynwood"
+    tags: [the-vale, the-eyrie]
+  - episode: S04E10
+    start: "00:42:11"
+    end: "00:46:08"
+    label: "To The Eyrie — with Brienne of Tarth, Podrick Payne, Sandor Clegane"
+    tags: [the-vale, to-the-eyrie]
+  - episode: S04E10
+    start: "00:48:38"
+    end: "00:53:04"
+    label: "To The Eyrie — with Brienne of Tarth, Podrick Payne, Sandor Clegane"
+    tags: [the-vale, to-the-eyrie]
+  - episode: S04E10
+    start: "01:02:12"
+    end: "01:04:50"
+    label: "Coast of the Vale — with Ternesio Terys"
+    tags: [the-vale, coast-of-the-vale]
+  - episode: S05E02
+    start: "00:03:30"
+    end: "00:08:28"
+    label: "Braavos — with Ternesio Terys, Faceless Man"
+    tags: [braavos]
+  - episode: S05E02
+    start: "00:45:38"
+    end: "00:47:40"
+    label: "Braavos — with Street Tough #1, Street Tough #2, Faceless Man +1"
+    tags: [braavos]
+  - episode: S05E03
+    start: "00:03:24"
+    end: "00:06:50"
+    label: "Braavos — with Jaqen H'ghar, Despondent Man, The Waif"
+    tags: [braavos]
+  - episode: S05E03
+    start: "00:29:45"
+    end: "00:35:50"
+    label: "Braavos — with The Waif, Jaqen H'ghar"
+    tags: [braavos]
+  - episode: S05E06
+    start: "00:03:41"
+    end: "00:09:42"
+    label: "Braavos — with The Waif, Jaqen H'ghar"
+    tags: [braavos]
+  - episode: S05E06
+    start: "00:12:33"
+    end: "00:18:46"
+    label: "Braavos — with Joss, Ghita, Jaqen H'ghar"
+    tags: [braavos]
+  - episode: S05E08
+    start: "00:09:44"
+    end: "00:14:20"
+    label: "Braavos — with Jaqen H'ghar, Lhara, Thin Man +1"
+    tags: [braavos]
+  - episode: S05E09
+    start: "00:19:31"
+    end: "00:27:58"
+    label: "Braavos — with Sailor, Thin Man, Mace Tyrell +13"
+    tags: [braavos]
+  - episode: S05E10
+    start: "00:24:28"
+    end: "00:28:56"
+    label: "Braavos — with Meryn Trant, The Waif, Jaqen H'ghar"
+    tags: [braavos]
+  - episode: S06E01
+    start: "00:46:28"
+    end: "00:48:46"
+    label: "Braavos — with The Waif"
+    tags: [braavos]
+  - episode: S06E02
+    start: "00:29:56"
+    end: "00:31:54"
+    label: "Braavos — with The Waif, Jaqen H'ghar"
+    tags: [braavos]
+  - episode: S06E03
+    start: "00:41:21"
+    end: "00:46:22"
+    label: "Braavos — with The Waif, Jaqen H'ghar"
+    tags: [braavos]
+  - episode: S06E05
+    start: "00:09:58"
+    end: "00:19:12"
+    label: "Braavos — with The Waif, Jaqen H'ghar, Izembaro +18"
+    tags: [braavos]
+  - episode: S06E06
+    start: "00:26:46"
+    end: "00:32:40"
+    label: "Braavos — with Izembaro, Lady Crane, Camello +12"
+    tags: [braavos]
+  - episode: S06E06
+    start: "00:33:42"
+    end: "00:34:28"
+    label: "Braavos — with Lady Crane, Bianca, Izembaro +4"
+    tags: [braavos]
+  - episode: S06E06
+    start: "00:35:10"
+    end: "00:35:30"
+    label: "Braavos — alone"
+    tags: [braavos]
+  - episode: S06E07
+    start: "00:47:40"
+    end: "00:50:22"
+    label: "Braavos — with Westerosi Trader, The Waif, The Waif's Disguise"
+    tags: [braavos]
+  - episode: S06E08
+    start: "00:08:36"
+    end: "00:11:46"
+    label: "Braavos — with Lady Crane"
+    tags: [braavos]
+  - episode: S06E08
+    start: "00:53:07"
+    end: "00:59:00"
+    label: "Braavos — with Lady Crane, The Waif"
+    tags: [braavos]
+  - episode: S06E08
+    start: "01:00:05"
+    end: "01:01:08"
+    label: "Braavos — with Jaqen H'ghar"
+    tags: [braavos]
+  - episode: S06E10
+    start: "00:52:28"
+    end: "00:53:22"
+    label: "The Twins — with Walder Frey"
+    tags: [the-riverlands, the-twins]
+  - episode: S07E01
+    start: "00:07:04"
+    end: "00:07:46"
+    label: "The Twins — with Kitty Frey"
+    tags: [the-riverlands, the-twins]
+  - episode: S07E01
+    start: "00:39:27"
+    end: "00:43:36"
+    label: "South to King's Landing — alone"
+    tags: [the-riverlands, south-to-kings-landing]
+  - episode: S07E02
+    start: "00:36:49"
+    end: "00:40:14"
+    label: "Crossroads Inn — with Hot Pie"
+    tags: [the-riverlands, crossroads-inn]
+  - episode: S07E02
+    start: "00:47:20"
+    end: "00:50:18"
+    label: "To The Twins — with Nymeria"
+    tags: [the-riverlands, to-the-twins]
+  - episode: S07E04
+    start: "00:12:03"
+    end: "00:14:34"
+    label: "The Kingsroad South to King's Landing — with Koner, Henk"
+    tags: [the-north, the-kingsroad-south-to-kings-landing, winterfell]
+  - episode: S07E04
+    start: "00:15:07"
+    end: "00:21:20"
+    label: "Winterfell — with Sansa Stark, Bran Stark, Brienne of Tarth +2"
+    tags: [the-north, winterfell]
+  - episode: S07E04
+    start: "00:29:17"
+    end: "00:32:26"
+    label: "Winterfell — with Brienne of Tarth, Podrick Payne, Sansa Stark +1"
+    tags: [the-north, winterfell]
+  - episode: S07E05
+    start: "00:28:45"
+    end: "00:31:44"
+    label: "Winterfell — with Sansa Stark, Robett Glover, Yohn Royce"
+    tags: [the-north, winterfell]
+  - episode: S07E05
+    start: "00:50:43"
+    end: "00:54:34"
+    label: "Winterfell — with Petyr Baelish, Adele Smyth-Kennedy, Yohn Royce +2"
+    tags: [the-north, winterfell]
+  - episode: S07E06
+    start: "00:09:42"
+    end: "00:15:18"
+    label: "Winterfell — with Sansa Stark"
+    tags: [the-north, winterfell]
+  - episode: S07E06
+    start: "01:02:38"
+    end: "01:05:46"
+    label: "Winterfell — with Sansa Stark"
+    tags: [the-north, winterfell]
+  - episode: S07E07
+    start: "00:56:07"
+    end: "01:01:48"
+    label: "Winterfell — with Sansa Stark, Bran Stark, Maester Wolkan +2"
+    tags: [the-north, winterfell]
+  - episode: S07E07
+    start: "01:13:28"
+    end: "01:15:24"
+    label: "Winterfell — with Sansa Stark"
+    tags: [the-north, winterfell]
+  - episode: S08E01
+    start: "00:05:09"
+    end: "00:05:16"
+    label: "Winter Town — with Winterfell Boy"
+    tags: [the-north, winter-town]
+  - episode: S08E01
+    start: "00:06:16"
+    end: "00:07:06"
+    label: "Winter Town — with Jon Snow, Daenerys Targaryen, Qhono +2"
+    tags: [the-north, winter-town]
+  - episode: S08E01
+    start: "00:08:14"
+    end: "00:08:18"
+    label: "Winter Town — with Drogon, Rhaegal"
+    tags: [the-north, winter-town]
+  - episode: S08E01
+    start: "00:16:33"
+    end: "00:18:32"
+    label: "Winterfell — with Jon Snow"
+    tags: [the-north, winterfell]
+  - episode: S08E01
+    start: "00:38:03"
+    end: "00:39:58"
+    label: "Winterfell — with Gendry, Sandor Clegane"
+    tags: [the-north, winterfell]
+  - episode: S08E02
+    start: "00:09:38"
+    end: "00:11:54"
+    label: "Winterfell — with Gendry"
+    tags: [the-north, winterfell]
+  - episode: S08E02
+    start: "00:28:21"
+    end: "00:31:28"
+    label: "Winterfell — with Jon Snow, Theon Greyjoy, Jaime Lannister +17"
+    tags: [the-north, winterfell]
+  - episode: S08E02
+    start: "00:39:53"
+    end: "00:45:40"
+    label: "Winterfell — with Sandor Clegane, Beric Dondarrion, Gendry"
+    tags: [the-north, winterfell]
+  - episode: S08E02
+    start: "00:53:22"
+    end: "00:53:30"
+    label: "Winterfell — with Gendry"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:05:43"
+    end: "00:05:58"
+    label: "Winterfell — with Davos Seaworth, Sansa Stark"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:08:23"
+    end: "00:08:36"
+    label: "Winterfell — with Sansa Stark"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:10:24"
+    end: "00:10:34"
+    label: "Winterfell — with Sansa Stark"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:11:30"
+    end: "00:11:32"
+    label: "Winterfell — with Sansa Stark"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:12:37"
+    end: "00:13:06"
+    label: "Winterfell — with Davos Seaworth, Melisandre, Sansa Stark"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:15:15"
+    end: "00:15:18"
+    label: "Winterfell — with Sansa Stark"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:18:24"
+    end: "00:18:34"
+    label: "Winterfell — with Sansa Stark, Daenerys Targaryen, Drogon +2"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:19:27"
+    end: "00:19:54"
+    label: "Winterfell — with Sansa Stark"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:26:43"
+    end: "00:26:54"
+    label: "Winterfell — with Sandor Clegane"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:28:14"
+    end: "00:28:18"
+    label: "Winterfell — alone"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:30:52"
+    end: "00:31:00"
+    label: "Winterfell — with Davos Seaworth"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:36:01"
+    end: "00:36:38"
+    label: "Winterfell — with Davos Seaworth"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:41:27"
+    end: "00:43:36"
+    label: "Winterfell — with Beric Dondarrion, Sandor Clegane, Davos Seaworth"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:45:46"
+    end: "00:50:16"
+    label: "Winterfell — alone"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:52:28"
+    end: "00:56:00"
+    label: "Winterfell — with Sandor Clegane, Beric Dondarrion, Melisandre"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:17:21"
+    end: "01:17:48"
+    label: "Winterfell — with Bran Stark, The Night King, White Walker"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:19:08"
+    end: "01:19:24"
+    label: "Winterfell — with Bran Stark"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:05:49"
+    end: "00:09:56"
+    label: "Winterfell — with Jon Snow, Samwell Tarly, Bran Stark +20"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:23:46"
+    end: "00:25:26"
+    label: "Winterfell — with Gendry"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:33:20"
+    end: "00:39:30"
+    label: "Winterfell — with Grey Worm, Jon Snow, Yohn Royce +8"
+    tags: [the-north, winterfell]
+  - episode: S08E04
+    start: "00:43:59"
+    end: "00:45:02"
+    label: "Outside Winterfell — with Sandor Clegane"
+    tags: [the-north, outside-winterfell]
+  - episode: S08E05
+    start: "00:22:51"
+    end: "00:23:36"
+    label: "King's Landing — with Sandor Clegane, Northern Guard"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:31:06"
+    end: "00:31:34"
+    label: "King's Landing — with Sandor Clegane"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:33:52"
+    end: "00:34:10"
+    label: "King's Landing — with Eleanor, Eleanor's Daughter, Sandor Clegane"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:57:23"
+    end: "00:58:54"
+    label: "King's Landing — with Sandor Clegane"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "01:04:47"
+    end: "01:07:26"
+    label: "King's Landing — with Daenerys Targaryen, Drogon, Eleanor +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "01:10:05"
+    end: "01:13:12"
+    label: "King's Landing — with Eleanor, Eleanor's Daughter, Daenerys Targaryen +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "01:15:37"
+    end: "01:19:24"
+    label: "King's Landing — with Eleanor, Eleanor's Daughter"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E06
+    start: "00:14:06"
+    end: "00:15:08"
+    label: "King's Landing — with Jon Snow"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E06
+    start: "00:19:20"
+    end: "00:19:28"
+    label: "King's Landing — with Jon Snow, Grey Worm, Drogon +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E06
+    start: "00:22:25"
+    end: "00:23:26"
+    label: "King's Landing — with Jon Snow, Daenerys Targaryen"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E06
+    start: "00:45:58"
+    end: "00:58:30"
+    label: "Outside King's Landing — with Tyrion Lannister, Grey Worm, Samwell Tarly +14"
+    tags: [the-crownlands, outside-kings-landing]
+  - episode: S08E06
+    start: "01:02:47"
+    end: "01:05:56"
+    label: "King's Landing — with Jon Snow, Sansa Stark, Bran Stark"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E06
+    start: "01:14:49"
+    end: "01:17:18"
+    label: "The Sunset Sea — alone"
+    tags: [the-sunset-sea]
+  - episode: S08E06
+    start: "01:17:55"
+    end: "01:18:12"
+    label: "The Sunset Sea — alone"
+    tags: [the-sunset-sea]
