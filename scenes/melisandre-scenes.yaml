@@ -1,0 +1,247 @@
+version: "1.0"
+series: "Game of Thrones"
+character: "Melisandre"
+# Timestamps are in DATASET time, not calibrated to any library.
+# edl-cut applies per-episode offsets when it emits a playlist.
+# 48 segments, 2.06 hours.
+scenes:
+  - episode: S02E01
+    start: "00:25:02"
+    end: "00:28:12"
+    label: "Dragonstone — with Maester Cressen, Davos Seaworth, Matthos Seaworth +2"
+    tags: [the-crownlands, dragonstone]
+  - episode: S02E01
+    start: "00:29:10"
+    end: "00:32:14"
+    label: "Dragonstone — with Stannis Baratheon, Matthos Seaworth, Davos Seaworth +1"
+    tags: [the-crownlands, dragonstone]
+  - episode: S02E02
+    start: "00:46:03"
+    end: "00:49:58"
+    label: "Dragonstone — with Davos Seaworth, Matthos Seaworth, Stannis Baratheon"
+    tags: [the-crownlands, dragonstone]
+  - episode: S02E04
+    start: "00:28:47"
+    end: "00:32:00"
+    label: "Storm's End — with Renly Baratheon, Catelyn Stark, Brienne of Tarth +3"
+    tags: [the-stormlands, storms-end]
+  - episode: S02E04
+    start: "00:45:34"
+    end: "00:49:18"
+    label: "Storm's End — with Davos Seaworth"
+    tags: [the-stormlands, storms-end]
+  - episode: S02E10
+    start: "00:18:31"
+    end: "00:22:06"
+    label: "Dragonstone — with Stannis Baratheon"
+    tags: [the-crownlands, dragonstone]
+  - episode: S03E01
+    start: "00:37:31"
+    end: "00:40:14"
+    label: "Dragonstone — with Stannis Baratheon, Davos Seaworth"
+    tags: [the-crownlands, dragonstone]
+  - episode: S03E03
+    start: "00:26:31"
+    end: "00:28:26"
+    label: "Dragonstone — with Stannis Baratheon"
+    tags: [the-crownlands, dragonstone]
+  - episode: S03E06
+    start: "00:13:36"
+    end: "00:20:38"
+    label: "Hollow Hill — with Arya Stark, Anguy, Thoros of Myr +2"
+    tags: [the-riverlands, hollow-hill]
+  - episode: S03E07
+    start: "00:28:23"
+    end: "00:30:02"
+    label: "Blackwater Bay — with Gendry"
+    tags: [the-crownlands, blackwater-bay]
+  - episode: S03E08
+    start: "00:09:05"
+    end: "00:10:56"
+    label: "Dragonstone — with Gendry, Stannis Baratheon"
+    tags: [the-crownlands, dragonstone]
+  - episode: S03E08
+    start: "00:25:31"
+    end: "00:32:20"
+    label: "Dragonstone — with Gendry, Davos Seaworth, Stannis Baratheon"
+    tags: [the-crownlands, dragonstone]
+  - episode: S03E10
+    start: "00:47:23"
+    end: "00:49:54"
+    label: "Dragonstone — with Stannis Baratheon, Davos Seaworth"
+    tags: [the-crownlands, dragonstone]
+  - episode: S03E10
+    start: "00:53:49"
+    end: "00:56:40"
+    label: "Dragonstone — with Stannis Baratheon, Davos Seaworth"
+    tags: [the-crownlands, dragonstone]
+  - episode: S04E02
+    start: "00:20:01"
+    end: "00:24:42"
+    label: "Dragonstone — with Stannis Baratheon, Davos Seaworth, Axell Florent +2"
+    tags: [the-crownlands, dragonstone]
+  - episode: S04E07
+    start: "00:20:43"
+    end: "00:24:40"
+    label: "Dragonstone — with Selyse Baratheon"
+    tags: [the-crownlands, dragonstone]
+  - episode: S04E10
+    start: "00:28:44"
+    end: "00:29:46"
+    label: "Castle Black — with Maester Aemon, Olly, Eddison Tollett +8"
+    tags: [the-wall, castle-black]
+  - episode: S05E01
+    start: "00:23:17"
+    end: "00:26:36"
+    label: "Castle Black — with Jon Snow, Olly, Stannis Baratheon +1"
+    tags: [the-wall, castle-black]
+  - episode: S05E01
+    start: "00:49:27"
+    end: "00:53:42"
+    label: "Castle Black — with Mance Rayder, Stannis Baratheon, Davos Seaworth +10"
+    tags: [the-wall, castle-black]
+  - episode: S05E04
+    start: "00:17:55"
+    end: "00:18:52"
+    label: "Castle Black — with Selyse Baratheon, Stannis Baratheon, Olly +1"
+    tags: [the-wall, castle-black]
+  - episode: S05E04
+    start: "00:20:08"
+    end: "00:23:24"
+    label: "Castle Black — with Jon Snow, Samwell Tarly"
+    tags: [the-wall, castle-black]
+  - episode: S05E05
+    start: "00:40:59"
+    end: "00:41:08"
+    label: "Castle Black — with Davos Seaworth"
+    tags: [the-wall, castle-black]
+  - episode: S05E05
+    start: "00:42:52"
+    end: "00:43:34"
+    label: "Castle Black — with Jon Snow, Stannis Baratheon"
+    tags: [the-wall, castle-black]
+  - episode: S05E07
+    start: "00:17:22"
+    end: "00:20:54"
+    label: "Stannis Baratheon's Camp — with Davos Seaworth, Stannis Baratheon"
+    tags: [the-north, stannis-baratheons-camp]
+  - episode: S05E09
+    start: "00:04:37"
+    end: "00:05:24"
+    label: "Stannis Baratheon's Camp — alone"
+    tags: [the-north, stannis-baratheons-camp]
+  - episode: S05E09
+    start: "00:06:13"
+    end: "00:06:38"
+    label: "Stannis Baratheon's Camp — with Davos Seaworth, Stannis Baratheon, Selyse Baratheon"
+    tags: [the-north, stannis-baratheons-camp]
+  - episode: S05E09
+    start: "00:33:36"
+    end: "00:36:42"
+    label: "Stannis Baratheon's Camp — with Shireen Baratheon, Stannis Baratheon, Selyse Baratheon"
+    tags: [the-north, stannis-baratheons-camp]
+  - episode: S05E10
+    start: "00:05:10"
+    end: "00:06:50"
+    label: "Stannis Baratheon's Camp — with Stannis Baratheon, Baratheon General, Baratheon Soldier #1"
+    tags: [the-north, stannis-baratheons-camp]
+  - episode: S05E10
+    start: "00:57:36"
+    end: "00:58:22"
+    label: "Castle Black — with Jon Snow, Davos Seaworth"
+    tags: [the-wall, castle-black]
+  - episode: S06E01
+    start: "00:10:33"
+    end: "00:11:36"
+    label: "Castle Black — with Davos Seaworth, Jon Snow, Loyal Night's Watchman #1 +1"
+    tags: [the-wall, castle-black]
+  - episode: S06E01
+    start: "00:51:04"
+    end: "00:53:46"
+    label: "Castle Black — alone"
+    tags: [the-wall, castle-black]
+  - episode: S06E02
+    start: "00:47:06"
+    end: "00:54:22"
+    label: "Castle Black — with Davos Seaworth, Jon Snow, Eddison Tollett +2"
+    tags: [the-wall, castle-black]
+  - episode: S06E03
+    start: "00:06:33"
+    end: "00:08:06"
+    label: "Castle Black — with Davos Seaworth, Jon Snow"
+    tags: [the-wall, castle-black]
+  - episode: S06E03
+    start: "00:50:06"
+    end: "00:53:00"
+    label: "Castle Black — with Tormund Giantsbane, Jon Snow, Davos Seaworth +5"
+    tags: [the-wall, castle-black]
+  - episode: S06E04
+    start: "00:10:37"
+    end: "00:12:16"
+    label: "Castle Black — with Davos Seaworth, Brienne of Tarth"
+    tags: [the-wall, castle-black]
+  - episode: S06E05
+    start: "00:43:14"
+    end: "00:45:46"
+    label: "Castle Black — with Sansa Stark, Jon Snow, Eddison Tollett +3"
+    tags: [the-wall, castle-black]
+  - episode: S06E05
+    start: "00:46:58"
+    end: "00:47:34"
+    label: "Castle Black — with Jon Snow, Sansa Stark, Tormund Giantsbane"
+    tags: [the-wall, castle-black]
+  - episode: S06E05
+    start: "00:48:06"
+    end: "00:48:28"
+    label: "Castle Black — with Jon Snow, Sansa Stark, Podrick Payne +2"
+    tags: [the-wall, castle-black]
+  - episode: S06E06
+    start: "00:05:23"
+    end: "00:05:30"
+    label: "Outside the Three-Eyed Raven — with The Night King, Bran Stark, Catelyn Stark +5"
+    tags: [north-of-the-wall, outside-the-three-eyed-raven, flashback]
+  - episode: S06E09
+    start: "00:25:27"
+    end: "00:27:24"
+    label: "Stannis Baratheon's Camp — with Jon Snow"
+    tags: [the-north, stannis-baratheons-camp]
+  - episode: S06E09
+    start: "00:56:13"
+    end: "00:56:42"
+    label: "Winterfell — with Davos Seaworth, Tormund Giantsbane, Jon Snow"
+    tags: [the-north, winterfell]
+  - episode: S06E10
+    start: "00:35:33"
+    end: "00:40:02"
+    label: "Winterfell — with Jon Snow, Davos Seaworth"
+    tags: [the-north, winterfell]
+  - episode: S07E02
+    start: "00:09:50"
+    end: "00:13:06"
+    label: "Dragonstone — with Tyrion Lannister, Lord Varys, Daenerys Targaryen +2"
+    tags: [the-crownlands, dragonstone]
+  - episode: S07E03
+    start: "00:08:03"
+    end: "00:09:54"
+    label: "Dragonstone — with Lord Varys"
+    tags: [the-crownlands, dragonstone]
+  - episode: S08E03
+    start: "00:08:36"
+    end: "00:12:56"
+    label: "Winterfell — with Jorah Mormont, Ghost, Grey Worm +2"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:28:48"
+    end: "00:30:52"
+    label: "Winterfell — with Grey Worm, Sandor Clegane, Beric Dondarrion +1"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "00:53:39"
+    end: "00:56:00"
+    label: "Winterfell — with Sandor Clegane, Beric Dondarrion, Arya Stark"
+    tags: [the-north, winterfell]
+  - episode: S08E03
+    start: "01:20:08"
+    end: "01:21:38"
+    label: "Winterfell — with Sandor Clegane, Davos Seaworth"
+    tags: [the-north, winterfell]

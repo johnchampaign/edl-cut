@@ -1,0 +1,702 @@
+version: "1.0"
+series: "Game of Thrones"
+character: "Cersei Lannister"
+# Timestamps are in DATASET time, not calibrated to any library.
+# edl-cut applies per-episode offsets when it emits a playlist.
+# 139 segments, 7.22 hours.
+scenes:
+  - episode: S01E01
+    start: "00:18:44"
+    end: "00:20:46"
+    label: "King's Landing — with Jon Arryn, Jaime Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E01
+    start: "00:23:39"
+    end: "00:29:16"
+    label: "Winterfell — with Bran Stark, Catelyn Stark, Maester Luwin +16"
+    tags: [the-north, winterfell]
+  - episode: S01E01
+    start: "00:40:56"
+    end: "00:41:20"
+    label: "Winterfell — with Robert Baratheon, Catelyn Stark, Rodrik Cassel"
+    tags: [the-north, winterfell]
+  - episode: S01E01
+    start: "00:44:14"
+    end: "00:47:28"
+    label: "Winterfell — with Rodrik Cassel, Benjen Stark, Eddard Stark +8"
+    tags: [the-north, winterfell]
+  - episode: S01E01
+    start: "00:59:06"
+    end: "01:00:58"
+    label: "Winterfell — with Bran Stark, Summer, Jaime Lannister"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:07:05"
+    end: "00:11:44"
+    label: "Winterfell — with Tyrion Lannister, Jaime Lannister, Tommen Baratheon +3"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:48:50"
+    end: "00:53:00"
+    label: "Crossroads Inn — with Eddard Stark, Arya Stark, Joffrey Baratheon +4"
+    tags: [the-riverlands, crossroads-inn]
+  - episode: S01E03
+    start: "00:08:11"
+    end: "00:10:50"
+    label: "King's Landing — with Joffrey Baratheon"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E03
+    start: "00:27:19"
+    end: "00:28:28"
+    label: "King's Landing — with Jaime Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E04
+    start: "00:45:38"
+    end: "00:51:28"
+    label: "King's Landing — with Robert Baratheon, Tommen Baratheon, Myrcella Baratheon +12"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E05
+    start: "00:41:50"
+    end: "00:48:10"
+    label: "King's Landing — with Robert Baratheon"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E06
+    start: "00:01:53"
+    end: "00:06:22"
+    label: "King's Landing — with Eddard Stark, Robert Baratheon"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E07
+    start: "00:06:35"
+    end: "00:09:36"
+    label: "King's Landing — with Eddard Stark"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E07
+    start: "00:20:13"
+    end: "00:25:08"
+    label: "King's Landing — with Joffrey Baratheon, Robert Baratheon, Grand Maester Pycelle +3"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E07
+    start: "00:53:12"
+    end: "00:56:42"
+    label: "King's Landing — with Eddard Stark, Petyr Baelish, Lord Varys +5"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E08
+    start: "00:12:59"
+    end: "00:15:12"
+    label: "King's Landing — with Grand Maester Pycelle, Lord Varys, Petyr Baelish +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E08
+    start: "00:50:50"
+    end: "00:57:00"
+    label: "King's Landing — with Sansa Stark, Joffrey Baratheon, Sandor Clegane +7"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E09
+    start: "00:50:24"
+    end: "00:55:54"
+    label: "King's Landing — with Arya Stark, Eddard Stark, Yoren +7"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E10
+    start: "00:08:07"
+    end: "00:10:52"
+    label: "King's Landing — with Marillion, Sansa Stark, Joffrey Baratheon +3"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E10
+    start: "00:18:51"
+    end: "00:19:24"
+    label: "King's Landing — with Lancel Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E01
+    start: "00:06:54"
+    end: "00:10:50"
+    label: "King's Landing — with Lord Varys, Grand Maester Pycelle, Petyr Baelish +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E01
+    start: "00:37:21"
+    end: "00:40:06"
+    label: "King's Landing — with Petyr Baelish"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E01
+    start: "00:45:37"
+    end: "00:48:02"
+    label: "King's Landing — with Joffrey Baratheon"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E02
+    start: "00:08:16"
+    end: "00:10:22"
+    label: "King's Landing — with Alton Lannister, Tyrion Lannister, Grand Maester Pycelle +3"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E02
+    start: "00:43:32"
+    end: "00:46:04"
+    label: "King's Landing — with Tyrion Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E03
+    start: "00:20:43"
+    end: "00:22:12"
+    label: "King's Landing — with Tommen Baratheon, Myrcella Baratheon, Sansa Stark"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E03
+    start: "00:33:39"
+    end: "00:35:02"
+    label: "King's Landing — with Tyrion Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E05
+    start: "00:08:07"
+    end: "00:09:46"
+    label: "King's Landing — with Tyrion Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E06
+    start: "00:23:41"
+    end: "00:27:18"
+    label: "King's Landing — with Myrcella Baratheon, High Septon, Tyrion Lannister +5"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E07
+    start: "00:30:01"
+    end: "00:32:48"
+    label: "King's Landing — with Sansa Stark"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E07
+    start: "00:46:06"
+    end: "00:49:28"
+    label: "King's Landing — with Tyrion Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E08
+    start: "00:26:57"
+    end: "00:32:22"
+    label: "King's Landing — with Podrick Payne, Tyrion Lannister, Ros +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:06:30"
+    end: "00:08:04"
+    label: "King's Landing — with Grand Maester Pycelle"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:20:34"
+    end: "00:22:34"
+    label: "King's Landing — with Tommen Baratheon, Ilyn Payne, Sansa Stark +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:27:26"
+    end: "00:31:06"
+    label: "King's Landing — with Dontos Hollard, Sansa Stark, Shae"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:34:20"
+    end: "00:37:34"
+    label: "King's Landing — with Tommen Baratheon, Sansa Stark, Shae +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:44:18"
+    end: "00:44:44"
+    label: "King's Landing — with Tommen Baratheon, Lancel Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E09
+    start: "00:50:02"
+    end: "00:53:04"
+    label: "King's Landing — with Tommen Baratheon, Loras Tyrell, Tywin Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S02E10
+    start: "00:03:34"
+    end: "00:08:08"
+    label: "King's Landing — with Tywin Lannister, Joffrey Baratheon, Sansa Stark +5"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E01
+    start: "00:13:36"
+    end: "00:17:58"
+    label: "King's Landing — with Tyrion Lannister, Bronn, Meryn Trant +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E01
+    start: "00:43:18"
+    end: "00:45:50"
+    label: "King's Landing — with Loras Tyrell, Margaery Tyrell, Joffrey Baratheon"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E02
+    start: "00:10:51"
+    end: "00:13:02"
+    label: "King's Landing — with Joffrey Baratheon, King's Landing Tailor"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E03
+    start: "00:06:29"
+    end: "00:10:34"
+    label: "King's Landing — with Tywin Lannister, Grand Maester Pycelle, Petyr Baelish +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E04
+    start: "00:14:34"
+    end: "00:16:42"
+    label: "King's Landing — with Olenna Tyrell, Joffrey Baratheon, Margaery Tyrell"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E04
+    start: "00:17:44"
+    end: "00:18:32"
+    label: "King's Landing — with Olenna Tyrell, Joffrey Baratheon, Margaery Tyrell"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E04
+    start: "00:25:07"
+    end: "00:27:54"
+    label: "King's Landing — with Tywin Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E05
+    start: "00:15:55"
+    end: "00:16:48"
+    label: "King's Landing — with Petyr Baelish"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E05
+    start: "00:52:25"
+    end: "00:56:04"
+    label: "King's Landing — with Tyrion Lannister, Tywin Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E06
+    start: "00:41:41"
+    end: "00:44:34"
+    label: "King's Landing — with Tyrion Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E08
+    start: "00:20:27"
+    end: "00:25:32"
+    label: "King's Landing — with Margaery Tyrell, Loras Tyrell, Sansa Stark +8"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E08
+    start: "00:32:19"
+    end: "00:34:02"
+    label: "King's Landing — with Joffrey Baratheon, Tywin Lannister, Grand Maester Pycelle +5"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E08
+    start: "00:35:26"
+    end: "00:36:00"
+    label: "King's Landing — with Loras Tyrell"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E10
+    start: "00:05:16"
+    end: "00:08:36"
+    label: "King's Landing — with Tyrion Lannister, Tywin Lannister, Joffrey Baratheon +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E10
+    start: "00:35:43"
+    end: "00:38:46"
+    label: "King's Landing — with Tyrion Lannister, Podrick Payne"
+    tags: [the-crownlands, kings-landing]
+  - episode: S03E10
+    start: "00:53:04"
+    end: "00:53:50"
+    label: "King's Landing — with Jaime Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E01
+    start: "00:25:13"
+    end: "00:28:28"
+    label: "King's Landing — with Jaime Lannister, Qyburn, Handmaid"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:14:43"
+    end: "00:17:16"
+    label: "King's Landing — with Mace Tyrell, Tywin Lannister, Joffrey Baratheon +6"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:28:22"
+    end: "00:29:42"
+    label: "King's Landing — with Lord Varys, Margaery Tyrell, Mace Tyrell +11"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:31:58"
+    end: "00:32:52"
+    label: "King's Landing — with Joffrey Baratheon, Olenna Tyrell, Sansa Stark +4"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:33:25"
+    end: "00:51:10"
+    label: "King's Landing — with Joffrey Baratheon, Margaery Tyrell, Olenna Tyrell +20"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E03
+    start: "00:01:55"
+    end: "00:02:22"
+    label: "King's Landing — with Joffrey Baratheon, Tyrion Lannister, Podrick Payne +3"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E03
+    start: "00:07:54"
+    end: "00:15:32"
+    label: "King's Landing — with Tommen Baratheon, Joffrey Baratheon, Tywin Lannister +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E04
+    start: "00:24:41"
+    end: "00:27:16"
+    label: "King's Landing — with Jaime Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E05
+    start: "00:01:55"
+    end: "00:06:40"
+    label: "King's Landing — with Tywin Lannister, Tommen Baratheon, High Septon +5"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E05
+    start: "00:17:23"
+    end: "00:20:56"
+    label: "King's Landing — with Tywin Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E05
+    start: "00:29:55"
+    end: "00:33:16"
+    label: "King's Landing — with Oberyn Martell"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E06
+    start: "00:24:59"
+    end: "00:27:46"
+    label: "King's Landing — with Oberyn Martell, Mace Tyrell, Grand Maester Pycelle +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E06
+    start: "00:30:59"
+    end: "00:39:26"
+    label: "King's Landing — with Jaime Lannister, Tyrion Lannister, Tommen Baratheon +8"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E06
+    start: "00:41:42"
+    end: "00:49:20"
+    label: "King's Landing — with Jaime Lannister, Tyrion Lannister, Loras Tyrell +5"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E07
+    start: "00:04:56"
+    end: "00:05:56"
+    label: "King's Landing — with Gregor Clegane"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E08
+    start: "00:46:39"
+    end: "00:52:02"
+    label: "King's Landing — with Tywin Lannister, Mace Tyrell, Lord Varys +6"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E10
+    start: "00:14:00"
+    end: "00:21:04"
+    label: "King's Landing — with Qyburn, Grand Maester Pycelle, Gregor Clegane +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S05E01
+    start: "00:09:40"
+    end: "00:12:56"
+    label: "King's Landing — with Meryn Trant, High Septon, Margaery Tyrell +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S05E01
+    start: "00:30:14"
+    end: "00:33:16"
+    label: "King's Landing — with Loras Tyrell, Mace Tyrell, Margaery Tyrell +4"
+    tags: [the-crownlands, kings-landing]
+  - episode: S05E02
+    start: "00:16:05"
+    end: "00:18:30"
+    label: "King's Landing — with Jaime Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S05E02
+    start: "00:31:00"
+    end: "00:34:34"
+    label: "King's Landing — with Dwarf Hunter #1, Dwarf Hunter #2, Qyburn +4"
+    tags: [the-crownlands, kings-landing]
+  - episode: S05E03
+    start: "00:07:02"
+    end: "00:07:56"
+    label: "King's Landing — with Tommen Baratheon, Margaery Tyrell, Loras Tyrell +3"
+    tags: [the-crownlands, kings-landing]
+  - episode: S05E03
+    start: "00:10:56"
+    end: "00:13:54"
+    label: "King's Landing — with Tommen Baratheon, Margaery Tyrell"
+    tags: [the-crownlands, kings-landing]
+  - episode: S05E03
+    start: "00:43:45"
+    end: "00:49:12"
+    label: "King's Landing — with Grand Maester Pycelle, Qyburn, High Septon +5"
+    tags: [the-crownlands, kings-landing]
+  - episode: S05E04
+    start: "00:07:20"
+    end: "00:10:52"
+    label: "King's Landing — with Mace Tyrell, Qyburn, Grand Maester Pycelle +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S05E04
+    start: "00:14:22"
+    end: "00:15:10"
+    label: "King's Landing — with Tommen Baratheon"
+    tags: [the-crownlands, kings-landing]
+  - episode: S05E06
+    start: "00:24:56"
+    end: "00:28:50"
+    label: "King's Landing — with Petyr Baelish"
+    tags: [the-crownlands, kings-landing]
+  - episode: S05E06
+    start: "00:36:19"
+    end: "00:43:12"
+    label: "King's Landing — with Olenna Tyrell, High Sparrow, Loras Tyrell +3"
+    tags: [the-crownlands, kings-landing]
+  - episode: S05E07
+    start: "00:35:30"
+    end: "00:38:40"
+    label: "King's Landing — with Tommen Baratheon"
+    tags: [the-crownlands, kings-landing]
+  - episode: S05E07
+    start: "00:51:34"
+    end: "00:59:14"
+    label: "King's Landing — with Margaery Tyrell, High Sparrow, Lancel Lannister +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S05E08
+    start: "00:08:53"
+    end: "00:09:44"
+    label: "King's Landing — with Septa Unella"
+    tags: [the-crownlands, kings-landing]
+  - episode: S05E08
+    start: "00:14:42"
+    end: "00:17:30"
+    label: "King's Landing — with Qyburn, Septa Unella"
+    tags: [the-crownlands, kings-landing]
+  - episode: S05E08
+    start: "00:27:35"
+    end: "00:28:48"
+    label: "King's Landing — with Septa Unella"
+    tags: [the-crownlands, kings-landing]
+  - episode: S05E10
+    start: "00:43:55"
+    end: "00:57:12"
+    label: "King's Landing — with Septa Unella, High Sparrow, Septa Moelle +9"
+    tags: [the-crownlands, kings-landing]
+  - episode: S06E01
+    start: "00:24:27"
+    end: "00:28:40"
+    label: "King's Landing — with Handmaid, Gregor Clegane, Jaime Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S06E02
+    start: "00:15:30"
+    end: "00:17:00"
+    label: "King's Landing — with Gregor Clegane, Lannister Captain"
+    tags: [the-crownlands, kings-landing]
+  - episode: S06E02
+    start: "00:21:44"
+    end: "00:23:46"
+    label: "King's Landing — with Tommen Baratheon"
+    tags: [the-crownlands, kings-landing]
+  - episode: S06E03
+    start: "00:33:30"
+    end: "00:37:34"
+    label: "King's Landing — with Qyburn, Frances, Arthur +11"
+    tags: [the-crownlands, kings-landing]
+  - episode: S06E04
+    start: "00:37:41"
+    end: "00:43:34"
+    label: "King's Landing — with Grand Maester Pycelle, Tommen Baratheon, Olenna Tyrell +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S06E06
+    start: "00:44:35"
+    end: "00:46:34"
+    label: "King's Landing — with Jaime Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S06E07
+    start: "00:18:13"
+    end: "00:20:24"
+    label: "King's Landing — with Gregor Clegane, Olenna Tyrell"
+    tags: [the-crownlands, kings-landing]
+  - episode: S06E08
+    start: "00:15:25"
+    end: "00:18:04"
+    label: "King's Landing — with Qyburn, Gregor Clegane, Lancel Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S06E08
+    start: "00:26:19"
+    end: "00:29:52"
+    label: "King's Landing — with Gregor Clegane, Qyburn, Mace Tyrell +3"
+    tags: [the-crownlands, kings-landing]
+  - episode: S06E10
+    start: "00:05:31"
+    end: "00:06:36"
+    label: "King's Landing — with Tommen Baratheon, Margaery Tyrell, High Sparrow"
+    tags: [the-crownlands, kings-landing]
+  - episode: S06E10
+    start: "00:08:02"
+    end: "00:08:24"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S06E10
+    start: "00:12:59"
+    end: "00:14:22"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S06E10
+    start: "00:18:24"
+    end: "00:18:30"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S06E10
+    start: "00:21:16"
+    end: "00:25:40"
+    label: "King's Landing — with Septa Unella, Gregor Clegane"
+    tags: [the-crownlands, kings-landing]
+  - episode: S06E10
+    start: "00:30:13"
+    end: "00:31:16"
+    label: "King's Landing — with Qyburn, Tommen Baratheon"
+    tags: [the-crownlands, kings-landing]
+  - episode: S06E10
+    start: "01:05:55"
+    end: "01:08:04"
+    label: "King's Landing — with Gregor Clegane, Jaime Lannister, Qyburn"
+    tags: [the-crownlands, kings-landing]
+  - episode: S07E01
+    start: "00:20:50"
+    end: "00:25:00"
+    label: "King's Landing — with Jaime Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S07E01
+    start: "00:25:35"
+    end: "00:30:26"
+    label: "King's Landing — with Jaime Lannister, Gregor Clegane, Qyburn +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S07E02
+    start: "00:14:30"
+    end: "00:16:06"
+    label: "King's Landing — with Jaime Lannister, Gregor Clegane, Qyburn +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S07E02
+    start: "00:20:34"
+    end: "00:22:24"
+    label: "King's Landing — with Qyburn"
+    tags: [the-crownlands, kings-landing]
+  - episode: S07E03
+    start: "00:22:41"
+    end: "00:34:24"
+    label: "King's Landing — with Euron Greyjoy, Yara Greyjoy, Ellaria Sand +6"
+    tags: [the-crownlands, kings-landing]
+  - episode: S07E04
+    start: "00:06:42"
+    end: "00:08:12"
+    label: "King's Landing — with Tycho Nestoris"
+    tags: [the-crownlands, kings-landing]
+  - episode: S07E05
+    start: "00:12:04"
+    end: "00:14:34"
+    label: "King's Landing — with Jaime Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S07E05
+    start: "00:40:19"
+    end: "00:43:14"
+    label: "King's Landing — with Jaime Lannister, Qyburn"
+    tags: [the-crownlands, kings-landing]
+  - episode: S07E07
+    start: "00:08:47"
+    end: "00:09:24"
+    label: "King's Landing — with Qyburn, Jaime Lannister, Gregor Clegane"
+    tags: [the-crownlands, kings-landing]
+  - episode: S07E07
+    start: "00:15:18"
+    end: "00:29:14"
+    label: "Outside King's Landing — with Tyrion Lannister, Jon Snow, Davos Seaworth +14"
+    tags: [the-crownlands, outside-kings-landing]
+  - episode: S07E07
+    start: "00:32:58"
+    end: "00:38:20"
+    label: "King's Landing — with Tyrion Lannister, Gregor Clegane"
+    tags: [the-crownlands, kings-landing]
+  - episode: S07E07
+    start: "00:41:21"
+    end: "00:42:28"
+    label: "Outside King's Landing — with Tyrion Lannister, Jon Snow, Davos Seaworth +11"
+    tags: [the-crownlands, outside-kings-landing]
+  - episode: S07E07
+    start: "01:01:47"
+    end: "01:07:06"
+    label: "King's Landing — with Gregor Clegane, Jaime Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E01
+    start: "00:18:32"
+    end: "00:19:04"
+    label: "King's Landing — with Qyburn, Gregor Clegane"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E01
+    start: "00:20:46"
+    end: "00:23:28"
+    label: "King's Landing — with Qyburn, Gregor Clegane, Euron Greyjoy +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E01
+    start: "00:26:12"
+    end: "00:27:52"
+    label: "King's Landing — with Euron Greyjoy"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E04
+    start: "00:57:39"
+    end: "00:59:02"
+    label: "King's Landing — with Qyburn, Euron Greyjoy, Gregor Clegane +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E04
+    start: "01:09:13"
+    end: "01:11:06"
+    label: "King's Landing — with Gregor Clegane, Euron Greyjoy, Missandei +6"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E04
+    start: "01:12:04"
+    end: "01:17:56"
+    label: "King's Landing — with Tyrion Lannister, Qyburn, Gregor Clegane +6"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:33:17"
+    end: "00:33:40"
+    label: "King's Landing — with Qyburn, Gregor Clegane"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:35:06"
+    end: "00:35:12"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:40:24"
+    end: "00:41:54"
+    label: "King's Landing — with Qyburn, Gregor Clegane, Daenerys Targaryen +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:43:11"
+    end: "00:43:18"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:44:34"
+    end: "00:44:40"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:45:13"
+    end: "00:46:14"
+    label: "King's Landing — with Daenerys Targaryen, Drogon"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:46:58"
+    end: "00:47:02"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:49:22"
+    end: "00:49:26"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:51:44"
+    end: "00:52:10"
+    label: "King's Landing — with Daenerys Targaryen, Drogon, Gregor Clegane"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:53:11"
+    end: "00:53:14"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:54:48"
+    end: "00:55:44"
+    label: "King's Landing — with Gregor Clegane, Qyburn"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "00:58:53"
+    end: "01:00:48"
+    label: "King's Landing — with Gregor Clegane, Qyburn, Sandor Clegane"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "01:01:36"
+    end: "01:03:36"
+    label: "King's Landing — with Jaime Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E05
+    start: "01:13:12"
+    end: "01:15:38"
+    label: "King's Landing — with Jaime Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S08E06
+    start: "00:11:56"
+    end: "00:14:06"
+    label: "King's Landing — with Tyrion Lannister, Jaime Lannister"
+    tags: [the-crownlands, kings-landing]

@@ -1,0 +1,202 @@
+version: "1.0"
+series: "Game of Thrones"
+character: "Eddard Stark"
+# Timestamps are in DATASET time, not calibrated to any library.
+# edl-cut applies per-episode offsets when it emits a playlist.
+# 39 segments, 2.41 hours.
+scenes:
+  - episode: S01E01
+    start: "00:09:27"
+    end: "00:18:44"
+    label: "Winterfell — with Will, Jon Snow, Bran Stark +15"
+    tags: [the-north, winterfell, outside-winterfell]
+  - episode: S01E01
+    start: "00:20:45"
+    end: "00:22:44"
+    label: "Winterfell — with Catelyn Stark"
+    tags: [the-north, winterfell]
+  - episode: S01E01
+    start: "00:23:39"
+    end: "00:30:48"
+    label: "Winterfell — with Bran Stark, Catelyn Stark, Maester Luwin +16"
+    tags: [the-north, winterfell]
+  - episode: S01E01
+    start: "00:32:57"
+    end: "00:33:46"
+    label: "Winterfell — with Robert Baratheon"
+    tags: [the-north, winterfell]
+  - episode: S01E01
+    start: "00:44:14"
+    end: "00:50:30"
+    label: "Winterfell — with Rodrik Cassel, Benjen Stark, Robb Stark +9"
+    tags: [the-north, winterfell]
+  - episode: S01E01
+    start: "00:57:48"
+    end: "00:59:06"
+    label: "Winterfell — with Tyrion Lannister, Sandor Clegane, Theon Greyjoy +5"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:15:43"
+    end: "00:19:22"
+    label: "Winterfell — with Catelyn Stark, Jon Snow, Bran Stark"
+    tags: [the-north, winterfell]
+  - episode: S01E02
+    start: "00:20:07"
+    end: "00:25:10"
+    label: "Winterfell — with Tyrion Lannister, Benjen Stark, Jon Snow +1"
+    tags: [the-north, winterfell, the-kingsroad-south-to-kings-landing]
+  - episode: S01E02
+    start: "00:48:12"
+    end: "00:54:36"
+    label: "Crossroads Inn — with Jory Cassel, Arya Stark, Joffrey Baratheon +7"
+    tags: [the-riverlands, crossroads-inn]
+  - episode: S01E03
+    start: "00:01:47"
+    end: "00:08:12"
+    label: "King's Landing — with Sansa Stark, Arya Stark, Jory Cassel +7"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E03
+    start: "00:10:50"
+    end: "00:15:48"
+    label: "King's Landing — with Arya Stark, Sansa Stark, Septa Mordane"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E03
+    start: "00:23:18"
+    end: "00:24:42"
+    label: "King's Landing — with Grand Maester Pycelle, Petyr Baelish, Catelyn Stark"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E03
+    start: "00:26:42"
+    end: "00:27:20"
+    label: "King's Landing — with Petyr Baelish, Catelyn Stark"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E03
+    start: "00:28:28"
+    end: "00:30:08"
+    label: "King's Landing — with Catelyn Stark, Rodrik Cassel, Jory Cassel"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E03
+    start: "00:52:32"
+    end: "00:56:04"
+    label: "King's Landing — with Arya Stark, Syrio Forel"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E04
+    start: "00:18:53"
+    end: "00:25:30"
+    label: "King's Landing — with Petyr Baelish, Renly Baratheon, Grand Maester Pycelle +3"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E04
+    start: "00:27:42"
+    end: "00:29:30"
+    label: "King's Landing — with Petyr Baelish"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E04
+    start: "00:30:03"
+    end: "00:32:30"
+    label: "King's Landing — with Jory Cassel, Gendry, Tobho Mott"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E04
+    start: "00:49:47"
+    end: "00:51:28"
+    label: "King's Landing — with Jory Cassel, Cersei Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E05
+    start: "00:01:53"
+    end: "00:10:22"
+    label: "King's Landing — with Hugh of the Vale, Barristan Selmy, Robert Baratheon +12"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E05
+    start: "00:18:13"
+    end: "00:20:48"
+    label: "King's Landing — with Lord Varys, Jory Cassel"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E05
+    start: "00:26:51"
+    end: "00:29:04"
+    label: "King's Landing — with Arya Stark, Jory Cassel, Yoren"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E05
+    start: "00:30:13"
+    end: "00:35:14"
+    label: "King's Landing — with Royal Steward, Robert Baratheon, Renly Baratheon +4"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E05
+    start: "00:48:09"
+    end: "00:53:06"
+    label: "King's Landing — with Mhaegen, Petyr Baelish, Jory Cassel +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E06
+    start: "00:01:53"
+    end: "00:06:22"
+    label: "King's Landing — with Cersei Lannister, Robert Baratheon"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E06
+    start: "00:31:20"
+    end: "00:35:26"
+    label: "King's Landing — with Grand Maester Pycelle, Petyr Baelish, Beric Dondarrion +1"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E06
+    start: "00:44:18"
+    end: "00:46:46"
+    label: "King's Landing — with Sansa Stark, Arya Stark"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E07
+    start: "00:06:35"
+    end: "00:09:36"
+    label: "King's Landing — with Cersei Lannister"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E07
+    start: "00:19:59"
+    end: "00:26:46"
+    label: "King's Landing — with Renly Baratheon, Joffrey Baratheon, Robert Baratheon +4"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E07
+    start: "00:40:12"
+    end: "00:45:50"
+    label: "King's Landing — with Renly Baratheon, Tomard, Petyr Baelish"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E07
+    start: "00:51:57"
+    end: "00:56:42"
+    label: "King's Landing — with Varly, Royal Steward, Robert Baratheon +7"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E08
+    start: "00:07:12"
+    end: "00:10:14"
+    label: "King's Landing — with Lord Varys"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E08
+    start: "00:50:40"
+    end: "00:50:50"
+    label: "King's Landing — alone"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E09
+    start: "00:02:24"
+    end: "00:06:26"
+    label: "King's Landing — with Lord Varys"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E09
+    start: "00:50:24"
+    end: "00:55:54"
+    label: "King's Landing — with Arya Stark, Yoren, Sansa Stark +7"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E10
+    start: "00:02:17"
+    end: "00:03:04"
+    label: "King's Landing — with Sandor Clegane, Ilyn Payne, Arya Stark +3"
+    tags: [the-crownlands, kings-landing]
+  - episode: S01E10
+    start: "00:10:52"
+    end: "00:13:32"
+    label: "King's Landing — with Joffrey Baratheon, Sandor Clegane, Sansa Stark +2"
+    tags: [the-crownlands, kings-landing]
+  - episode: S04E02
+    start: "00:27:30"
+    end: "00:28:04"
+    label: "The Haunted Forest — with Three-Eyed Raven, Wight Wildling Girl, White Walker +1"
+    tags: [north-of-the-wall, the-haunted-forest, warg]
+  - episode: S06E06
+    start: "00:05:23"
+    end: "00:05:30"
+    label: "Outside the Three-Eyed Raven — with The Night King, Bran Stark, Catelyn Stark +5"
+    tags: [north-of-the-wall, outside-the-three-eyed-raven, flashback]
